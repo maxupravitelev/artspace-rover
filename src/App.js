@@ -9,6 +9,7 @@ import Header from './components/Header'
 import UrlForm from './components/UrlForm'
 
 import Capture from './components/Cam/Capture'
+import Navigation from './components/Navigation'
 
 // import css and material ui components
 import './App.css'
@@ -46,6 +47,7 @@ const App = () => {
 
           <Grid item xs={4} sm={4} zeroMinWidth>
             <Capture />
+            <Navigation />
           </Grid>
 
           {/* <Grid item xs={4} sm={4} zeroMinWidth>
@@ -61,6 +63,7 @@ const App = () => {
       return (
         <div>
           <Capture />
+          <Navigation />
         </div>
       )
     }
