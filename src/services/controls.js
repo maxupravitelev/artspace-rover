@@ -3,7 +3,6 @@ import openSocket from 'socket.io-client'
 // const socket = openSocket("http://localhost:5000/");
 const socket = openSocket('http://192.168.178.50:6475/')
 
-
 const KEY_LEFT_ARROW = 37
 const KEY_UP_ARROW = 38
 const KEY_RIGHT_ARROW = 39
@@ -16,31 +15,38 @@ let left_direction = -1
 let neutral_direction = 0
 let right_direction = 1
 
-let fired = false
+let power_fired = false
+let steering_fired = false
 
 export const keyPressed = (evt) => {
   console.log(evt.keyCode)
   if (evt.keyCode == KEY_UP_ARROW) {
     power = 100
     direction = 1
-    console.log(fired)
-    if (fired == false) {
+    console.log(power_fired)
+    if (power_fired == false) {
       socket.emit('power', [power, direction])
-      fired = true
+      power_fired = true
     }
   }
   if (evt.keyCode == KEY_LEFT_ARROW) {
-    socket.emit('steer', left_direction)
+    if (steering_fired == false) {
+      socket.emit('steer', left_direction)
+      steering_fired = true
+    }
   }
   if (evt.keyCode == KEY_RIGHT_ARROW) {
-    socket.emit('steer', right_direction)
+    if (steering_fired == false) {
+      socket.emit('steer', right_direction)
+      steering_fired = true
+    }
   }
   if (evt.keyCode == KEY_DOWN_ARROW) {
     power = 60
     direction = -1
-    if (fired == false) {
-    socket.emit('power', [power, direction])
-    fired = true
+    if (power_fired == false) {
+      socket.emit('power', [power, direction])
+      power_fired = true
     }
   }
 }
@@ -49,22 +55,23 @@ export const keyReleased = (evt) => {
   if (evt.keyCode == KEY_UP_ARROW) {
     power = 0
     socket.emit('power', [power, direction])
-    fired = false
+    power_fired = false
   }
   if (evt.keyCode == KEY_LEFT_ARROW) {
     socket.emit('steer', neutral_direction)
+    steering_fired = false
   }
   if (evt.keyCode == KEY_RIGHT_ARROW) {
     socket.emit('steer', neutral_direction)
+    steering_fired = false
   }
   if (evt.keyCode == KEY_DOWN_ARROW) {
     power = 0
     // direction = -1
     socket.emit('power', [power, direction])
-    fired = false
+    power_fired = false
   }
 }
 
 // document.addEventListener('keydown', keyPressed)
 // document.addEventListener('keyup', keyReleased)
-
