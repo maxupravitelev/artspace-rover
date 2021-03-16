@@ -1,18 +1,47 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Button, Typography } from '@material-ui/core'
 
 import { useSelector } from 'react-redux'
 
 // import { keyPressed, keyReleased} from '../services/controls' 
-import openSocket from 'socket.io-client'
+// import openSocket from 'socket.io-client'
+
+import { socket } from "../services/socket";
+
 
 // return component for navigating rover
 const Navigation = ({  }) => {
 
+  const KEY_LEFT_ARROW = useKeyPress(37);
+  const KEY_UP_ARROW = useKeyPress(38);
+  const KEY_RIGHT_ARROW = useKeyPress(39);
+  const KEY_DOWN_ARROW = useKeyPress(40);
+
+
+  if (KEY_UP_ARROW) {
+      console.log("up")
+      return (
+      <div className="app">
+          <div>up</div>
+      </div>)
+  }
+
+  return (
+    <div className="app">
+
+    </div>
+  )
+}
+
+// Hook
+function useKeyPress(targetKeyCode) {
+  // State for keeping track of whether key is pressed
+  const [keyPressedHook, setKeyPressed] = useState(false);
+
   let streamUrl = useSelector((state) => state.urls.streamUrl)
-  console.log(streamUrl)
+//   console.log(streamUrl)
 // const socket = openSocket("http://localhost:5000/");
-const socket = openSocket('http://192.168.178.50:6475/')
+// const socket = openSocket('http://192.168.178.50:6475/')
 
 const KEY_LEFT_ARROW = 37
 const KEY_UP_ARROW = 38
@@ -31,11 +60,11 @@ let steering_fired = false
 
 
  const keyPressed = (evt) => {
-  console.log(evt.keyCode)
+//   console.log(evt.keyCode)
   if (evt.keyCode == KEY_UP_ARROW) {
-    power = 100
+    power = 60
     direction = 1
-    console.log(power_fired)
+    // console.log(power_fired)
     if (power_fired == false) {
       socket.emit('power', [power, direction])
       power_fired = true
@@ -86,14 +115,35 @@ let steering_fired = false
   }
 }
 
-  document.addEventListener('keydown', keyPressed)
-  document.addEventListener('keyup', keyReleased)
+  // If pressed key is our target key then set to true
+  function downHandler( evt ) {
+    if (evt.keyCode === targetKeyCode) {
+      keyPressed(evt)
+      setKeyPressed(true);
+    }
+  }
 
-  return (
-    <div className="app">
+  // If released key is our target key then set to false
+  const upHandler = ( evt ) => {
 
-    </div>
-  )
+    if (evt.keyCode === targetKeyCode) {
+      keyReleased(evt)
+      setKeyPressed(false);
+    }
+  };
+
+  // Add event listeners
+  useEffect(() => {
+    document.addEventListener('keydown', downHandler)
+    document.addEventListener('keyup', upHandler)
+    // Remove event listeners on cleanup
+    return () => {
+      document.removeEventListener('keydown', downHandler)
+      document.removeEventListener('keyup', upHandler)
+    };
+  }, []); // Empty array ensures that effect is only run on mount and unmount
+
+  return keyPressedHook;
 }
 
 export default Navigation
