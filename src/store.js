@@ -6,7 +6,7 @@ import thunk from 'redux-thunk'
 import urlReducer from './reducers/urlReducer'
 
 const reducer = combineReducers({
-  urls: urlReducer
+  socket: urlReducer
 })
 
 const store = createStore(

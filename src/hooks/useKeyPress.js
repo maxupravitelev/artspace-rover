@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react'
 
-import { socket } from '../services/socket'
+// import { socket } from '../services/socket'
 
 import { useSelector } from 'react-redux'
 
 // Hook
-function useKeyPress(targetKeyCode) {
+const useKeyPress = (targetKeyCode) => {
   // State for keeping track of whether key is pressed
   const [keyPressedHook, setKeyPressed] = useState(false)
 
-  let streamUrl = useSelector((state) => state.urls.streamUrl)
+  let socket = useSelector((state) => state.socket)
+  console.log(socket)
   //   console.log(streamUrl)
   // const socket = openSocket("http://localhost:5000/");
   // const socket = openSocket('http://192.168.178.50:6475/')
@@ -85,7 +86,7 @@ function useKeyPress(targetKeyCode) {
   }
 
   // If pressed key is our target key then set to true
-  function downHandler(evt) {
+  const downHandler = (evt) => {
     if (evt.keyCode === targetKeyCode) {
       keyPressed(evt)
       setKeyPressed(true)

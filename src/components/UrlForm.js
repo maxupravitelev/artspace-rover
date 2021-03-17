@@ -5,7 +5,7 @@ import { TextField, Button, Typography } from '@material-ui/core'
 
 // init redux and import reducers
 import { useDispatch } from 'react-redux'
-import {  setUrls } from '../reducers/urlReducer'
+import {  setUrls, setSocket } from '../reducers/urlReducer'
 
 
 const UrlForm = ({  }) => {
@@ -23,6 +23,7 @@ const UrlForm = ({  }) => {
       positionUrl: streamUrl + 'move',
     }
     dispatch(setUrls(urls))
+    dispatch(setSocket(streamUrl))
   }
 
   const handleValue = (e) => {
