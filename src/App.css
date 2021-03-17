@@ -125,3 +125,7 @@ p {
 .MuiTableCell-sizeSmall:last-child {
   padding-right: 5vmin;
 }
+
+button {
+  padding: 5em;
+}

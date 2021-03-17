@@ -4,6 +4,7 @@ import { Button, Typography } from '@material-ui/core'
 import useKeyPress from '../../hooks/useKeyPress'
  
 import DirectionDispay from './DirectionDisplay'
+import SteeringButtons from './SteeringButtons'
 
 
 
@@ -19,6 +20,9 @@ const Navigation = ({  }) => {
   return (
     <div className="app">
       <DirectionDispay up={up} down={down} left={left} right={right}/>
+
+      <SteeringButtons />
+
     </div>
   )
 }
