@@ -10,14 +10,15 @@ import {  setSocket } from '../reducers/socketReducer'
 
 
 const UrlForm = ({  }) => {
-  const [socketUrl, setSocketUrl] = useState('')
+  const [url, setUrl] = useState('')
 
   const dispatch = useDispatch()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    let streamUrl = "http://192.168.178.6485"
+    let socketUrl = url + ':6475' 
+    let streamUrl = url + ':6485'
 
     let urls = {
       socketUrl,
@@ -30,8 +31,9 @@ const UrlForm = ({  }) => {
   }
 
   const handleValue = (e) => {
-    let newValue = e.target.value
-    setSocketUrl(newValue)
+    let newUrl = e.target.value
+
+    setUrl(newUrl)
   }
 
   // set up dummy values for demo mode
@@ -52,8 +54,8 @@ const UrlForm = ({  }) => {
         <TextField
           type="text"
           className="input"
-          value={socketUrl}
-          name="socketUrl"
+          value={url}
+          name="url"
           onChange={handleValue}
         />
         <p></p>
