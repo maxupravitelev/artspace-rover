@@ -3,10 +3,12 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 
 import thunk from 'redux-thunk'
 
-import urlReducer from './reducers/urlReducer'
+import urlsReducer from './reducers/urlsReducer'
+import socketReducer from './reducers/socketReducer'
 
 const reducer = combineReducers({
-  socket: urlReducer
+  socket: socketReducer,
+  urls: urlsReducer
 })
 
 const store = createStore(

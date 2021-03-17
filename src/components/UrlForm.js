@@ -5,36 +5,37 @@ import { TextField, Button, Typography } from '@material-ui/core'
 
 // init redux and import reducers
 import { useDispatch } from 'react-redux'
-import {  setUrls, setSocket } from '../reducers/urlReducer'
+import {  setUrls } from '../reducers/urlsReducer'
+import {  setSocket } from '../reducers/socketReducer'
 
 
 const UrlForm = ({  }) => {
-  const [streamUrl, setStreamUrl] = useState('')
+  const [socketUrl, setSocketUrl] = useState('')
 
   const dispatch = useDispatch()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    // add corresponding string to base streamUrl
-    let urls = {
-      streamUrl,
-      configUrl: streamUrl + 'config',
-      positionUrl: streamUrl + 'move',
-    }
-    dispatch(setUrls(urls))
-    dispatch(setSocket(streamUrl))
+    // add corresponding string to base socketUrl
+    // let urls = {
+    //   socketUrl,
+    //   configUrl: socketUrl + 'config',
+    //   positionUrl: socketUrl + 'move',
+    // }
+    // dispatch(setUrls(urls))
+    dispatch(setSocket(socketUrl))
   }
 
   const handleValue = (e) => {
     let newValue = e.target.value
-    setStreamUrl(newValue)
+    setSocketUrl(newValue)
   }
 
   // set up dummy values for demo mode
   const handleDemoMode = () => {
     const dummy_values = {
-      streamUrl: 'dummy_url',
+      socketUrl: 'dummy_url',
       configUrl: 'dummy_config',
       positionUrl: 'dummy_move',
     }
@@ -49,8 +50,8 @@ const UrlForm = ({  }) => {
         <TextField
           type="text"
           className="input"
-          value={streamUrl}
-          name="streamUrl"
+          value={socketUrl}
+          name="socketUrl"
           onChange={handleValue}
         />
         <p></p>

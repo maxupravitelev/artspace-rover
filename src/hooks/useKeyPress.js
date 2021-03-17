@@ -10,7 +10,7 @@ const useKeyPress = (targetKeyCode) => {
   const [keyPressedHook, setKeyPressed] = useState(false)
 
   let socket = useSelector((state) => state.socket)
-  console.log(socket)
+//   console.log(socket)
   //   console.log(streamUrl)
   // const socket = openSocket("http://localhost:5000/");
   // const socket = openSocket('http://192.168.178.50:6475/')
