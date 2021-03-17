@@ -9,7 +9,7 @@ import Header from './components/Header'
 import UrlForm from './components/UrlForm'
 
 import Capture from './components/Cam/Capture'
-import Navigation from './components/Navigation'
+import Navigation from './components/Dashboard/Navigation'
 
 // import css and material ui components
 import './App.css'
