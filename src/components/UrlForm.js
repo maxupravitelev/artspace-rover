@@ -17,13 +17,15 @@ const UrlForm = ({  }) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    // add corresponding string to base socketUrl
-    // let urls = {
-    //   socketUrl,
-    //   configUrl: socketUrl + 'config',
-    //   positionUrl: socketUrl + 'move',
-    // }
-    // dispatch(setUrls(urls))
+    let streamUrl = "http://192.168.178.6485"
+
+    let urls = {
+      socketUrl,
+      streamUrl,
+      // positionUrl: socketUrl + 'move',
+    }
+    console.log(urls)
+    dispatch(setUrls(urls))
     dispatch(setSocket(socketUrl))
   }
 

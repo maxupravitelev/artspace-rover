@@ -5,9 +5,6 @@ const urlsReducer = (state = [], action) => {
   switch (action.type) {
     case 'SET_URLS':
       return action.data
-    case 'SET_SOCKET':
-      return action.data
-
     default:
       return state
   }

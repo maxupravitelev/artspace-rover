@@ -1,6 +1,5 @@
 import React from 'react'
 import dummy from '../../demo_mode/dummy.gif'
-import CamPosition from './CamPosition'
 
 import { useSelector } from 'react-redux'
 
@@ -9,7 +8,6 @@ import { useSelector } from 'react-redux'
 const Capture = ({  }) => {
 
   let streamUrl = useSelector((state) => state.urls.streamUrl)
-  let positionUrl = useSelector((state) => state.urls.streamUrl)
 
   if (streamUrl == 'dummy_url') {
     streamUrl = dummy
@@ -18,7 +16,6 @@ const Capture = ({  }) => {
   return (
     <div className="capture">
       <img alt="stream from PiCam" src={streamUrl}></img>
-      <CamPosition positionUrl={positionUrl} />
 
     </div>
   )

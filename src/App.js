@@ -20,14 +20,17 @@ import useMediaQuery from '@material-ui/core/useMediaQuery'
 
 
 const App = () => {
-  // fetch streamUrl from store to check if setting up url is necessary
+  // fetch urls from store to check if setting up url is necessary
+
   let socket = useSelector((state) => state.socket)
-  // console.log(socket)
+  let streamUrl = useSelector((state) => state.urls.streamUrl)
+
+  console.log(streamUrl)
   // determine screen size
   const checkScreenWidth = useMediaQuery('(max-width:600px)');
 
   // return url form if streamUrl is not set yet
-  if (!socket.flags)
+  if (!streamUrl)
     return (
       <Grid container direction="column" alignItems="center" spacing={1} justify="center" >
         <Grid >
@@ -46,7 +49,7 @@ const App = () => {
         <Grid container spacing={2} justify="center" alignItems="center">
 
           <Grid item xs={4} sm={4} zeroMinWidth>
-            {/* <Capture /> */}
+            <Capture />
             <Navigation />
           </Grid>
 
@@ -62,7 +65,7 @@ const App = () => {
     } else {
       return (
         <div>
-          {/* <Capture /> */}
+          <Capture />
           <Navigation />
         </div>
       )
