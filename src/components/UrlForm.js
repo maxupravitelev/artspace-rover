@@ -18,7 +18,8 @@ const UrlForm = ({  }) => {
     e.preventDefault()
 
     let socketUrl = url + ':6475' 
-    let streamUrl = url + ':6485'
+    // let streamUrl = url + ':6495/stream'
+    let streamUrl = 'http://192.168.178.25:6495/stream'
 
     let urls = {
       socketUrl,
