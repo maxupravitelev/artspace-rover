@@ -19,7 +19,7 @@ const UrlForm = ({  }) => {
 
     let socketUrl = url + ':6475' 
     // let streamUrl = url + ':6495/stream'
-    let streamUrl = 'http://192.168.178.50:8080/stream/video.mjpeg'
+    let streamUrl = url + ':8080/stream/video.mjpeg'
 
     let urls = {
       socketUrl,

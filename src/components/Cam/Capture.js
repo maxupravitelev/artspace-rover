@@ -8,8 +8,8 @@ import { useSelector } from 'react-redux'
 const Capture = ({  }) => {
 
   let streamUrl = useSelector((state) => state.urls.streamUrl)
-
-  if (streamUrl == 'dummy_url') {
+  console.log(streamUrl)
+  if (streamUrl == 'demo' + ':8080/stream/video.mjpeg') {
     streamUrl = dummy
   }
 
