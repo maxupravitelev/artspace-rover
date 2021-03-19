@@ -33,7 +33,7 @@ const useKeyPress = (targetKeyCode) => {
   const keyPressed = (evt) => {
     //   console.log(evt.keyCode)
     if (evt.keyCode == KEY_UP_ARROW) {
-      power = 60
+      power = 40
       direction = 1
       // console.log(power_fired)
       if (power_fired == false) {

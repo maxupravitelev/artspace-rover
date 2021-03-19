@@ -19,7 +19,7 @@ const UrlForm = ({  }) => {
 
     let socketUrl = url + ':6475' 
     // let streamUrl = url + ':6495/stream'
-    let streamUrl = 'http://192.168.178.25:6495/stream'
+    let streamUrl = 'http://192.168.178.50:8080/stream/video.mjpeg'
 
     let urls = {
       socketUrl,
@@ -37,20 +37,9 @@ const UrlForm = ({  }) => {
     setUrl(newUrl)
   }
 
-  // set up dummy values for demo mode
-  const handleDemoMode = () => {
-    const dummy_values = {
-      socketUrl: 'dummy_url',
-      configUrl: 'dummy_config',
-      positionUrl: 'dummy_move',
-    }
-
-    dispatch(setUrls(dummy_values))
-  }
-
   return (
     <div className="urlForm">
-      <Typography variant="body2">Please enter the URL of your Picam</Typography>
+      <Typography variant="body2">Please enter the URL of your raspberry</Typography>
       <form onSubmit={handleSubmit}>
         <TextField
           type="text"
@@ -63,10 +52,10 @@ const UrlForm = ({  }) => {
         <Button type="submit" variant="outlined">
           Submit
         </Button>
+        
       </form>
-      <Button variant="outlined" onClick={handleDemoMode}>
-        Start DEMO
-      </Button>
+      <p />
+      <Typography variant="body2">Enter "demo" for starting demo mode</Typography>
     </div>
   )
 }
