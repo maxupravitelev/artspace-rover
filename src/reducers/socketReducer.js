@@ -1,4 +1,5 @@
 import { initSocket } from '../services/socket'
+import MockedSocket from 'socket.io-mock'
 
 const socketReducer = (state = [], action) => {
     // console.log('state now: ', state)
@@ -18,6 +19,8 @@ const socketReducer = (state = [], action) => {
     console.log(socketUrl)
     if (socketUrl != 'demo:6475') {
       socket = initSocket(socketUrl)
+    } else {
+      socket = new MockedSocket()
     }
     console.log(socket)
     return async dispatch => {
