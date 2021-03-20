@@ -31,6 +31,7 @@ const useKeyPress = (targetKeyCode) => {
   let steering_fired = false
 
   const keyPressed = (evt) => {
+    evt.preventDefault()
     //   console.log(evt.keyCode)
     if (evt.keyCode == KEY_UP_ARROW) {
       power = 40
@@ -64,6 +65,7 @@ const useKeyPress = (targetKeyCode) => {
   }
 
   const keyReleased = (evt) => {
+    evt.preventDefault()
     if (evt.keyCode == KEY_UP_ARROW) {
       power = 0
       socket.emit('power', [power, direction])
