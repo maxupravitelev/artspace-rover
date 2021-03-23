@@ -23,9 +23,9 @@ const DirectionDispay = ({ up, down, left, right }) => {
 
   return (
     <div className="app">
+      {left && <ArrowBackOutlinedIcon />}
       {up && <ArrowUpwardOutlinedIcon />}
       {down && <ArrowDownwardOutlinedIcon />}
-      {left && <ArrowBackOutlinedIcon />}
       {right && <ArrowForwardOutlinedIcon />}
     </div>
   )
