@@ -5,12 +5,12 @@ import thunk from 'redux-thunk'
 
 import urlsReducer from './reducers/urlsReducer'
 import socketReducer from './reducers/socketReducer'
-import timeslotReducer from './reducers/timeslotReducer'
+import timeslotsReducer from './reducers/timeslotsReducer'
 
 const reducer = combineReducers({
   socket: socketReducer,
   urls: urlsReducer,
-  timeslot: timeslotReducer
+  timeslot: timeslotsReducer
 })
 
 const store = createStore(

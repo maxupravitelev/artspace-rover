@@ -1,15 +1,15 @@
 import axios from 'axios'
 
-
 // const configUrl = "http://0.0.0.0:8000/";
 
-const getAllTimeslots = async (timeslotsUrl) => {
-  const request = axios.get(timeslotsUrl)
+const allTimeslotsUrls = 'http://localhost:6050/api/timeslots/all-timeslots'
+
+const getAll = async () => {
+  const request = axios.get(allTimeslotsUrls)
   const response = await request
   return response.data
 }
 
-
-const timeslotService = { getAllTimeslots }
+const timeslotService = { getAll }
 
 export default timeslotService

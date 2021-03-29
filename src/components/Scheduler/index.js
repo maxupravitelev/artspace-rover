@@ -3,11 +3,17 @@ import { Typography } from '@material-ui/core'
 
 import Timeslot from './Timeslot'
 
+// init redux and import reducers
+import { useDispatch } from 'react-redux'
+import {  getAllTimeslots } from '../../reducers/timeslotsReducer'
+
 
 const Scheduler = () => {
 
+  const dispatch = useDispatch()
+
   const handleGettingTimeslots = () => {
-    
+    dispatch(getAllTimeslots())
   }
 
   return (
