@@ -10,7 +10,7 @@ import timeslotsReducer from './reducers/timeslotsReducer'
 const reducer = combineReducers({
   socket: socketReducer,
   urls: urlsReducer,
-  timeslot: timeslotsReducer
+  timeslots: timeslotsReducer
 })
 
 const store = createStore(

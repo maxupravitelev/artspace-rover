@@ -1,8 +1,8 @@
 import timeslotService from '../services/timeslots'
 
 const timeslotsReducer = (state = [], action) => {
-  console.log('state now: ', state)
-  console.log('action', action)
+  // console.log('state now: ', state)
+  // console.log('action', action)
 
   switch (action.type) {
     case 'GET_ALL_TIMESLOTS':

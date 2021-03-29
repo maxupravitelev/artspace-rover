@@ -1,13 +1,13 @@
 import React from 'react'
-import { Typography } from '@material-ui/core'
+import { Typography, Button } from '@material-ui/core'
 
 
-const Timeslot = () => {
+const Timeslot = ({ timeslot }) => {
   return (
     <div className="app">
-      <Typography variant="h5" component="h2">
-        timeslot
-      </Typography>
+      <Button >
+        {timeslot.startTime}
+      </Button>
     </div>
   )
 }
