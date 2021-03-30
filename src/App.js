@@ -11,6 +11,7 @@ import UrlForm from './components/UrlForm'
 import Capture from './components/Cam/Capture'
 import Navigation from './components/Dashboard/Navigation'
 
+import Footer from './components/Footer'
 import Scheduler from './components/Scheduler'
 
 // import css and material ui components
@@ -33,6 +34,7 @@ const App = () => {
   // return url form if streamUrl is not set yet
   if (!streamUrl)
     return (
+      <div>
       <Grid
         container
         direction="column"
@@ -50,11 +52,14 @@ const App = () => {
           <Scheduler />
         </Grid>
       </Grid>
+      <Footer />
+      </div>
     )
   else {
     // render main app based on screen size
     if (!checkScreenWidth) {
       return (
+        <div>
         <Grid container spacing={2} justify="center" alignItems="center">
           <Grid item xs={4} sm={4} zeroMinWidth>
             <Capture />
@@ -69,12 +74,15 @@ const App = () => {
             <NavBar />
           </Grid> */}
         </Grid>
+        <Footer />
+        </div>
       )
     } else {
       return (
         <div>
           <Capture />
           <Navigation />
+          <Footer />
         </div>
       )
     }
