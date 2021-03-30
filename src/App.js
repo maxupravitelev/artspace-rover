@@ -5,13 +5,14 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 
 // import components
-import Header from './components/Header'
 import UrlForm from './components/UrlForm'
 
 import Capture from './components/Cam/Capture'
 import Navigation from './components/Dashboard/Navigation'
 
+import Header from './components/Header'
 import Footer from './components/Footer'
+import Infobox from './components/Infobox'
 import Scheduler from './components/Scheduler'
 
 // import css and material ui components
