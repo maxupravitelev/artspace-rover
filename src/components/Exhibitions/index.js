@@ -13,8 +13,12 @@ import { Link } from 'react-router-dom'
 
 import Exhibition from './Exhibition'
 
+import Infobox from '../Infobox'
+
 // return header component
 const Exhibitions = () => {
+
+  const infotext = "Please select an exhibition you want to view."
 
   let exhibitions = [{
     id: "1",
@@ -22,10 +26,11 @@ const Exhibitions = () => {
     rover: "basic"}
   ]
 
-  console.log(exhibitions)
+  // console.log(exhibitions)
 
   return (
     <div className="app">
+      <Infobox infotext={infotext}/>
       <TableContainer component={Paper}>
         <Table>
           <TableBody>
