@@ -2,14 +2,14 @@ import React from 'react'
 import { Typography } from '@material-ui/core'
 
 // return header component
-const Footer = () => {
+const BackendLogin = () => {
   return (
     <div className="footer">
       <Typography variant="subtitle2" component="">
-        backend    imprint    data protection
+        backend 
       </Typography>
     </div>
   )
 }
 
-export default Footer
+export default BackendLogin

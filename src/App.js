@@ -8,9 +8,12 @@ import { useSelector } from 'react-redux'
 
 
 import Header from './components/Header'
-import Footer from './components/Footer'
-import Infobox from './components/Infobox'
-import Scheduler from './components/Scheduler'
+
+import Footer from './components/Footer/'
+import BackendLogin from './components/Footer/BackendLogin'
+import DataProtection from './components/Footer/DataProtection'
+import Imprint from './components/Footer/Imprint'
+
 
 import Exhibition from './components/Exhibitions/Exhibition'
 import Exhibitions from './components/Exhibitions'
@@ -34,6 +37,15 @@ const App = () => {
               <Switch>
                 <Route path="/exhibitions/:id">
                   <Exhibition />
+                </Route>
+                <Route path="/backendLogin">
+                  <BackendLogin />
+                </Route>
+                <Route path="/imprint">
+                  <Imprint />
+                </Route>
+                <Route path="/dataprotection">
+                  <DataProtection />
                 </Route>
                 <Route path="/">
                   <Exhibitions />
