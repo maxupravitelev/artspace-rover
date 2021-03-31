@@ -17,7 +17,14 @@ import Imprint from './components/Footer/Imprint'
 
 import Exhibition from './components/Exhibitions/Exhibition'
 import Exhibitions from './components/Exhibitions'
+import { withStyles } from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
 
+const WhiteTextTypography = withStyles({
+  root: {
+    color: "#000000"
+  }
+})(Typography);
 
 // import css and material ui components
 import './App.css'

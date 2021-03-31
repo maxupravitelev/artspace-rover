@@ -1,55 +1,42 @@
 body {
-  /* background-color: rgb(57, 91, 184); */
-  /* background-color: rgb(25, 27, 105); */
-  /* background-color: rgba(18, 8, 105, 0.76); */
-  /* background-color: rgb(50, 85, 139); */
-  /* background-color: rgb(21, 52, 96); */
-  /* background-color: rgb(20, 50, 100); */
-  background-color: #19195c;
-/* opacity: 1;
+  background-color: #060220;
+
+  /* background-image: linear-gradient(170deg, #885ec6 0, #523f91 25%, #1f1f59 50%, #000026 75%, #000000 100%); */
+
+/*   background-color: #19195c;
+opacity: 1;
 background-image:  radial-gradient(#959af6 1px, transparent 1px), radial-gradient(#959af6 1px, #19195c 1px);
 background-size: 40px 40px;
 background-position: 0 0,20px 20px; */
+
+/*background texture: https://projects.verou.me/css3patterns/#starry-night */
+/* background-color:rgb(6, 3, 20); */
+background-image:
+radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
 }
 
 .app, .header, .footer, .capture, .urlForm, .configSection, .configList {
-  /* border-radius: 5px; */
   padding: 1em;
-  background-color: #fff;
+  background-color: rgb(224, 220, 220);
   /* margin: auto; */
   /* border: 3px solid; */
+  /* color: white; */
   text-align: center;
   /* font-size: 2.7vmin; */
+  border-radius: 13px;
+ /*  background: #0d0548;*/
+  box-shadow:  0px 55px 49px #171149; 
   
 }
 
-/* .configList {
-  max-width: 15em;
-} */
-
-.navbar {
-  padding: 1.5em;
-  text-align: center;
-  background-color: #fff;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: space-between;
-  max-width: 17%;
-}
-
-@media screen and (max-width: 600px) {
-  .navbar {
-    flex-direction: row;
-    justify-content: space-between;
-    max-width: 100%;
-  }
-  table {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-}
+a { 
+  color: inherit; 
+} 
 
 .urlForm {
   margin-top: 1em;
@@ -80,11 +67,6 @@ background-position: 0 0,20px 20px; */
 
 }
 
-/* .capture {
-  max-width: inherit;
-
-} */
-
 img {
   /* padding: 0.3em; */
   background-color: #fff;
@@ -94,18 +76,8 @@ img {
   /* border: 3px solid; */
 }
 
-.configSection {
-  margin: auto;
-  padding: 0;
-  width: 100%
-}
 
-.configFormField {
-  border-radius: 15px;
-  padding: 0.3em;
-  margin: auto;
-  width: 30px;
-}
+
 
 /* .capture {
   margin-top: 5em;
@@ -142,4 +114,17 @@ p {
 
 button {
   padding: 3em;
+}
+
+@media screen and (max-width: 600px) {
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 100%;
+  }
+  table {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
 }
