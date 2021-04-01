@@ -22,7 +22,7 @@ import Typography from "@material-ui/core/Typography";
 
 const WhiteTextTypography = withStyles({
   root: {
-    color: "#000000"
+    color: "#FBFBFF"
   }
 })(Typography);
 
@@ -35,12 +35,17 @@ const App = () => {
 
 
   return (
-    <Container>
+
+    <Container 
+      // maxWidth="sm"
+    >
+
       <Router>
+      <Header />
+
         <div>
           {/* <Notification /> */}
             <div>
-              <Header />
               <Switch>
                 <Route path="/exhibitions/:id">
                   <Exhibition />

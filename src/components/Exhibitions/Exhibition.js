@@ -12,12 +12,17 @@ import UrlForm from '../../components/UrlForm'
 import Capture from '../../components/Cam/Capture'
 import Navigation from '../../components/Dashboard/Navigation'
 import Scheduler from '../../components/Scheduler'
+import Infobox from '../../components/Infobox'
 
 // import material ui components
 import Grid from '@material-ui/core/Grid'
 
 // use media query to determine screen size
 import useMediaQuery from '@material-ui/core/useMediaQuery'
+
+// import texts
+import pagesTexts from '../../text/pages'
+import exhibitionsTexts from '../../text/exhibitions'
 
 // return header component
 const Exhibition = () => {
@@ -34,18 +39,24 @@ const Exhibition = () => {
   if (!streamUrl)
     return (
       <div>
+        <Infobox infotext={pagesTexts.exhibition}/>
         <Grid
           container
-          direction="column"
-          alignItems="center"
-          spacing={1}
-          justify="center"
+          // direction="row"
+          // alignItems="center"
+          // spacing={0}
+          justify="space-between"
         >
-          <Grid>
-            <UrlForm />
+          <Grid item xs={12} sm={6}> 
+            <Infobox infotext={exhibitionsTexts.demoExhibition.description} />
           </Grid>
           <Grid>
+            <UrlForm />
             <Scheduler />
+
+          </Grid>
+          <Grid>
+            
           </Grid>
         </Grid>
       </div>
@@ -68,7 +79,7 @@ const Exhibition = () => {
         <div>
           <Capture />
           <Navigation />
-          <Footer />
+          {/* <Footer /> */}
         </div>
       )
     }

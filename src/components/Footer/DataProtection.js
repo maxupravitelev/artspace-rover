@@ -4,9 +4,9 @@ import { Typography } from '@material-ui/core'
 // return header component
 const DataProtection = () => {
   return (
-    <div className="footer">
+    <div className="app">
       <Typography variant="subtitle2" component="">
-        imprint
+        data protection
       </Typography>
     </div>
   )

@@ -17,11 +17,11 @@ import store from './store'
 ReactDOM.render(
   // <React.StrictMode>
   <Provider store={store} >
-    <Container
-    // maxWidth="false"
-    >
+    {/* <Container */}
+    {/* // maxWidth="false" */}
+    {/* > */}
       <App />
-    </Container>
+    {/* </Container> */}
   </Provider>,
   // </React.StrictMode>,
   document.getElementById('root')
