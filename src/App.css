@@ -43,6 +43,14 @@ background-size: cover;
   
 }
 
+/*
+#040F16 richblack
+#0B4F6C bluesapphire
+#01BAEF cyanprocess
+#B80C09 internationalorangeeng
+#FBFBFF ghostwhite
+*/
+
 a { 
   color: inherit; 
 } 
@@ -68,7 +76,7 @@ a {
 }
 
 .footer {
-  position: absolute;
+  position: fixed;
   bottom: 1em;
   right: 1em;
   width: auto;
@@ -146,4 +154,12 @@ button {
 #586F7C
 #B8DBD9
 #F4F4F9
+*/
+
+/*
+#040F16 richblack
+#0B4F6C bluesapphire
+#01BAEF cyanprocess
+#B80C09 internationalorangeeng
+#FBFBFF ghostwhite
 */

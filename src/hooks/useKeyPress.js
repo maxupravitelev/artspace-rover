@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import testUtils from 'react-dom/test-utils'
 
 // import { socket } from '../services/socket'
 
@@ -32,7 +33,7 @@ const useKeyPress = (targetKeyCode) => {
 
   const keyPressed = (evt) => {
     evt.preventDefault()
-    //   console.log(evt.keyCode)
+      console.log(evt.keyCode)
     if (evt.keyCode == KEY_UP_ARROW) {
       power = 60
       direction = 1
@@ -64,7 +65,7 @@ const useKeyPress = (targetKeyCode) => {
     }
   }
 
-  const keyReleased = (evt) => {
+  const keyReleased = async (evt) => {
     evt.preventDefault()
     if (evt.keyCode == KEY_UP_ARROW) {
       power = 0
@@ -72,11 +73,15 @@ const useKeyPress = (targetKeyCode) => {
       power_fired = false
     }
     if (evt.keyCode == KEY_LEFT_ARROW) {
-      socket.emit('steer', neutral_direction)
+      let test = await socket.emit('steer', neutral_direction, (data) => {
+        console.log(data)
+      })
+      console.log(test)
       steering_fired = false
     }
     if (evt.keyCode == KEY_RIGHT_ARROW) {
-      socket.emit('steer', neutral_direction)
+      let test = await socket.emit('steer', neutral_direction)
+      console.log(test)
       steering_fired = false
     }
     if (evt.keyCode == KEY_DOWN_ARROW) {

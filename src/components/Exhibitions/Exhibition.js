@@ -47,12 +47,21 @@ const Exhibition = () => {
           // spacing={0}
           justify="space-between"
         >
-          <Grid item xs={12} sm={6}> 
+          <Grid 
+            item 
+            xs
+            // xs={12} 
+            // sm={6}
+          > 
             <Infobox infotext={exhibitionsTexts.demoExhibition.description} />
           </Grid>
-          <Grid>
-            <UrlForm />
+          <Grid
+            xs
+          >
+            <Infobox infotext="START SESSION"/>
             <Scheduler />
+            <UrlForm />
+            
 
           </Grid>
           <Grid>
