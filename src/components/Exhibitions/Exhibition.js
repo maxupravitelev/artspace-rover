@@ -10,7 +10,7 @@ import { useSelector } from 'react-redux'
 // import components
 import UrlForm from '../../components/UrlForm'
 import Capture from '../../components/Cam/Capture'
-import Navigation from '../../components/Dashboard/Navigation'
+import Dashboard from '../Dashboard'
 import Scheduler from '../../components/Scheduler'
 import Infobox from '../../components/Infobox'
 
@@ -78,7 +78,7 @@ const Exhibition = () => {
           <Grid container spacing={2} justify="center" alignItems="center">
             <Grid item xs={4} sm={4} zeroMinWidth>
               <Capture />
-              <Navigation />
+              <Dashboard />
             </Grid>
           </Grid>
         </div>
@@ -87,7 +87,7 @@ const Exhibition = () => {
       return (
         <div>
           <Capture />
-          <Navigation />
+          <Dashboard />
           {/* <Footer /> */}
         </div>
       )
