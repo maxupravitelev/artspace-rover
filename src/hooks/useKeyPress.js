@@ -5,10 +5,18 @@ import testUtils from 'react-dom/test-utils'
 
 import { useSelector } from 'react-redux'
 
+// init redux and import reducers
+import { useDispatch } from 'react-redux'
+import {  setDirections } from '../reducers/directionsReducer'
+
 // Hook
 const useKeyPress = (targetKeyCode) => {
   // State for keeping track of whether key is pressed
   const [keyPressedHook, setKeyPressed] = useState(false)
+  const [drivingDirection, setDrivingDirection] = useState(0)
+  const [steeringDirection, setSteeringDirection] = useState(0)
+
+  const dispatch = useDispatch()
 
   let socket = useSelector((state) => state.socket)
 //   console.log(socket)
@@ -73,10 +81,14 @@ const useKeyPress = (targetKeyCode) => {
       power_fired = false
     }
     if (evt.keyCode == KEY_LEFT_ARROW) {
-      let test = await socket.emit('steer', neutral_direction, (data) => {
-        console.log(data)
+      let currentSteeringDirectionInBackend = await socket.emit('steer', neutral_direction, (data) => {
+        // setSteeringDirection(data)
+        
       })
-      console.log(test)
+      setSteeringDirection("-20")
+      
+      console.log(steeringDirection)
+      dispatch(setDirections({ steeringDirection, drivingDirection }))
       steering_fired = false
     }
     if (evt.keyCode == KEY_RIGHT_ARROW) {

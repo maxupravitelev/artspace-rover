@@ -16,7 +16,8 @@ const directionsReducer = (state = initState, action) => {
     }
   }
   
-  export const setUrls = (directions) => {
+  export const setDirections = (directions) => {
+    console.log(directions)
     return async dispatch => {
       dispatch({
         type: 'SET_DIRECTIONS',
