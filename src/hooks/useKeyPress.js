@@ -7,19 +7,19 @@ import { useSelector } from 'react-redux'
 // init redux and import reducers
 import { useDispatch } from 'react-redux'
 import {  setSteeringDirections } from '../reducers/directionsReducer'
+import {  setDrivingDirections } from '../reducers/directionsReducer'
 
 // Hook
 const useKeyPress = (targetKeyCode) => {
   // State for keeping track of whether key is pressed
   const [keyPressedHook, setKeyPressed] = useState(false)
-  // const [drivingDirection, setDrivingDirection] = useState(0)
-  // const [steeringDirection, setSteeringDirection] = useState(0)
 
   const dispatch = useDispatch()
 
   let socket = useSelector((state) => state.socket)
-//   console.log(socket)
-  //   console.log(streamUrl)
+  let socketUrl = useSelector((state) => state.urls.socketUrl)
+  let demoSocketUrl = 'demo:6475'
+
   // const socket = openSocket("http://localhost:5000/");
   // const socket = openSocket('http://192.168.178.50:6475/')
 
@@ -80,19 +80,27 @@ const useKeyPress = (targetKeyCode) => {
       power_fired = false
     }
     if (evt.keyCode == KEY_LEFT_ARROW) {
-      let currentSteeringDirectionInBackend = await socket.emit('steer', neutral_direction, (data) => {
-        setSteeringDirection(data)
-        
-      })
-      // setSteeringDirection("-20")
-      let steeringDirection = -20
-      console.log(steeringDirection)
-      dispatch(setSteeringDirections( steeringDirection ))
+      if (socketUrl != demoSocketUrl) {
+        let currentSteeringDirectionInBackend = await socket.emit('steer', neutral_direction, (steeringDirection) => {
+          dispatch(setSteeringDirections( setSteeringDirection(steeringDirection)))          
+        })  
+      } else {
+        let steeringDirection = -20
+        dispatch(setSteeringDirections( steeringDirection ))
+      }
       steering_fired = false
     }
     if (evt.keyCode == KEY_RIGHT_ARROW) {
-      let test = await socket.emit('steer', neutral_direction)
-      console.log(test)
+      // let test = await socket.emit('steer', neutral_direction)
+      // console.log(test)
+      if (socketUrl != demoSocketUrl) {
+      let currentSteeringDirectionInBackend = await socket.emit('steer', neutral_direction, (steeringDirection) => {
+        dispatch(setSteeringDirections( setSteeringDirection(steeringDirection)))
+      })
+    } else {
+      let steeringDirection = 20
+      dispatch(setSteeringDirections( steeringDirection ))
+    }
       steering_fired = false
     }
     if (evt.keyCode == KEY_DOWN_ARROW) {
