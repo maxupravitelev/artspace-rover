@@ -75,8 +75,18 @@ const Exhibition = () => {
     if (!checkScreenWidth) {
       return (
         <div>
-          <Grid container spacing={2} justify="center" alignItems="center">
-            <Grid item xs={4} sm={4} zeroMinWidth>
+          <Grid 
+            // container 
+            spacing={2} 
+            justify="center" 
+            alignItems="center"
+          >
+            <Grid 
+              // item 
+              // xs={auto} 
+              // sm={12} 
+              zeroMinWidth
+            >
               <Capture />
               <Dashboard />
             </Grid>

@@ -38,4 +38,4 @@ const useCanvas = () => {
 }
 export default useCanvas
 
-// Source for handling canvas in react: https://medium.com/@pdx.lucasm/canvas-with-react-js-32e133c05258
+// Tutorial for handling canvas in react: https://medium.com/@pdx.lucasm/canvas-with-react-js-32e133c05258

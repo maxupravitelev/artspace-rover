@@ -11,7 +11,7 @@ const DirectionDispay = ({ up, down, left, right }) => {
 
   if (!up && !down && !left && !right) {
     return (
-      <div className="app">
+      <div className="dashboard">
         <StopOutlinedIcon />
       </div>
     )
@@ -22,7 +22,7 @@ const DirectionDispay = ({ up, down, left, right }) => {
   }
 
   return (
-    <div className="app">
+    <div className="dashboard">
       {left && <ArrowBackOutlinedIcon />}
       {up && <ArrowUpwardOutlinedIcon />}
       {down && <ArrowDownwardOutlinedIcon />}

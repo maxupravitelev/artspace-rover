@@ -1,5 +1,5 @@
 body {
-  background-color: #060220;
+  background-color: #000000;
   
 
   /* background-image: linear-gradient(170deg, #885ec6 0, #523f91 25%, #1f1f59 50%, #000026 75%, #000000 100%); */
@@ -20,7 +20,7 @@ radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px
 background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
 background-position: 0 0, 40px 60px, 130px 270px, 70px 100px; */
 background-image: url("./images/stars.jpg");
-background-size: cover;
+/* background-size: cover; */
 }
 
 .app, .header, .footer, .capture, .urlForm {
@@ -70,9 +70,23 @@ a {
 }
 
 .header {
-  margin-top: 5em;
+  /* margin-top: 5em; */
   text-align: center;
-  /* max-width: 40%; */
+  width: 50%;
+  margin: 5em auto 1em;
+  max-width: max-content;
+}
+
+.dashboard {
+  /* margin-top: 5em; */
+  /* flex-direction: row; */
+  /* display: block; */
+  /* justify-content: space-between; */
+  /* text-align: center; */
+  /* width: 50%; */
+  display:inline-block;
+  margin: 0 auto 1em;
+  /* max-width: max-content; */
 }
 
 .footer {

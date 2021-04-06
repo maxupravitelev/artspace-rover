@@ -82,7 +82,7 @@ const useKeyPress = (targetKeyCode) => {
     if (evt.keyCode == KEY_LEFT_ARROW) {
       if (socketUrl != demoSocketUrl) {
         let currentSteeringDirectionInBackend = await socket.emit('steer', neutral_direction, (steeringDirection) => {
-          dispatch(setSteeringDirections( setSteeringDirection(steeringDirection)))          
+          dispatch(setSteeringDirections(steeringDirection))        
         })  
       } else {
         let steeringDirection = -20
@@ -95,7 +95,7 @@ const useKeyPress = (targetKeyCode) => {
       // console.log(test)
       if (socketUrl != demoSocketUrl) {
       let currentSteeringDirectionInBackend = await socket.emit('steer', neutral_direction, (steeringDirection) => {
-        dispatch(setSteeringDirections( setSteeringDirection(steeringDirection)))
+        dispatch(setSteeringDirections(steeringDirection))        
       })
     } else {
       let steeringDirection = 20

@@ -1,12 +1,11 @@
 import React from 'react'
 
-import { useSelector } from 'react-redux'
 import Canvas from './Canvas'
 
 const SteeringDispay = ({  }) => {
 
   return (
-    <div className="app">
+    <div className="dashboard">
         <Canvas  />
     </div>
   )
