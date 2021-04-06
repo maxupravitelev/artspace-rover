@@ -1,9 +1,9 @@
 import React from 'react'
 import useCanvas from '../../hooks/useCanvas'
 
-const Canvas = ({ draw }) => {  
+const Canvas = () => {  
   
-  const canvasRef = useCanvas(draw)
+  const canvasRef = useCanvas()
   
   return <canvas ref={canvasRef} />
 }

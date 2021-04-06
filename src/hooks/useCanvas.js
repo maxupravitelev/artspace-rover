@@ -1,44 +1,37 @@
 import { useRef, useEffect } from 'react'
+import { useSelector } from 'react-redux'
 
-const useCanvas = (draw, options={}) => {
-  
+const useCanvas = () => {
+
   const canvasRef = useRef(null)
-  
+  let steeringDirection = useSelector((state) => state.directions.steeringDirection)
+
   useEffect(() => {
-    
+
     const canvas = canvasRef.current
     const context = canvas.getContext('2d')
-    
-    // context.canvas.width = 100
-    // context.canvas.height = 100
-    // context.fillStyle = '#EEEEEE'
-    // context.fillRect(0, 0, context.canvas.width, context.canvas.height)
+
+    context.canvas.width = 40
+    context.canvas.height = 40
+
     context.fillStyle = '#000000'
-    context.beginPath()
-    context.arc(50, 100, 20, 0, 2*Math.PI)
-    context.fill()
- 
-  }, [draw])
+
+    let x_up = 20 + steeringDirection
+    let y_up = 0
+    let x_low = 20 - steeringDirection
+    let y_low = 90
+
+    context.moveTo(x_up, y_up);
+    context.lineTo(x_low, y_low)
+
+    context.lineWidth = 5
+
+    context.strokeStyle = '#000000'
+    context.stroke()
+
+  }, [steeringDirection])
 
 
-//     const canvas = canvasRef.current
-//     const context = canvas.getContext(options.context || '2d')
-    
-//     let frameCount = 0
-//     let animationFrameId
-
-//     const render = () => {
-//       frameCount++
-//       draw(context, frameCount)
-//       animationFrameId = window.requestAnimationFrame(render)
-//     }
-
-//     render()
-
-//     return () => {
-//       window.cancelAnimationFrame(animationFrameId)
-//     }
-//   }, [draw])
 
   return canvasRef
 
