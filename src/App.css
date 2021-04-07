@@ -90,11 +90,13 @@ a {
 }
 
 .footer {
-  position: fixed;
+  /* position: fixed; */
   bottom: 1em;
-  right: 1em;
-  width: auto;
-  height: 1rem;            /* Footer height */
+  /* right: 1em; */
+  /* width: auto; */
+  /* height: 1rem;        */
+  width: 50%;
+  margin: 1em auto 0;
 
 }
 
