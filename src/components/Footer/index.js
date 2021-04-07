@@ -7,9 +7,13 @@ const Footer = () => {
   return (
     <div className="footer">
       <Typography variant="subtitle2" component="">
-        <Link to='/backendLogin'>backend </Link>
+        <Link to='/about'>about </Link>        
+        <Link to='/contact'>contact </Link> 
+        
         <Link to='/imprint'>imprint </Link>
-        <Link to='/dataprotection'>data protection</Link>        
+        <Link to='/dataprotection'>data protection </Link>
+        <Link to='/backendLogin'>| backend login </Link>
+  
       </Typography>
     </div>
   )

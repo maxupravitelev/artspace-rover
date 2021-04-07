@@ -5,14 +5,14 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 // init redux and import reducers
 import { useSelector } from 'react-redux'
 
-
-
 import Header from './components/Header'
 
 import Footer from './components/Footer/'
 import BackendLogin from './components/Footer/BackendLogin'
 import DataProtection from './components/Footer/DataProtection'
 import Imprint from './components/Footer/Imprint'
+import About from './components/Footer/About'
+import Contact from './components/Footer/Contact'
 
 
 import Exhibition from './components/Exhibitions/Exhibition'
@@ -58,6 +58,12 @@ const App = () => {
                 </Route>
                 <Route path="/dataprotection">
                   <DataProtection />
+                </Route>
+                <Route path="/about">
+                  <About />
+                </Route>
+                <Route path="/Contact">
+                  <Contact />
                 </Route>
                 <Route path="/">
                   <Exhibitions />
