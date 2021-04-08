@@ -3,10 +3,7 @@ import dummy from '../../demo_mode/dummy.gif'
 
 import { useSelector } from 'react-redux'
 
-import Jitsi from 'react-jitsi'
-
-const roomName = 'LivingScratchesCopeShakily'
-const userFullName = 'rover-client'
+import JitsiClient from './JitsiClient'
 
 // return live stream component
 const Capture = ({  }) => {
@@ -20,7 +17,7 @@ const Capture = ({  }) => {
   return (
     <div className="capture">
       <img alt="stream from PiCam" src={streamUrl}></img>
-      <Jitsi roomName={roomName} displayName={userFullName} />
+      <JitsiClient />
     </div>
   )
 }
