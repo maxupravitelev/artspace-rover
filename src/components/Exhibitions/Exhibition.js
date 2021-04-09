@@ -29,14 +29,14 @@ const Exhibition = () => {
   
   // fetch urls from store to check if setting up url is necessary
   let socket = useSelector((state) => state.socket)
-  let streamUrl = useSelector((state) => state.urls.streamUrl)
+  let jitsiUrl = useSelector((state) => state.urls.jitsiUrl)
 
-  // console.log(streamUrl)
+  // console.log(jitsiUrl)
   // determine screen size
   const checkScreenWidth = useMediaQuery('(max-width:600px)')
 
-  // return url form if streamUrl is not set yet
-  if (!streamUrl)
+  // return url form if jitsiUrl is not set yet
+  if (!jitsiUrl) {
     return (
       <div>
         <Infobox infotext={pagesTexts.exhibition}/>
@@ -70,6 +70,7 @@ const Exhibition = () => {
         </Grid>
       </div>
     )
+  }
   else {
     // render main app based on screen size
     if (!checkScreenWidth) {

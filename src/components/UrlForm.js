@@ -5,14 +5,13 @@ import { TextField, Button, Typography } from '@material-ui/core'
 
 // init redux and import reducers
 import { useDispatch } from 'react-redux'
-import {  setUrls } from '../reducers/urlsReducer'
-import {  setSocket } from '../reducers/socketReducer'
+import { setUrls } from '../reducers/urlsReducer'
+import { setSocket } from '../reducers/socketReducer'
 
-
-const UrlForm = ({  }) => {
+const UrlForm = ({}) => {
   const [urls, setUrlsInComponent] = useState({
-    jitsiUrl: "",
-    socketUrl: ""
+    jitsiUrl: '',
+    baseUrl: '',
   })
 
   const dispatch = useDispatch()
@@ -20,10 +19,11 @@ const UrlForm = ({  }) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    urls.socketUrl += ':6475' 
-    
-    dispatch(setUrls(urls.jitsiUrl))
-    dispatch(setSocket(urls.socketUrl))
+    dispatch(setUrls(urls))
+
+    let socketUrl = urls.baseUrl += ':6475'
+
+    dispatch(setSocket(socketUrl))
   }
 
   const handleValue = (e) => {
@@ -46,24 +46,29 @@ const UrlForm = ({  }) => {
           value={urls.jitsiUrl}
           onChange={handleValue}
         />
-              <Typography variant="body2">Please enter the URL of your raspberry</Typography>
+        <Typography variant="body2">
+          Please enter the URL of your Jitsi Session
+        </Typography>
 
-
-                <TextField
+        <TextField
           type="text"
-          name="socketUrl"
+          name="baseUrl"
           className="input"
-          value={urls.socketUrl}
+          value={urls.baseUrl}
           onChange={handleValue}
         />
-      <Typography variant="body2">Please enter the URL of your Jitsi Session</Typography>
+        <Typography variant="body2">
+          Please enter the URL of your raspberry
+        </Typography>
+
         <Button type="submit" variant="outlined">
           Submit
         </Button>
-        
       </form>
       <p />
-      <Typography variant="body2">Enter "demo" for starting demo mode</Typography>
+      <Typography variant="body2">
+        Enter "demo" for starting demo mode
+      </Typography>
     </div>
   )
 }
