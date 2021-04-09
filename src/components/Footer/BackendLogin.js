@@ -7,6 +7,10 @@ import {
 import { useDispatch, useSelector } from 'react-redux'
 
 import { getAllUsers } from '../../reducers/usersReducer'
+import { setNotification } from '../../reducers/notificationReducer'
+
+import Togglable from '../../components/Togglable'
+import Notification from '../../components/Notification'
 
 
 const BackendLogin = () => {
@@ -16,19 +20,17 @@ const BackendLogin = () => {
   
   const dispatch = useDispatch()
 
-  let user = "temp"
-
   useEffect(() => {
     dispatch(getAllUsers())
   }, [dispatch])
 
-  // let user = useSelector((state) => state.user)
+  let user = useSelector((state) => state.user)
 
-  // console.log(user)
+  console.log(user)
 
-  // if (user === 'init') {
-  //   user = null
-  // }
+  if (user === 'init') {
+    user = null
+  }
 
   // check if user is stored locally
   // useEffect(() => {
@@ -60,9 +62,9 @@ const BackendLogin = () => {
   // render login form if user is not logged in
   const loginForm = () => {
     return (
-      <div>
+      <div className="app">
         <div>
-          {/* <Notification /> */}
+          <Notification />
           <Togglable buttonLabel="login">
           <form onSubmit={handleLogin}>
         <div>
@@ -72,7 +74,9 @@ const BackendLogin = () => {
             value={username}
             name="Username"
             label="username"
-            onChange={handleUsernameChange}
+            onChange={({ target }) => {
+              setUsername(target.value)
+            }}
           />
         </div>
         <div>
@@ -82,7 +86,7 @@ const BackendLogin = () => {
             value={password}
             name="Password"
             label="Password"
-            onChange={handlePasswordChange}
+            onChange={({ target }) => setPassword(target.value)}
           />
         </div>
         <Button variant="contained" color="primary" id="login-button" type="submit">login</Button>

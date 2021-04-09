@@ -9,6 +9,7 @@ import timeslotsReducer from './reducers/timeslotsReducer'
 import directionsReducer from './reducers/directionsReducer'
 import userReducer from './reducers/userReducer'
 import usersReducer from './reducers/usersReducer'
+import notificationReducer from './reducers/notificationReducer'
 
 const reducer = combineReducers({
   socket: socketReducer,
@@ -16,7 +17,8 @@ const reducer = combineReducers({
   timeslots: timeslotsReducer,
   directions: directionsReducer,
   users: usersReducer,
-  user: userReducer
+  user: userReducer,
+  notification: notificationReducer
 })
 
 const store = createStore(
