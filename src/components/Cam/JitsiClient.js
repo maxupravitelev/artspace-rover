@@ -14,11 +14,12 @@ const JitsiClient = () => {
     setCall(true)
   }
 
-  let roomName = "gfdgdfghfg5646"
+  let roomName = "CapitalOriginsResolveSoftly"
   let displayName = "test"
 
   return call ? (
     <Jutsu
+      domain='meet.brimboria.net'
       roomName={roomName}
       displayName={displayName}
       password={password}
@@ -29,7 +30,7 @@ const JitsiClient = () => {
     <form>
       {/* <input id='room' type='text' placeholder='Room' value={room} onChange={(e) => setRoom(e.target.value)} />
       <input id='name' type='text' placeholder='Name' value={name} onChange={(e) => setName(e.target.value)} /> */}
-      <input id='password' type='text' placeholder='Password (optional)' value={password} onChange={(e) => setPassword(e.target.value)} />
+      {/* <input id='password' type='text' placeholder='Password (optional)' value={password} onChange={(e) => setPassword(e.target.value)} /> */}
       <button onClick={handleClick} type='submit'>
         Start / Join
       </button>
