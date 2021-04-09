@@ -11,7 +11,8 @@ const urlsReducer = (state = [], action) => {
 }
 
 export const setUrls = (urls) => {
-  return async dispatch => {
+  console.log(urls)
+  return dispatch => {
     dispatch({
       type: 'SET_URLS',
       data: urls

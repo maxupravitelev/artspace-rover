@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { getAllUsers } from '../../reducers/usersReducer'
 import { setNotification } from '../../reducers/notificationReducer'
+import { loginUser, setUser } from '../../reducers/userReducer'
 
 import Togglable from '../../components/Togglable'
 import Notification from '../../components/Notification'
@@ -33,14 +34,14 @@ const BackendLogin = () => {
   }
 
   // check if user is stored locally
-  // useEffect(() => {
-  //   const loggedUserJSON = window.localStorage.getItem('loggedBlogAppUser')
-  //   if (loggedUserJSON) {
-  //     const userLocal = JSON.parse(loggedUserJSON)
-  //     dispatch(setUser(userLocal))
-  //     blogService.setToken(userLocal.token)
-  //   }
-  // }, [dispatch])
+  useEffect(() => {
+    const loggedUserJSON = window.localStorage.getItem('loggedBlogAppUser')
+    if (loggedUserJSON) {
+      const userLocal = JSON.parse(loggedUserJSON)
+      dispatch(setUser(userLocal))
+      // blogService.setToken(userLocal.token)
+    }
+  }, [dispatch])
 
   const handleLogin = async (event) => {
     event.preventDefault()
@@ -55,6 +56,7 @@ const BackendLogin = () => {
 
       dispatch(setNotification(`'${username}' logged in`, 3, 'green'))
     } catch (exception) {
+      console.log(exception)
       dispatch(setNotification('Wrong credentials', 3, 'red'))
     }
   }
@@ -105,7 +107,7 @@ const BackendLogin = () => {
             loginForm()
           ) : (
 
-            <div>{user}</div>
+            <div className="app">{user.username} is already logged in</div>
           )}
     </div>
   )

@@ -10,45 +10,53 @@ import {  setSocket } from '../reducers/socketReducer'
 
 
 const UrlForm = ({  }) => {
-  const [url, setUrl] = useState('')
+  const [urls, setUrlsInComponent] = useState({
+    jitsiUrl: "",
+    socketUrl: ""
+  })
 
   const dispatch = useDispatch()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    let socketUrl = url + ':6475' 
-    // let streamUrl = url + ':6495/stream'
-    let streamUrl = url + ':8080/stream/video.mjpegZ'
-
-    let urls = {
-      socketUrl,
-      streamUrl,
-      // positionUrl: socketUrl + 'move',
-    }
-    console.log(urls)
-    dispatch(setUrls(urls))
-    dispatch(setSocket(socketUrl))
+    urls.socketUrl += ':6475' 
+    
+    dispatch(setUrls(urls.jitsiUrl))
+    dispatch(setSocket(urls.socketUrl))
   }
 
   const handleValue = (e) => {
-    let newUrl = e.target.value
+    let name = e.target.name
+    let newValue = e.target.value
 
-    setUrl(newUrl)
+    setUrlsInComponent({
+      ...urls,
+      [name]: newValue,
+    })
   }
 
   return (
     <div className="urlForm">
-      <Typography variant="body2">Please enter the URL of your raspberry</Typography>
       <form onSubmit={handleSubmit}>
         <TextField
           type="text"
+          name="jitsiUrl"
           className="input"
-          value={url}
-          name="url"
+          value={urls.jitsiUrl}
           onChange={handleValue}
         />
-        <p></p>
+              <Typography variant="body2">Please enter the URL of your raspberry</Typography>
+
+
+                <TextField
+          type="text"
+          name="socketUrl"
+          className="input"
+          value={urls.socketUrl}
+          onChange={handleValue}
+        />
+      <Typography variant="body2">Please enter the URL of your Jitsi Session</Typography>
         <Button type="submit" variant="outlined">
           Submit
         </Button>

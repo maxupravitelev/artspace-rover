@@ -37,7 +37,7 @@ export const loginUser = (credentials) => {
     window.localStorage.setItem(
       'loggedRoverAppUser', JSON.stringify(user)
     )
-    blogService.setToken(user.token)
+    // blogService.setToken(user.token)
     dispatch({
       type: 'LOGIN',
       data: user
