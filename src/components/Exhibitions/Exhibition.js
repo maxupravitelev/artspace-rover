@@ -56,6 +56,7 @@ const Exhibition = () => {
             <Infobox infotext={exhibitionsTexts.demoExhibition.description} />
           </Grid>
           <Grid
+            item
             xs
           >
             <Infobox infotext="START SESSION"/>

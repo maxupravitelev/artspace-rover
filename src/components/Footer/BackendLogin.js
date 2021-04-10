@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import {
-  TextField, Button
-} from '@material-ui/core'
+import { TextField, Button } from '@material-ui/core'
 
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -13,12 +11,10 @@ import { loginUser, setUser } from '../../reducers/userReducer'
 import Togglable from '../../components/Togglable'
 import Notification from '../../components/Notification'
 
-
 const BackendLogin = () => {
-  
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  
+
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -68,57 +64,63 @@ const BackendLogin = () => {
         <div>
           <Notification />
           <Togglable buttonLabel="login">
-          <form onSubmit={handleLogin}>
-        <div>
-          <TextField
-            id="username"
-            type="text"
-            value={username}
-            name="Username"
-            label="username"
-            onChange={({ target }) => {
-              setUsername(target.value)
-            }}
-          />
-        </div>
-        <div>
-          <TextField
-            id="password"
-            type="password"
-            value={password}
-            name="Password"
-            label="Password"
-            onChange={({ target }) => setPassword(target.value)}
-          />
-        </div>
-        <Button variant="contained" color="primary" id="login-button" type="submit">login</Button>
-      </form>
+            <form onSubmit={handleLogin}>
+              <div>
+                <TextField
+                  id="username"
+                  type="text"
+                  value={username}
+                  name="Username"
+                  label="username"
+                  onChange={({ target }) => {
+                    setUsername(target.value)
+                  }}
+                />
+              </div>
+              <div>
+                <TextField
+                  id="password"
+                  type="password"
+                  value={password}
+                  name="Password"
+                  label="Password"
+                  onChange={({ target }) => setPassword(target.value)}
+                />
+              </div>
+              <Button
+                variant="contained"
+                color="primary"
+                id="login-button"
+                type="submit"
+              >
+                login
+              </Button>
+            </form>
           </Togglable>
         </div>
       </div>
     )
   }
-  
+
   return (
     <div>
       <h1>Login</h1>
 
       {user === null ? (
-            loginForm()
-          ) : (
-
-            <div className="app">{user.username} is already logged in</div>
-          )}
+        loginForm()
+      ) : (
+        <div className="app">{user.username} is already logged in</div>
+      )}
     </div>
   )
 }
 
-BackendLogin.propTypes = {
-  handleLogin: PropTypes.func.isRequired,
-  handleUsernameChange: PropTypes.func.isRequired,
-  handlePasswordChange: PropTypes.func.isRequired,
-  username: PropTypes.string.isRequired,
-  password: PropTypes.string.isRequired
-}
+// BackendLogin.propTypes = {
+//   handleLogin: PropTypes.func.isRequired,
+//   handleUsernameChange: PropTypes.func.isRequired,
+//   handlePasswordChange: PropTypes.func.isRequired,
+//   username: PropTypes.string.isRequired,
+//   password: PropTypes.string.isRequired,
+// }
 
 export default BackendLogin

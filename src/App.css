@@ -105,7 +105,7 @@ img {
   background-color: #fff;
   max-width: inherit;
   margin: inherit;
-  width: 100%
+  /* width: 100% */
   /* border: 3px solid; */
 }
 

@@ -11,7 +11,6 @@ import {  getAllTimeslots } from '../../reducers/timeslotsReducer'
 const Scheduler = () => {
 
   let timeslots = useSelector((state) => state.timeslots)
-  console.log(timeslots)
 
   const dispatch = useDispatch()
 
