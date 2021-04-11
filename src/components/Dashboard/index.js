@@ -20,7 +20,8 @@ const Dashboard = ({  }) => {
 
 
   return (
-    <div className="app">
+    <div 
+    className="app">
       <div className="dashboard"
       >
       <DirectionDispay up={up} down={down} left={left} right={right}/>

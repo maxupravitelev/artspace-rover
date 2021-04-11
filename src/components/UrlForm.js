@@ -4,15 +4,20 @@ import React, { useState } from 'react'
 import { TextField, Button, Typography } from '@material-ui/core'
 
 // init redux and import reducers
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { setUrls } from '../reducers/urlsReducer'
 import { setSocket } from '../reducers/socketReducer'
+
 
 const UrlForm = ({}) => {
   const [urls, setUrlsInComponent] = useState({
     jitsiUrl: '',
     baseUrl: '',
   })
+
+  let user = useSelector((state) => state.user)
+
+  if (!user.token) return <div></div>
 
   const dispatch = useDispatch()
 

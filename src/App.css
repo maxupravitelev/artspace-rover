@@ -60,6 +60,8 @@ a {
   text-align: center;
   display: block;
   justify-content: start;
+  background-color: #01BAEF;
+  /* color: #FBFBFF; */
 }
 
 .camPosition {

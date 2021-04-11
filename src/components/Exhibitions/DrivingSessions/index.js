@@ -27,7 +27,11 @@ const DrivingSessions = () => {
 
 
   const checkIfSessionPossible = () => {
-    if ((socket) && jitsiUrl) {
+    console.log("tets")
+
+    socket = true
+    jitsiUrl = true
+    if (socket && jitsiUrl) {
       setSessionState("available")
     }
   }
@@ -43,8 +47,12 @@ const DrivingSessions = () => {
       <Typography variant="body1">
         start session
       </Typography>
-      <Button type="submit" onClick={checkIfSessionPossible} variant="outlined">
-      start
+      <Button 
+        // type="submit" 
+        onClick={checkIfSessionPossible} 
+        variant="outlined"
+      >
+          start
         </Button>
     </div>
   )
