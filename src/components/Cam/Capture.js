@@ -9,14 +9,14 @@ import JitsiClient from './JitsiClient'
 const Capture = ({  }) => {
 
   let streamUrl = useSelector((state) => state.urls.streamUrl)
-  console.log(streamUrl)
+
   if (streamUrl == 'demo' + ':8080/stream/video.mjpeg') {
     streamUrl = dummy
   }
 
   return (
     <div className="capture">
-      <img alt="stream from PiCam" src={streamUrl}></img>
+      {/* <img alt="stream from PiCam" src={streamUrl}></img> */}
       <JitsiClient />
     </div>
   )

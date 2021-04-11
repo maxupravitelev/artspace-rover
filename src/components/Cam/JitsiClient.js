@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { Jutsu } from 'react-jutsu' // Component
+import { Button } from '@material-ui/core'
+
 
 
 const JitsiClient = () => {
@@ -14,7 +16,7 @@ const JitsiClient = () => {
     setCall(true)
   }
 
-  let roomName = "CapitalOriginsResolveSoftly"
+  let roomName = "test"
   let displayName = "test"
 
   return call ? (
@@ -31,9 +33,13 @@ const JitsiClient = () => {
       {/* <input id='room' type='text' placeholder='Room' value={room} onChange={(e) => setRoom(e.target.value)} />
       <input id='name' type='text' placeholder='Name' value={name} onChange={(e) => setName(e.target.value)} /> */}
       {/* <input id='password' type='text' placeholder='Password (optional)' value={password} onChange={(e) => setPassword(e.target.value)} /> */}
-      <button onClick={handleClick} type='submit'>
-        Start / Join
-      </button>
+      <Button 
+        variant="outlined"
+        onClick={handleClick} 
+        // type='submit'
+        >
+        start stream
+      </Button>
     </form>
   )
 }

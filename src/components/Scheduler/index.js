@@ -24,7 +24,11 @@ const Scheduler = () => {
         <Typography variant="h5" component="h2">
           [ schedule visit ]
         </Typography>
-        <Button onClick={handleGettingTimeslots}>get slots</Button>
+        <Button 
+          onClick={handleGettingTimeslots}
+          variant="outlined"
+          >
+            get slots</Button>
       </div>
     ) 
   } else {

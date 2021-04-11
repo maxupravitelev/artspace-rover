@@ -4,6 +4,9 @@ import React, { useState, useEffect } from 'react'
 
 import { useSelector } from 'react-redux'
 
+import { Button } from '@material-ui/core'
+
+
 const SteeringButtons = ({}) => {
   let socket = useSelector((state) => state.socket)
 
@@ -58,46 +61,53 @@ const SteeringButtons = ({}) => {
   }
 
   return (
-    <div>
-      <button
+    <div className="dashboard">
+      <Button
         id="upButton"
         onTouchStart={handleMouseDown}
         onTouchEnd={handleMouseUp}
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
+        variant="outlined"
+        size="large"
       >
         up
-      </button>
+      </Button>
       <div>
-        <button
+        <Button
           id="leftButton"
           onTouchStart={handleMouseDown}
           onTouchEnd={handleMouseUp}
           onMouseDown={handleMouseDown}
           onMouseUp={handleMouseUp}
-
+          variant="outlined"
+          size="large"
         >
           left
-        </button>
-        <button
+        </Button>
+        <Button
           id="rightButton"
           onTouchStart={handleMouseDown}
           onTouchEnd={handleMouseUp}
           onMouseDown={handleMouseDown}
           onMouseUp={handleMouseUp}
+          variant="outlined"
+          size="large"
         >
           right
-        </button>
+        </Button>
       </div>
-      <button
+      <Button
         id="downButton"
         onTouchStart={handleMouseDown}
         onTouchEnd={handleMouseUp}
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
+        variant="outlined"
+        size="large"
       >
         down
-      </button>
+      </Button>
     </div>
   )
 }
