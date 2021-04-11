@@ -13,6 +13,7 @@ import Capture from '../../components/Cam/Capture'
 import Dashboard from '../Dashboard'
 import Scheduler from '../../components/Scheduler'
 import Infobox from '../../components/Infobox'
+import StatusLight from './StatusLight'
 
 // import material ui components
 import Grid from '@material-ui/core/Grid'
@@ -60,6 +61,7 @@ const Exhibition = () => {
             xs
           >
             <Infobox infotext="START SESSION"/>
+            <StatusLight />
             <Scheduler />
             <UrlForm />
             
