@@ -8,7 +8,6 @@ import {
   TableRow,
   Paper,
 } from '@material-ui/core'
-import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 import Exhibition from './Exhibition'

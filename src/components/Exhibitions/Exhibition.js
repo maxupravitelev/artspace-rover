@@ -13,7 +13,9 @@ import Capture from '../../components/Cam/Capture'
 import Dashboard from '../Dashboard'
 import Scheduler from '../../components/Scheduler'
 import Infobox from '../../components/Infobox'
-import StatusLight from './StatusLight'
+
+import DrivingSessions from './DrivingSessions/'
+
 
 // import material ui components
 import Grid from '@material-ui/core/Grid'
@@ -60,8 +62,7 @@ const Exhibition = () => {
             item
             xs
           >
-            <Infobox infotext="START SESSION"/>
-            <StatusLight />
+            <DrivingSessions />
             <Scheduler />
             <UrlForm />
             
