@@ -5,10 +5,8 @@ import StatusLight from './StatusLight'
 import { useSelector } from 'react-redux'
 
 // import components
-import UrlForm from '../../UrlForm'
 import Capture from '../../Cam/Capture'
 import Dashboard from '../../Dashboard'
-import Scheduler from '../../Scheduler'
 
 
 // use media query to determine screen size
@@ -27,8 +25,6 @@ const DrivingSessions = () => {
 
 
   const checkIfSessionPossible = () => {
-    console.log("tets")
-
     socket = true
     jitsiUrl = true
     if (socket && jitsiUrl) {

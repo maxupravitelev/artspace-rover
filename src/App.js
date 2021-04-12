@@ -1,11 +1,11 @@
 // import react modules
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Jutsu } from 'react-jutsu'
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 // init redux and import reducers
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
 import Header from './components/Header'
 
@@ -22,6 +22,8 @@ import Exhibitions from './components/Exhibitions'
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 
+import { setUser } from './reducers/userReducer'
+
 const WhiteTextTypography = withStyles({
   root: {
     color: "#FBFBFF"
@@ -37,7 +39,18 @@ import Container from '@material-ui/core/Container'
 
 
 const App = () => {
+  
+  const dispatch = useDispatch()
 
+  // check if user is stored locally
+  useEffect(() => {
+    const loggedUserJSON = window.localStorage.getItem('loggedRoverAppUser')
+    if (loggedUserJSON) {
+      const userLocal = JSON.parse(loggedUserJSON)
+      dispatch(setUser(userLocal))
+      // timeslotService.setToken(userLocal.token)
+    }
+  }, [dispatch])
 
   return (
 
