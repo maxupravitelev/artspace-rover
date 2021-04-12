@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { TextField, Button } from '@material-ui/core'
+import { TextField, Button, Typography } from '@material-ui/core'
 
 import { useDispatch, useSelector } from 'react-redux'
 
 import { getAllUsers } from '../../reducers/usersReducer'
 import { setNotification } from '../../reducers/notificationReducer'
-import { loginUser, setUser } from '../../reducers/userReducer'
+import { loginUser, logoutUser, setUser } from '../../reducers/userReducer'
 
 import Togglable from '../../components/Togglable'
 import Notification from '../../components/Notification'
@@ -104,12 +104,20 @@ const BackendLogin = () => {
 
   return (
     <div>
-      <h1>Login</h1>
 
       {user === null ? (
         loginForm()
       ) : (
-        <div className="app">{user.username} is already logged in</div>
+        <div className="app">
+          <Typography>{user.username} is logged in</Typography>
+          <Button
+          onClick={() => {dispatch(logoutUser())}}
+          variant="outlined"
+          >
+          logout</Button>
+          </div>
+
+
       )}
     </div>
   )

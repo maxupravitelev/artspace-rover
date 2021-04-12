@@ -17,7 +17,7 @@ const UrlForm = ({}) => {
 
   let user = useSelector((state) => state.user)
 
-  if (!user.token) return <div></div>
+  if (!user) return <div></div>
 
   const dispatch = useDispatch()
 
