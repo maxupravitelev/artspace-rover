@@ -43,6 +43,9 @@ const UrlForm = ({}) => {
 
   return (
     <div className="urlForm">
+      <Typography>
+        Save necessary urls to connect with your rover
+      </Typography>
       <form onSubmit={handleSubmit}>
         <TextField
           type="text"
