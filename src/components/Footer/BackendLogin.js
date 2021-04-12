@@ -10,6 +10,9 @@ import { loginUser, logoutUser, setUser } from '../../reducers/userReducer'
 
 import Togglable from '../../components/Togglable'
 import Notification from '../../components/Notification'
+import Infobox from '../../components/Infobox'
+
+import pagesTexts from '../../text/pages'
 
 const BackendLogin = () => {
   const [username, setUsername] = useState('')
@@ -22,8 +25,6 @@ const BackendLogin = () => {
   }, [dispatch])
 
   let user = useSelector((state) => state.user)
-
-  console.log(user)
 
   if (user === 'init') {
     user = null
@@ -109,12 +110,17 @@ const BackendLogin = () => {
         loginForm()
       ) : (
         <div className="app">
-          <Typography>{user.username} is logged in</Typography>
+          
+          <Typography>{pagesTexts.backendLogin.ifLoggedIn(user.username)}</Typography>
           <Button
           onClick={() => {dispatch(logoutUser())}}
           variant="outlined"
           >
           logout</Button>
+          <Infobox 
+            infotext={pagesTexts.backendLogin.explainBlueAreas}
+            backgroundColor="#01BAEF"
+            />
           </div>
 
 
