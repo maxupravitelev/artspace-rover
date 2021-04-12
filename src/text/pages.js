@@ -6,4 +6,6 @@ const pagesTexts = {
   }
 }
 
+
+
 export default pagesTexts

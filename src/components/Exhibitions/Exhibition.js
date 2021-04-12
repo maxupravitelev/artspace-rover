@@ -55,9 +55,10 @@ const Exhibition = () => {
             item
             xs
           >
-            <DrivingSessions />
-            <Scheduler />
             <UrlForm />
+            <Scheduler />
+            <DrivingSessions />
+            
             
             <Grid 
             item 
@@ -65,7 +66,7 @@ const Exhibition = () => {
             // xs={12} 
             // sm={6}
           > 
-            <Infobox infotext={exhibitionsTexts.demoExhibition.description} />
+            <Infobox infotext={exhibitionsTexts[0].description} />
           </Grid>
           </Grid>
           <Grid>

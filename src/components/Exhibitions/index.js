@@ -13,6 +13,7 @@ import Infobox from '../Infobox'
 
 import { makeStyles } from "@material-ui/styles";
 
+import exhibitionsTexts from '../../text/exhibitions'
 
 const useStyles = makeStyles({
 
@@ -29,32 +30,11 @@ const Exhibitions = () => {
 
   const infotext = "Please select an exhibition you want to view."
 
-  let exhibitions = [{
-    id: "1",
-    title: "some exhib",
-    artspace: "another inst",
-    rover: "basic",
-    urls: {
-      bannerImage: "https://brimboria.net/wp-content/uploads/2020/05/IMG_20200513_150142-2048x1536.jpg"
-    }
-  },
-    {
-      id: "2",
-      title: "one mor exhib",
-      artspace: "diffrent inst",
-      rover: "basic",
-      urls: {
-        bannerImage: "https://brimboria.net/wp-content/uploads/2020/05/IMG_20200513_150142-2048x1536.jpg"
-      }
-    }
-  ]
-
-  // console.log(exhibitions)
 
   return (
     <div className="app">
       <Infobox infotext={infotext}/>
-      {exhibitions.map((exhibition) => (
+      {exhibitionsTexts.map((exhibition) => (
                 <Grid className={classes.container}
                   key={exhibition.id}
                   container
