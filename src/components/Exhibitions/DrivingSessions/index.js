@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Typography, Button } from '@material-ui/core'
+import { Typography, Button, TextField } from '@material-ui/core'
 import StatusLight from './StatusLight'
 
 import { useSelector } from 'react-redux'
@@ -27,6 +27,8 @@ const useStyles = makeStyles({
 const DrivingSessions = () => {
   const [sessionState, setSessionState] = useState('not available')
 
+  const [passphrase, setPassphrase] = useState("")
+
   const classes = useStyles()
 
   let socket = useSelector((state) => state.socket)
@@ -38,6 +40,20 @@ const DrivingSessions = () => {
     if (socket && jitsiUrl) {
       setSessionState('available')
     }
+  }
+console.log(passphrase)
+  const checkIfScheduledSessionPossible = () => {
+    socket = true
+    jitsiUrl = true
+    if (socket && jitsiUrl) {
+      setSessionState('available')
+    }
+  }
+
+  const handleInputValue = (e) => {
+    let inputValue = e.target.value
+
+    setPassphrase(inputValue)
   }
 
   // determine screen size
@@ -54,18 +70,26 @@ const DrivingSessions = () => {
           container
           direction="row"
           justify="space-around"
-          alignItems="strech"
+          alignItems="stretch"
         >
           <Grid>
             <div className="app">
             <Typography variant="h5">scheduled ride</Typography>
+        <TextField
+          type="text"
+          className="input"
+          value={passphrase}
+          onChange={handleInputValue}
+        />
+        <div>
             <Button
               // type="submit"
-              onClick={checkIfSessionPossible}
+              onClick={checkIfScheduledSessionPossible}
               variant="outlined"
             >
               start
             </Button>
+            </div>
             </div>
           </Grid>
           <Grid>
