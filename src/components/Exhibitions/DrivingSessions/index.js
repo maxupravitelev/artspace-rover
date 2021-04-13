@@ -8,6 +8,9 @@ import { useSelector } from 'react-redux'
 import Capture from '../../Cam/Capture'
 import Dashboard from '../../Dashboard'
 
+import InstantSession from './InstantSession'
+import ScheduledSession from './ScheduledSession'
+
 // use media query to determine screen size
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 
@@ -34,14 +37,14 @@ const DrivingSessions = () => {
   let socket = useSelector((state) => state.socket)
   let jitsiUrl = useSelector((state) => state.urls.jitsiUrl)
 
-  const checkIfSessionPossible = () => {
+  const checkIfInstantSessionPossible = () => {
     socket = true
     jitsiUrl = true
     if (socket && jitsiUrl) {
       setSessionState('available')
     }
   }
-console.log(passphrase)
+
   const checkIfScheduledSessionPossible = () => {
     socket = true
     jitsiUrl = true
@@ -62,10 +65,10 @@ console.log(passphrase)
   if (sessionState != 'available') {
     return (
       <div className="app">
-        <Typography 
+        <Typography
           variant="h3"
-          style={{marginBottom: "1em", backgroundColor: "#0B4F6C", color: "#FBFBFF"}}
-          >start session</Typography>
+          style={{ marginBottom: "1em", backgroundColor: "#0B4F6C", color: "#FBFBFF" }}
+        >start session</Typography>
         <Grid
           container
           direction="row"
@@ -73,38 +76,10 @@ console.log(passphrase)
           alignItems="stretch"
         >
           <Grid>
-            <div className="app">
-            <Typography variant="h5">scheduled ride</Typography>
-        <TextField
-          type="text"
-          className="input"
-          value={passphrase}
-          onChange={handleInputValue}
-        />
-        <div>
-            <Button
-              // type="submit"
-              onClick={checkIfScheduledSessionPossible}
-              variant="outlined"
-            >
-              start
-            </Button>
-            </div>
-            </div>
+            <ScheduledSession checkIfScheduledSessionPossible={checkIfScheduledSessionPossible} handleInputValue={handleInputValue} passphrase={passphrase} />
           </Grid>
           <Grid>
-          <div className="app">
-          <Typography variant="h5">instant ride</Typography>
-            <StatusLight />
-            <Button
-              // type="submit"
-              onClick={checkIfSessionPossible}
-              variant="outlined"
-            >
-              start
-            </Button>
-
-            </div>
+            <InstantSession checkIfInstantSessionPossible={checkIfInstantSessionPossible} />
           </Grid>
         </Grid>
         <Typography
