@@ -43,7 +43,12 @@ const UrlForm = ({}) => {
 
   return (
     <div className="urlForm">
-      <Typography>
+              <Typography 
+          variant="h3"
+          style={{marginBottom: "1em", backgroundColor: "#0B4F6C", color: "#FBFBFF"}}
+          >settings</Typography>
+      <Typography
+      >
         Save necessary urls to connect with your rover
       </Typography>
       <form onSubmit={handleSubmit}>

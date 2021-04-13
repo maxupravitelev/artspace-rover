@@ -46,11 +46,15 @@ const DrivingSessions = () => {
   if (sessionState != 'available') {
     return (
       <div className="app">
+        <Typography 
+          variant="h3"
+          style={{marginBottom: "1em", backgroundColor: "#0B4F6C", color: "#FBFBFF"}}
+          >start session</Typography>
         <Grid
           container
           direction="row"
           justify="space-around"
-          alignItems="center"
+          alignItems="strech"
         >
           <Grid>
             <div className="app">
@@ -80,6 +84,7 @@ const DrivingSessions = () => {
           </Grid>
         </Grid>
         <Typography
+          style={{ marginTop: "2em" }}
         >{componentsTexts.DrivingSessions.explainSpontSess}</Typography>
 
       </div>
