@@ -19,6 +19,7 @@ const InstantSession = ({ checkIfInstantSessionPossible }) => {
       >
         start
             </Button>
+        {/* <div style={{width: "inherit"}}>{componentsTexts.DrivingSessions.explainSpontSess}</div> */}
     </div>
   )
 }

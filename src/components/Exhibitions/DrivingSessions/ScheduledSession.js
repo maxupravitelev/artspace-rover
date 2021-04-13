@@ -31,6 +31,8 @@ const ScheduledSession = ({ checkIfScheduledSessionPossible, handleInputValue, p
                 value={passphrase}
                 onChange={handleInputValue}
               />
+              <Typography variant="body1">please enter your passphrase</Typography>
+
               <div>
                 <Button
                   // type="submit"
