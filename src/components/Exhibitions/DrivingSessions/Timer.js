@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Typography } from '@material-ui/core'
 
 // return header component
-const Timer = ({ timelimit=2 }) => {
+const Timer = ({ timelimit=30 }) => {
   
   const secondsInMinuteStartingZero = 60 - 1
 
@@ -10,11 +10,15 @@ const Timer = ({ timelimit=2 }) => {
   const [minutes, setMinutes] = useState(timelimit - 1)
 
   useEffect(() => {
-    if (Number(seconds) > 0) setTimeout(() => {
+    if (Number(seconds) > 0) {
+      const countdown = setTimeout(() => {
       if (seconds > 10) setSeconds(seconds - 1)
       else setSeconds("0" + (Number(seconds) - 1))
     }
     , 1000)
+
+    return () => clearTimeout(countdown);
+  }
     else {
       if (Number(minutes) > 0) {
         if (minutes > 10) setMinutes(minutes - 1)

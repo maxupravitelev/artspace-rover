@@ -85,7 +85,7 @@ const DrivingSessions = () => {
         </Grid>
         <Typography
           style={{ marginTop: "2em" }}
-        >{componentsTexts.DrivingSessions.explainSpontSess}</Typography>
+        >{componentsTexts.DrivingSessions.explainInstantSession}</Typography>
         <Timer />
       </div>
     )
