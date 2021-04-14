@@ -8,7 +8,6 @@ import { Typography } from '@material-ui/core'
 import { useSelector } from 'react-redux'
 
 // import components
-import UrlForm from '../../components/UrlForm'
 import Capture from '../../components/Cam/Capture'
 import Dashboard from '../Dashboard'
 import Scheduler from '../../components/Scheduler'
@@ -55,7 +54,6 @@ const Exhibition = () => {
             item
             xs
           >
-            <UrlForm />
             <Scheduler />
             <DrivingSessions />
             

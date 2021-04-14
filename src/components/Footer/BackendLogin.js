@@ -11,6 +11,7 @@ import { loginUser, logoutUser, setUser } from '../../reducers/userReducer'
 import Togglable from '../../components/Togglable'
 import Notification from '../../components/Notification'
 import Infobox from '../../components/Infobox'
+import UrlForm from '../../components/UrlForm'
 
 import pagesTexts from '../../text/pages'
 
@@ -121,6 +122,7 @@ const BackendLogin = () => {
             infotext={pagesTexts.backendLogin.explainBlueAreas}
             backgroundColor="#01BAEF"
             />
+            <UrlForm />
           </div>
 
 
