@@ -101,10 +101,10 @@ const DrivingSessions = () => {
       return (
         <div>
           <Grid
-            // container
-            // spacing={2}
-            // justify="center"
-            // alignItems="center"
+          // container
+          // spacing={2}
+          // justify="center"
+          // alignItems="center"
           >
             <Grid
               item
@@ -123,9 +123,9 @@ const DrivingSessions = () => {
     } else {
       return (
         <div>
+          <SocketCheck />
           <Capture />
           <Dashboard />
-          <SocketCheck />
         </div>
       )
     }

@@ -10,12 +10,11 @@ const sessionReducer = (state = "init", action) => {
   }
 }
 
-export const setSessionState = (state) => {
-  console.log(state)
+export const setSessionState = (sessionState) => {
   return dispatch => {
     dispatch({
       type: 'SET_STATE',
-      data: state,
+      data: sessionState,
     })
   }
 }
