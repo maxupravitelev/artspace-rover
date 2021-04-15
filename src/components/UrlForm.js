@@ -6,15 +6,14 @@ import { TextField, Button, Typography, Grid } from '@material-ui/core'
 // init redux and import reducers
 import { useDispatch, useSelector } from 'react-redux'
 import { setJitsiUrl, setBaseUrl } from '../reducers/urlsReducer'
-import { setSocket } from '../reducers/socketReducer'
+
+import { updateUser } from '../reducers/userReducer'
 
 
 
 const UrlForm = ({ }) => {
-  const [urls, setUrls] = useState({
-    jitsiUrl: '',
-    baseUrl: '',
-  })
+  const [jitsiUrl, setJitsiUrlInComp] = useState('')
+  const [baseUrl, setBaseUrlInComp] = useState('')
 
   let user = useSelector((state) => state.user)
 
@@ -25,21 +24,25 @@ const UrlForm = ({ }) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    dispatch(setBaseUrl(urls.baseUrl))
-    dispatch(setJitsiUrl(urls.jitsiUrl))
+    if (jitsiUrl != '') {
+    dispatch(setJitsiUrl(jitsiUrl))
+    setJitsiUrlInComp('')
+    user.rovers[0].jitsiUrl = jitsiUrl
+    dispatch(updateUser(user))
 
+   }
+   if (baseUrl != '') {
+    dispatch(setBaseUrl(baseUrl))
+    setBaseUrlInComp('')
+    user.rovers[0].roverUrl = baseUrl
+    dispatch(updateUser(user))
+ 
+  }
+  
 
   }
 
-  const handleValue = (e) => {
-    let name = e.target.name
-    let newValue = e.target.value
 
-    setUrls({
-      ...urls,
-      [name]: newValue,
-    })
-  }
 
   return (
     <div className="urlForm">
@@ -73,8 +76,8 @@ const UrlForm = ({ }) => {
               type="text"
               name="jitsiUrl"
               className="input"
-              value={urls.jitsiUrl}
-              onChange={handleValue}
+              value={jitsiUrl}
+              onChange={({ target }) => setJitsiUrlInComp(target.value)}
             />
             <Button type="submit" variant="outlined">
               set
@@ -86,8 +89,8 @@ const UrlForm = ({ }) => {
               type="text"
               name="baseUrl"
               className="input"
-              value={urls.baseUrl}
-              onChange={handleValue}
+              value={baseUrl}
+              onChange={({ target }) => setBaseUrlInComp(target.value)}
             />
             <Typography variant="body2">
               Please enter the URL of your raspberry

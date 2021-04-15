@@ -6,15 +6,13 @@ const userReducer = (state = 'init', action) => {
   // console.log(action)
 
   switch (action.type) {
-  case 'USERNAME':
-    return action.username
-  case 'PASSWORD':
-    return action.password
   case 'LOGIN':
     return action.data
   case 'LOGOUT':
     return action.data
   case 'SET_FROM_LOCAL':
+    return action.data
+  case 'UPDATE':
     return action.data
   default:
     return state
@@ -51,6 +49,16 @@ export const setUser = (user) => {
   return async dispatch => {
     dispatch({
       type: 'SET_FROM_LOCAL',
+      data: user
+    })
+  }
+}
+
+export const updateUser = (user) => {
+  console.log(user)
+  return async dispatch => {
+    dispatch({
+      type: 'UPDATE',
       data: user
     })
   }
