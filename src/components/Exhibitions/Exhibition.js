@@ -33,11 +33,9 @@ const Exhibition = () => {
   let socket = useSelector((state) => state.socket)
   let jitsiUrl = useSelector((state) => state.urls.jitsiUrl)
 
-  // console.log(jitsiUrl)
   // determine screen size
   const checkScreenWidth = useMediaQuery('(max-width:600px)')
 
-  // return url form if jitsiUrl is not set yet
   if (!jitsiUrl) {
     return (
       <div>
@@ -81,12 +79,12 @@ const Exhibition = () => {
         <div>
           <Grid 
             // container 
-            spacing={2} 
-            justify="center" 
-            alignItems="center"
+            // spacing={2} 
+            // justify="center" 
+            // alignItems="center"
           >
             <Grid 
-              // item 
+              item 
               // xs={auto} 
               // sm={12} 
               zeroMinWidth

@@ -11,6 +11,7 @@ import Dashboard from '../../Dashboard'
 import InstantSession from './InstantSession'
 import ScheduledSession from './ScheduledSession'
 import Timer from './Timer'
+import SocketCheck from './SocketCheck'
 
 // use media query to determine screen size
 import useMediaQuery from '@material-ui/core/useMediaQuery'
@@ -35,21 +36,21 @@ const DrivingSessions = () => {
 
   const classes = useStyles()
 
-  let socket = useSelector((state) => state.socket)
+  let baseUrl = useSelector((state) => state.baseUrl)
   let jitsiUrl = useSelector((state) => state.urls.jitsiUrl)
+  let socket = useSelector((state) => state.socket)
 
   const checkIfInstantSessionPossible = () => {
-    socket = true
-    jitsiUrl = true
-    if (socket && jitsiUrl) {
+    baseUrl = true
+    if (baseUrl && (socket != [])) {
       setSessionState('available')
     }
   }
 
   const checkIfScheduledSessionPossible = () => {
-    socket = true
+    baseUrl = true
     jitsiUrl = true
-    if (socket && jitsiUrl) {
+    if (baseUrl && (socket != [])) {
       setSessionState('available')
     }
   }
@@ -96,18 +97,20 @@ const DrivingSessions = () => {
         <div>
           <Grid
             // container
-            spacing={2}
-            justify="center"
-            alignItems="center"
+            // spacing={2}
+            // justify="center"
+            // alignItems="center"
           >
             <Grid
-              // item
+              item
               // xs={auto}
               // sm={12}
               zeroMinWidth
             >
+              <SocketCheck />
               <Capture />
               <Dashboard />
+
             </Grid>
           </Grid>
         </div>
@@ -117,7 +120,7 @@ const DrivingSessions = () => {
         <div>
           <Capture />
           <Dashboard />
-          {/* <Footer /> */}
+          <SocketCheck />
         </div>
       )
     }

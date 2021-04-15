@@ -28,9 +28,7 @@ const UrlForm = ({ }) => {
     dispatch(setBaseUrl(urls.baseUrl))
     dispatch(setJitsiUrl(urls.jitsiUrl))
 
-    let socketUrl = urls.baseUrl += ':6475'
 
-    dispatch(setSocket(socketUrl))
   }
 
   const handleValue = (e) => {

@@ -22,7 +22,7 @@ const socketReducer = (state = [], action) => {
     } else {
       socket = new MockedSocket()
     }
-    console.log(socket)
+
     return async dispatch => {
       dispatch({
         type: 'SET_SOCKET',
