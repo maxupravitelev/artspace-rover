@@ -5,13 +5,13 @@ import { TextField, Button, Typography, Grid } from '@material-ui/core'
 
 // init redux and import reducers
 import { useDispatch, useSelector } from 'react-redux'
-import { setUrls } from '../reducers/urlsReducer'
+import { setJitsiUrl, setBaseUrl } from '../reducers/urlsReducer'
 import { setSocket } from '../reducers/socketReducer'
 
 
 
 const UrlForm = ({ }) => {
-  const [urls, setUrlsInComponent] = useState({
+  const [urls, setUrls] = useState({
     jitsiUrl: '',
     baseUrl: '',
   })
@@ -25,7 +25,8 @@ const UrlForm = ({ }) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    dispatch(setUrls(urls))
+    dispatch(setBaseUrl(urls.baseUrl))
+    dispatch(setJitsiUrl(urls.jitsiUrl))
 
     let socketUrl = urls.baseUrl += ':6475'
 
@@ -36,7 +37,7 @@ const UrlForm = ({ }) => {
     let name = e.target.name
     let newValue = e.target.value
 
-    setUrlsInComponent({
+    setUrls({
       ...urls,
       [name]: newValue,
     })
