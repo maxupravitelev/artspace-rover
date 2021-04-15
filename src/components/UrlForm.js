@@ -58,19 +58,16 @@ const UrlForm = ({ }) => {
           item
           xs
         >
-          <Typography style={{textAlign: "left"}} variant="body1">currently set </Typography>
+          <Typography style={{ textAlign: "left" }} variant="body1">currently set </Typography>
           <br />
-          <Typography style={{textAlign: "left"}} variant="body1">jitsiUrl: {user.rovers[0].jitsiUrl}</Typography>
-          <Typography style={{textAlign: "left"}} variant="body1">roverUrl: {user.rovers[0].roverUrl}</Typography>
+          <Typography style={{ textAlign: "left" }} variant="body1">jitsiUrl: {user.rovers[0].jitsiUrl}</Typography>
+          <Typography style={{ textAlign: "left" }} variant="body1">roverUrl: {user.rovers[0].roverUrl}</Typography>
         </Grid>
         <Grid
           item
           xs
         >
-          <Typography
-          >
-            Save necessary urls to connect with your rover
-      </Typography>
+
           <form onSubmit={handleSubmit}>
             <TextField
               type="text"
@@ -79,6 +76,9 @@ const UrlForm = ({ }) => {
               value={urls.jitsiUrl}
               onChange={handleValue}
             />
+            <Button type="submit" variant="outlined">
+              set
+        </Button>
             <Typography variant="body2">
               Please enter the URL of your Jitsi Session
         </Typography>
@@ -93,15 +93,17 @@ const UrlForm = ({ }) => {
               Please enter the URL of your raspberry
         </Typography>
             <Button type="submit" variant="outlined">
-              Submit
+              set
         </Button>
           </form>
-          <p />
-          <Typography variant="body2">
-            Enter "demo" for starting demo mode
-      </Typography>
+
         </Grid>
       </Grid>
+      <br />
+      <Typography
+      >
+        Save necessary urls to connect with your rover
+      </Typography>
     </div>
   )
 }

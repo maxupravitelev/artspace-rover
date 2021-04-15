@@ -1,3 +1,5 @@
+import { saveUrlToCache } from '../utils'
+
 const initState = {
   jitsiUrl: "",
   baseUrl: ""
@@ -29,6 +31,9 @@ export const setUrls = (urls) => {
 }
 
 export const setJitsiUrl = (jitsiUrl) => {
+  
+  saveUrlToCache("jitsiUrl", jitsiUrl)
+  
   return async dispatch => {
     dispatch({
       type: 'SET_JITSI_URL',
@@ -38,6 +43,9 @@ export const setJitsiUrl = (jitsiUrl) => {
 }
 
 export const setBaseUrl = (baseUrl) => {
+
+  saveUrlToCache("roverUrl", baseUrl)
+
   return async dispatch => {
     dispatch({
       type: 'SET_BASE_URL',
@@ -45,5 +53,7 @@ export const setBaseUrl = (baseUrl) => {
     })
   }
 }
+
+
 
 export default urlsReducer
