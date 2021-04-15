@@ -55,7 +55,7 @@ export const setUser = (user) => {
 }
 
 export const updateUser = (user) => {
-  console.log(user)
+
   return async dispatch => {
     dispatch({
       type: 'UPDATE',

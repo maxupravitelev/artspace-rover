@@ -9,6 +9,7 @@ import { setJitsiUrl, setBaseUrl } from '../reducers/urlsReducer'
 
 import { updateUser } from '../reducers/userReducer'
 
+import urlsService from '../services/urls'
 
 
 const UrlForm = ({ }) => {
@@ -29,6 +30,7 @@ const UrlForm = ({ }) => {
     setJitsiUrlInComp('')
     user.rovers[0].jitsiUrl = jitsiUrl
     dispatch(updateUser(user))
+    urlsService.updateJitsiUrl(jitsiUrl, user.rovers[0]._id)
 
    }
    if (baseUrl != '') {
@@ -36,6 +38,8 @@ const UrlForm = ({ }) => {
     setBaseUrlInComp('')
     user.rovers[0].roverUrl = baseUrl
     dispatch(updateUser(user))
+    urlsService.updateBaseUrl(baseUrl, user.rovers[0]._id)
+
  
   }
   
