@@ -15,6 +15,9 @@ import UrlForm from '../../components/UrlForm'
 
 import pagesTexts from '../../text/pages'
 
+import urlsService from '../../services/urls'
+
+
 const BackendLogin = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
@@ -37,7 +40,7 @@ const BackendLogin = () => {
     if (loggedUserJSON) {
       const userLocal = JSON.parse(loggedUserJSON)
       dispatch(setUser(userLocal))
-      // blogService.setToken(userLocal.token)
+      urlsService.setToken(userLocal.token)
     }
   }, [dispatch])
 

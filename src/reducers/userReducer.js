@@ -1,5 +1,5 @@
 import loginService from '../services/login'
-
+import urlService from '../services/urls'
 
 const userReducer = (state = 'init', action) => {
   // console.log(state)
@@ -37,7 +37,7 @@ export const loginUser = (credentials) => {
     window.localStorage.setItem(
       'loggedRoverAppUser', JSON.stringify(user)
     )
-    // blogService.setToken(user.token)
+    urlService.setToken(user.token)
     dispatch({
       type: 'LOGIN',
       data: user
@@ -46,6 +46,8 @@ export const loginUser = (credentials) => {
 }
 
 export const setUser = (user) => {
+  urlService.setToken(user.token)
+
   return async dispatch => {
     dispatch({
       type: 'SET_FROM_LOCAL',
