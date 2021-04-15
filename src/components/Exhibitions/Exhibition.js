@@ -33,10 +33,12 @@ const Exhibition = () => {
   let socket = useSelector((state) => state.socket)
   let jitsiUrl = useSelector((state) => state.urls.jitsiUrl)
 
+  let sessionState = useSelector((state) => state.session)
+
   // determine screen size
   const checkScreenWidth = useMediaQuery('(max-width:600px)')
 
-  if (!jitsiUrl) {
+  if (sessionState != "session started") {
     return (
       <div>
         <Infobox infotext={pagesTexts.exhibition}/>

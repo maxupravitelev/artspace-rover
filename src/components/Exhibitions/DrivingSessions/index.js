@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Typography, Button, TextField } from '@material-ui/core'
 import StatusLight from './StatusLight'
 
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
 // import components
 import Capture from '../../Cam/Capture'
@@ -22,6 +22,8 @@ import { makeStyles } from '@material-ui/styles'
 
 import componentsTexts from '../../../text/components'
 
+import { setSessionState } from '../../../reducers/sessionReducer'
+
 const useStyles = makeStyles({
   container: {
     display: 'table-cell',
@@ -30,20 +32,23 @@ const useStyles = makeStyles({
 })
 
 const DrivingSessions = () => {
-  const [sessionState, setSessionState] = useState('not available')
-
   const [passphrase, setPassphrase] = useState("")
 
   const classes = useStyles()
+
+  const dispatch = useDispatch()
+
 
   let baseUrl = useSelector((state) => state.baseUrl)
   let jitsiUrl = useSelector((state) => state.urls.jitsiUrl)
   let socket = useSelector((state) => state.socket)
 
+  const sessionState = useSelector(state => state.session)
+
   const checkIfInstantSessionPossible = () => {
     baseUrl = true
     if (baseUrl && (socket != [])) {
-      setSessionState('available')
+      dispatch(setSessionState('session started'))
     }
   }
 
@@ -51,7 +56,7 @@ const DrivingSessions = () => {
     baseUrl = true
     jitsiUrl = true
     if (baseUrl && (socket != [])) {
-      setSessionState('available')
+      dispatch(setSessionState('session started'))
     }
   }
 
@@ -64,7 +69,7 @@ const DrivingSessions = () => {
   // determine screen size
   const checkScreenWidth = useMediaQuery('(max-width:600px)')
 
-  if (sessionState != 'available') {
+  if (sessionState != 'session started') {
     return (
       <div className="app">
         <Typography
