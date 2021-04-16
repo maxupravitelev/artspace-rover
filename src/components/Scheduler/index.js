@@ -21,22 +21,16 @@ const Scheduler = () => {
   if (!timeslots[0]) {
     return (
       <div className="app">
-        <Typography variant="h5" component="h2">
-          [ schedule visit ]
-        </Typography>
         <Button 
           onClick={handleGettingTimeslots}
           variant="outlined"
           >
-            get slots</Button>
+            schedule visit</Button>
       </div>
     ) 
   } else {
     return (
       <div className="app">
-        <Typography variant="h5" component="h2">
-          [ schedule visit ]
-        </Typography>
         {timeslots.map(timeslot => (
           <Timeslot key={timeslot._id} timeslot={timeslot}/>
         ))}

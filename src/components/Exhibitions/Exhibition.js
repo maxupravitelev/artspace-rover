@@ -2,8 +2,6 @@ import React from 'react'
 
 import { Typography } from '@material-ui/core'
 
-
-
 // init redux and import reducers
 import { useSelector } from 'react-redux'
 
@@ -16,7 +14,6 @@ import SocketCheck from './DrivingSessions/SocketCheck'
 
 import DrivingSessions from './DrivingSessions/'
 
-
 // import material ui components
 import Grid from '@material-ui/core/Grid'
 
@@ -25,7 +22,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery'
 
 // import texts
 import pagesTexts from '../../text/pages'
-import exhibitionsTexts from '../../text/exhibitions'
+
 
 // return header component
 const Exhibition = () => {
@@ -35,6 +32,10 @@ const Exhibition = () => {
   let jitsiUrl = useSelector((state) => state.urls.jitsiUrl)
 
   let sessionState = useSelector((state) => state.session)
+
+  const exhibitions = useSelector((state) => state.exhibitions)
+
+  if (!exhibitions) return <div>loading...</div>
 
   // determine screen size
   const checkScreenWidth = useMediaQuery('(max-width:600px)')
@@ -55,7 +56,6 @@ const Exhibition = () => {
             item
             xs
           >
-            <Scheduler />
             <DrivingSessions />
             
             
@@ -65,7 +65,7 @@ const Exhibition = () => {
             // xs={12} 
             // sm={6}
           > 
-            <Infobox infotext={exhibitionsTexts[0].description} />
+            <Infobox infotext={exhibitions[0].description} />
           </Grid>
           </Grid>
           <Grid>

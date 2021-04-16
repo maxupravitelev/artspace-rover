@@ -10,6 +10,8 @@ import Dashboard from '../../Dashboard'
 
 import InstantSession from './InstantSession'
 
+import Scheduler from '../../Scheduler'
+
 // use media query to determine screen size
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 
@@ -33,6 +35,7 @@ const ScheduledSession = ({ checkIfScheduledSessionPossible, handleInputValue, p
               />
               <Typography variant="body1">please enter your passphrase</Typography>
 
+
               <div>
                 <Button
                   // type="submit"
@@ -42,6 +45,9 @@ const ScheduledSession = ({ checkIfScheduledSessionPossible, handleInputValue, p
                   start
             </Button>
               </div>
+              <br />
+              <Typography variant="body1">not scheduled yet?</Typography>
+              <Scheduler />
               </div>
            
       )

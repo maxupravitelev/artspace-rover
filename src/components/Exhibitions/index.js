@@ -9,14 +9,11 @@ import Grid from '@material-ui/core/Grid'
 
 import { Link } from 'react-router-dom'
 
-import Exhibition from './Exhibition'
 
 import Infobox from '../Infobox'
 
 import { makeStyles } from "@material-ui/styles";
 
-import exhibitionsTexts from '../../text/exhibitions'
-import userReducer from '../../reducers/userReducer'
 
 const useStyles = makeStyles({
 
@@ -41,14 +38,14 @@ const Exhibitions = () => {
       <Infobox infotext={infotext}/>
       {exhibitions.map((exhibition) => (
                 <Grid className={classes.container}
-                  key={exhibition.id}
+                  key={exhibition._id}
                   container
                   direction="column"
                   justify="center"
                   alignItems="center"
                   display="table-cell"
                   >
-                  <Link to={`/exhibitions/${exhibition.id}`}>
+                  <Link to={`/exhibitions/${exhibition._id}`}>
                   <img src={exhibition.bannerImage} alt="exhibition banner image" width="300"/>
                     </Link>
                     <div>{exhibition.artspace}</div>
