@@ -46,6 +46,7 @@ const BackendLogin = () => {
       dispatch(setBaseUrl(userLocal.rovers[0].roverUrl))
       
       urlsService.setToken(userLocal.token)
+      // timeslotService.setToken(userLocal.token)
 
     }
   }, [dispatch])

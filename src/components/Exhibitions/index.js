@@ -1,5 +1,7 @@
 import React from 'react'
 
+// init redux and import reducers
+import { useSelector } from 'react-redux'
 
 
 // import material ui components
@@ -14,6 +16,7 @@ import Infobox from '../Infobox'
 import { makeStyles } from "@material-ui/styles";
 
 import exhibitionsTexts from '../../text/exhibitions'
+import userReducer from '../../reducers/userReducer'
 
 const useStyles = makeStyles({
 
@@ -23,18 +26,20 @@ const useStyles = makeStyles({
   }
 })
 
-// return header component
 const Exhibitions = () => {
 
   const classes = useStyles()
 
-  const infotext = "Please select an exhibition you want to view."
+  const exhibitions = useSelector((state) => state.exhibitions)
 
+  if (!exhibitions) return <div>loading...</div>
+
+  const infotext = "Please select an exhibition you want to view."
 
   return (
     <div className="app">
       <Infobox infotext={infotext}/>
-      {exhibitionsTexts.map((exhibition) => (
+      {exhibitions.map((exhibition) => (
                 <Grid className={classes.container}
                   key={exhibition.id}
                   container
@@ -44,7 +49,7 @@ const Exhibitions = () => {
                   display="table-cell"
                   >
                   <Link to={`/exhibitions/${exhibition.id}`}>
-                  <img src={exhibition.urls.bannerImage} alt="exhibition banner image" width="300"/>
+                  <img src={exhibition.bannerImage} alt="exhibition banner image" width="300"/>
                     </Link>
                     <div>{exhibition.artspace}</div>
                 </Grid>              
@@ -55,33 +60,3 @@ const Exhibitions = () => {
 }
 
 export default Exhibitions
-
-
-/**
- * 
- 
-
-            {exhibitions.map((exhibition) => (
-                <Grid key={exhibition.id}>
-                  <Link to={`/exhibitions/${exhibition.id}`}>
-                  <img src={exhibition.urls.bannerImage} alt="exhibition banner image" width="300"/>
-                    </Link>
-                    <div>{exhibition.artspace}</div>
-                </Grid>              
-            ))
-            }
-            
-            </TableRow>
-            <TableRow>
-            {exhibitions.map((exhibition) => (
-                <TableCell key={"artspace" + exhibition.id}>
-                  {exhibition.artspace}
-                </TableCell>              
-            ))
-            }
-            </TableRow>
-          </TableBody>
-        </Table>
-      </TableContainer>
-
- */

@@ -5,7 +5,7 @@ import { Jutsu } from 'react-jutsu'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 // init redux and import reducers
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 import Header from './components/Header'
 
@@ -51,7 +51,6 @@ const App = () => {
     if (loggedUserJSON) {
       const userLocal = JSON.parse(loggedUserJSON)
       dispatch(setUser(userLocal))
-      // timeslotService.setToken(userLocal.token)
       dispatch(getAllExhibitions())
     }
   }, [dispatch])
@@ -90,14 +89,8 @@ const App = () => {
                 <Route path="/">
                   <Exhibitions />
                 </Route>
-
-                {/* <Route path="/users">
-                  <Userlist />
-                </Route> */}
               </Switch>
             </div>
-          
-
           <Footer />
         </div>
       </Router>

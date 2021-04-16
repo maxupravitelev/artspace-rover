@@ -13,7 +13,10 @@ const SocketCheck = () => {
 
   console.log("test")
 
-  let baseUrl = useSelector((state) => state.urls.baseUrl)
+  let exhibitions = useSelector((state) => state.exhibitions)
+
+  // let baseUrl = useSelector((state) => state.urls.baseUrl)
+  let baseUrl = exhibitions[0].rovers[0].roverUrl
   
   // let socketUrl = baseUrl += ':6475'
   let socketUrl = baseUrl 
