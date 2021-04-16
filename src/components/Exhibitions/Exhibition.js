@@ -26,10 +26,6 @@ import pagesTexts from '../../text/pages'
 
 // return header component
 const Exhibition = () => {
-  
-  // fetch urls from store to check if setting up url is necessary
-  let socket = useSelector((state) => state.socket)
-  let jitsiUrl = useSelector((state) => state.urls.jitsiUrl)
 
   let sessionState = useSelector((state) => state.session)
 
@@ -43,7 +39,7 @@ const Exhibition = () => {
   if (sessionState != "session started") {
     return (
       <div>
-        <Infobox infotext={pagesTexts.exhibition}/>
+        <Infobox infotext={pagesTexts.exhibition} />
         <Grid
           container
           // direction="row"
@@ -51,22 +47,19 @@ const Exhibition = () => {
           // spacing={0}
           justify="space-between"
         >
-
           <Grid
             item
             xs
           >
             <DrivingSessions />
-            
-            
-            <Grid 
-            item 
+            <Grid
+              item
             // xs
             // xs={12} 
             // sm={6}
-          > 
-            <Infobox infotext={exhibitions[0].description} />
-          </Grid>
+            >
+              <Infobox infotext={exhibitions[0].description} />
+            </Grid>
           </Grid>
           <Grid>
           </Grid>
@@ -79,14 +72,14 @@ const Exhibition = () => {
     if (!checkScreenWidth) {
       return (
         <div>
-          <Grid 
-            // container 
-            // spacing={2} 
-            // justify="center" 
-            // alignItems="center"
+          <Grid
+          // container 
+          // spacing={2} 
+          // justify="center" 
+          // alignItems="center"
           >
-            <Grid 
-              item 
+            <Grid
+              item
               // xs={auto} 
               // sm={12} 
               zeroMinWidth

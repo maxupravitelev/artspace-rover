@@ -18,7 +18,6 @@ import useMediaQuery from '@material-ui/core/useMediaQuery'
 
 // import material ui components
 import Grid from '@material-ui/core/Grid'
-import { makeStyles } from '@material-ui/styles'
 
 import componentsTexts from '../../../text/components'
 
