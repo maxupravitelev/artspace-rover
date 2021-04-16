@@ -24,17 +24,10 @@ import componentsTexts from '../../../text/components'
 
 import { setSessionState } from '../../../reducers/sessionReducer'
 
-const useStyles = makeStyles({
-  container: {
-    display: 'table-cell',
-    textAlign: 'initial',
-  },
-})
 
 const DrivingSessions = () => {
   const [passphrase, setPassphrase] = useState("")
 
-  const classes = useStyles()
 
   const dispatch = useDispatch()
 
@@ -42,8 +35,6 @@ const DrivingSessions = () => {
   let baseUrl = useSelector((state) => state.baseUrl)
   let jitsiUrl = useSelector((state) => state.urls.jitsiUrl)
   let socket = useSelector((state) => state.socket)
-
-  const sessionState = useSelector(state => state.session)
 
   const checkIfInstantSessionPossible = () => {
     baseUrl = true
@@ -69,7 +60,6 @@ const DrivingSessions = () => {
   // determine screen size
   const checkScreenWidth = useMediaQuery('(max-width:600px)')
 
-  if (sessionState != 'session started') {
     return (
       <div className="app">
         <Typography
@@ -95,41 +85,6 @@ const DrivingSessions = () => {
         <Timer />
       </div>
     )
-  } else {
-    // render main app based on screen size
-    if (!checkScreenWidth) {
-      return (
-        <div>
-          <Grid
-          // container
-          // spacing={2}
-          // justify="center"
-          // alignItems="center"
-          >
-            <Grid
-              item
-              // xs={auto}
-              // sm={12}
-              zeroMinWidth
-            >
-              <SocketCheck />
-              <Capture />
-              <Dashboard />
-
-            </Grid>
-          </Grid>
-        </div>
-      )
-    } else {
-      return (
-        <div>
-          <SocketCheck />
-          <Capture />
-          <Dashboard />
-        </div>
-      )
-    }
-  }
 }
 
 export default DrivingSessions

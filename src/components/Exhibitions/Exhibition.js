@@ -69,7 +69,6 @@ const Exhibition = () => {
           </Grid>
           </Grid>
           <Grid>
-            
           </Grid>
         </Grid>
       </div>

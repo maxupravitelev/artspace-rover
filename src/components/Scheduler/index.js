@@ -20,7 +20,9 @@ const Scheduler = () => {
 
   if (!timeslots[0]) {
     return (
-      <div className="app">
+      <div 
+        // className="app"
+      >
         <Button 
           onClick={handleGettingTimeslots}
           variant="outlined"
