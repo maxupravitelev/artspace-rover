@@ -11,6 +11,7 @@ import userReducer from './reducers/userReducer'
 import usersReducer from './reducers/usersReducer'
 import notificationReducer from './reducers/notificationReducer'
 import sessionReducer from './reducers/sessionReducer'
+import exhibitionsReducer from './reducers/exhibitionsReducer'
 
 const reducer = combineReducers({
   socket: socketReducer,
@@ -20,7 +21,8 @@ const reducer = combineReducers({
   users: usersReducer,
   user: userReducer,
   notification: notificationReducer,
-  session: sessionReducer
+  session: sessionReducer,
+  exhibitions: exhibitionsReducer
 })
 
 const store = createStore(

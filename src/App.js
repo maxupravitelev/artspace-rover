@@ -24,6 +24,9 @@ import Typography from "@material-ui/core/Typography";
 
 import { setUser } from './reducers/userReducer'
 
+import { getAllExhibitions } from './reducers/exhibitionsReducer'
+
+
 const WhiteTextTypography = withStyles({
   root: {
     color: "#FBFBFF"
@@ -49,6 +52,7 @@ const App = () => {
       const userLocal = JSON.parse(loggedUserJSON)
       dispatch(setUser(userLocal))
       // timeslotService.setToken(userLocal.token)
+      dispatch(getAllExhibitions())
     }
   }, [dispatch])
 

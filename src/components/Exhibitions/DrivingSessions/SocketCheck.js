@@ -11,9 +11,12 @@ const SocketCheck = () => {
 
   const dispatch = useDispatch()
 
+  console.log("test")
+
   let baseUrl = useSelector((state) => state.urls.baseUrl)
   
-  let socketUrl = baseUrl += ':6475'
+  // let socketUrl = baseUrl += ':6475'
+  let socketUrl = baseUrl 
 
   useEffect(() => {
     

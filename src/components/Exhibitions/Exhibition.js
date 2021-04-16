@@ -12,6 +12,7 @@ import Capture from '../../components/Cam/Capture'
 import Dashboard from '../Dashboard'
 import Scheduler from '../../components/Scheduler'
 import Infobox from '../../components/Infobox'
+import SocketCheck from './DrivingSessions/SocketCheck'
 
 import DrivingSessions from './DrivingSessions/'
 
@@ -91,6 +92,7 @@ const Exhibition = () => {
               // sm={12} 
               zeroMinWidth
             >
+              <SocketCheck />
               <Capture />
               <Dashboard />
             </Grid>
@@ -100,9 +102,9 @@ const Exhibition = () => {
     } else {
       return (
         <div>
+          <SocketCheck />
           <Capture />
           <Dashboard />
-          {/* <Footer /> */}
         </div>
       )
     }
