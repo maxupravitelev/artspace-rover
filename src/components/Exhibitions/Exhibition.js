@@ -84,7 +84,7 @@ const Exhibition = () => {
               // sm={12} 
               zeroMinWidth
             >
-              <SocketCheck />
+              {/* <SocketCheck /> */}
               <Capture />
               <Dashboard />
             </Grid>
@@ -94,7 +94,7 @@ const Exhibition = () => {
     } else {
       return (
         <div>
-          <SocketCheck />
+          {/* <SocketCheck /> */}
           <Capture />
           <Dashboard />
         </div>

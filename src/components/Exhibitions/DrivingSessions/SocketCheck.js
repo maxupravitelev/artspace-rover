@@ -11,27 +11,33 @@ const SocketCheck = () => {
 
   const dispatch = useDispatch()
 
-  console.log("test")
-
   let exhibitions = useSelector((state) => state.exhibitions)
 
   // let baseUrl = useSelector((state) => state.urls.baseUrl)
   let baseUrl = exhibitions[0].rovers[0].roverUrl
   
   // let socketUrl = baseUrl += ':6475'
-  let socketUrl = baseUrl 
+  let socketUrl = baseUrl
 
-  useEffect(() => {
+  // useEffect(() => {
     
-    dispatch(setSocket(socketUrl))
+  //   dispatch(setSocket(socketUrl))
   
-  }, [dispatch])
+  // }, [dispatch])
 
   let socket = useSelector((state) => state.socket)
 
-  console.log(socket)
+  console.log(socket.length)
 
-  if (socket == []) return <div></div>
+
+
+
+  if (socket.length == 0) {
+    console.log("socket init")
+    dispatch(setSocket(socketUrl))
+    return <div></div>
+  }
+
 
   if (!socket.connected) return <div>socket to rover is not connected, please contact admin</div>
   else {

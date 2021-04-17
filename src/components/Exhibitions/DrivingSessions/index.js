@@ -23,6 +23,7 @@ import componentsTexts from '../../../text/components'
 
 import { setSessionState } from '../../../reducers/sessionReducer'
 
+import { setSocket } from '../../../reducers/socketReducer'
 
 const DrivingSessions = () => {
   const [passphrase, setPassphrase] = useState("")
@@ -30,22 +31,24 @@ const DrivingSessions = () => {
 
   const dispatch = useDispatch()
 
+  let exhibitions = useSelector((state) => state.exhibitions)
 
-  let baseUrl = useSelector((state) => state.baseUrl)
+  // let baseUrl = useSelector((state) => state.baseUrl)
+  let baseUrl = exhibitions[0].rovers[0].roverUrl
   let jitsiUrl = useSelector((state) => state.urls.jitsiUrl)
   let socket = useSelector((state) => state.socket)
 
   const checkIfInstantSessionPossible = () => {
-    baseUrl = true
-    if (baseUrl && (socket != [])) {
+    // if (baseUrl && (socket.length != 0)) {
       dispatch(setSessionState('session started'))
-    }
+      dispatch(setSocket(baseUrl))
+    // }
   }
 
   const checkIfScheduledSessionPossible = () => {
     baseUrl = true
     jitsiUrl = true
-    if (baseUrl && (socket != [])) {
+    if (baseUrl && (socket.length != 0)) {
       dispatch(setSessionState('session started'))
     }
   }
