@@ -5,11 +5,11 @@ import { TextField, Button, Typography, Grid } from '@material-ui/core'
 
 // init redux and import reducers
 import { useDispatch, useSelector } from 'react-redux'
-import { setJitsiUrl, setBaseUrl } from '../reducers/urlsReducer'
+import { setJitsiUrl, setBaseUrl } from '../../../reducers/urlsReducer'
 
-import { updateUser } from '../reducers/userReducer'
+import { updateUser } from '../../../reducers/userReducer'
 
-import urlsService from '../services/urls'
+import urlsService from '../../../services/urls'
 
 
 const UrlForm = ({ }) => {

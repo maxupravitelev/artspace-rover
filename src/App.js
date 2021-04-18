@@ -10,7 +10,7 @@ import { useDispatch } from 'react-redux'
 import Header from './components/Header'
 
 import Footer from './components/Footer/'
-import BackendLogin from './components/Footer/BackendLogin'
+import Backend from './components/Backend/'
 import DataProtection from './components/Footer/DataProtection'
 import Imprint from './components/Footer/Imprint'
 import About from './components/Footer/About'
@@ -71,8 +71,8 @@ const App = () => {
                 <Route path="/exhibitions/:id">
                   <Exhibition />
                 </Route>
-                <Route path="/backendLogin">
-                  <BackendLogin />
+                <Route path="/backend">
+                  <Backend />
                 </Route>
                 <Route path="/imprint">
                   <Imprint />

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import { TextField, Button, Typography } from '@material-ui/core'
 
 import { useDispatch, useSelector } from 'react-redux'
@@ -12,15 +12,14 @@ import { loginUser, logoutUser, setUser } from '../../reducers/userReducer'
 
 import Togglable from '../../components/Togglable'
 import Notification from '../../components/Notification'
-import Infobox from '../../components/Infobox'
-import UrlForm from '../../components/UrlForm'
+import Settings from '../../components/Backend/Settings'
 
 import pagesTexts from '../../text/pages'
 
 import urlsService from '../../services/urls'
 
 
-const BackendLogin = () => {
+const Backend = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
@@ -128,11 +127,7 @@ const BackendLogin = () => {
           variant="outlined"
           >
           logout</Button>
-          <Infobox 
-            infotext={pagesTexts.backendLogin.explainBlueAreas}
-            backgroundColor="#01BAEF"
-            />
-            <UrlForm />
+            <Settings />
           </div>
 
 
@@ -149,4 +144,4 @@ const BackendLogin = () => {
 //   password: PropTypes.string.isRequired,
 // }
 
-export default BackendLogin
+export default Backend

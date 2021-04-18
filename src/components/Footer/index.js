@@ -12,7 +12,7 @@ const Footer = () => {
         
         <Link to='/imprint'>imprint </Link>
         <Link to='/dataprotection'>data protection </Link>
-        <Link to='/backendLogin'>| backend</Link>
+        <Link to='/backend'>| backend</Link>
   
       </Typography>
     </div>
