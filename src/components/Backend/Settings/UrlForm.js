@@ -5,7 +5,7 @@ import { TextField, Button, Typography, Grid } from '@material-ui/core'
 
 // init redux and import reducers
 import { useDispatch, useSelector } from 'react-redux'
-import { setJitsiUrl, setBaseUrl } from '../../../reducers/urlsReducer'
+import { setJitsiUrl, setRoverUrl } from '../../../reducers/urlsReducer'
 
 import { updateUser } from '../../../reducers/userReducer'
 
@@ -13,8 +13,9 @@ import urlsService from '../../../services/urls'
 
 
 const UrlForm = ({ }) => {
+  const [roverUrl, setRoverUrlInComp] = useState('')
   const [jitsiUrl, setJitsiUrlInComp] = useState('')
-  const [baseUrl, setBaseUrlInComp] = useState('')
+  const [mjpgUrl, setMjpgUrlInComp] = useState('')
 
   let user = useSelector((state) => state.user)
 
@@ -22,31 +23,27 @@ const UrlForm = ({ }) => {
 
   const dispatch = useDispatch()
 
-  const handleSubmit = async (e) => {
+  const handleSubmitRoverUrl = async (e) => {
     e.preventDefault()
 
-    if (jitsiUrl != '') {
+    dispatch(setRoverUrl(roverUrl))
+    setRoverUrlInComp('')
+    user.rovers[0].roverUrl = roverUrl
+    dispatch(updateUser(user))
+    urlsService.updateRoverUrl(roverUrl, user.rovers[0]._id)
+
+  }
+
+  const handleSubmitJitsiUrl = async (e) => {
+    e.preventDefault()
+
     dispatch(setJitsiUrl(jitsiUrl))
     setJitsiUrlInComp('')
     user.rovers[0].jitsiUrl = jitsiUrl
     dispatch(updateUser(user))
     urlsService.updateJitsiUrl(jitsiUrl, user.rovers[0]._id)
 
-   }
-   if (baseUrl != '') {
-    dispatch(setBaseUrl(baseUrl))
-    setBaseUrlInComp('')
-    user.rovers[0].roverUrl = baseUrl
-    dispatch(updateUser(user))
-    urlsService.updateBaseUrl(baseUrl, user.rovers[0]._id)
-
- 
   }
-  
-
-  }
-
-
 
   return (
     <div className="urlForm">
@@ -74,8 +71,22 @@ const UrlForm = ({ }) => {
           item
           xs
         >
-
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmitRoverUrl}>
+            <TextField
+              type="text"
+              name="roverUrl"
+              className="input"
+              value={roverUrl}
+              onChange={({ target }) => setRoverUrlInComp(target.value)}
+            />
+            <Typography variant="body2">
+              Please enter the URL of your raspberry
+        </Typography>
+            <Button type="submit" variant="outlined">
+              set
+        </Button>
+          </form>
+          <form onSubmit={handleSubmitJitsiUrl}>
             <TextField
               type="text"
               name="jitsiUrl"
@@ -89,20 +100,8 @@ const UrlForm = ({ }) => {
             <Typography variant="body2">
               Please enter the URL of your Jitsi Session
         </Typography>
-            <TextField
-              type="text"
-              name="baseUrl"
-              className="input"
-              value={baseUrl}
-              onChange={({ target }) => setBaseUrlInComp(target.value)}
-            />
-            <Typography variant="body2">
-              Please enter the URL of your raspberry
-        </Typography>
-            <Button type="submit" variant="outlined">
-              set
-        </Button>
           </form>
+          
 
         </Grid>
       </Grid>

@@ -5,7 +5,7 @@ import { TextField, Button, Typography } from '@material-ui/core'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { getAllUsers } from '../../reducers/usersReducer'
-import { setBaseUrl, setJitsiUrl } from '../../reducers/urlsReducer'
+import { setRoverUrl, setJitsiUrl } from '../../reducers/urlsReducer'
 
 import { setNotification } from '../../reducers/notificationReducer'
 import { loginUser, logoutUser, setUser } from '../../reducers/userReducer'
@@ -42,7 +42,7 @@ const Backend = () => {
       const userLocal = JSON.parse(loggedUserJSON)
       dispatch(setUser(userLocal))
       dispatch(setJitsiUrl(userLocal.rovers[0].jitsiUrl))
-      dispatch(setBaseUrl(userLocal.rovers[0].roverUrl))
+      dispatch(setRoverUrl(userLocal.rovers[0].roverUrl))
       
       urlsService.setToken(userLocal.token)
       // timeslotService.setToken(userLocal.token)

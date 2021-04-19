@@ -33,22 +33,22 @@ const DrivingSessions = () => {
 
   let exhibitions = useSelector((state) => state.exhibitions)
 
-  // let baseUrl = useSelector((state) => state.baseUrl)
-  let baseUrl = exhibitions[0].rovers[0].roverUrl
+  // let roverUrl = useSelector((state) => state.roverUrl)
+  let roverUrl = exhibitions[0].rovers[0].roverUrl
   let jitsiUrl = useSelector((state) => state.urls.jitsiUrl)
   let socket = useSelector((state) => state.socket)
 
   const checkIfInstantSessionPossible = () => {
-    // if (baseUrl && (socket.length != 0)) {
+    // if (roverUrl && (socket.length != 0)) {
       dispatch(setSessionState('session started'))
-      dispatch(setSocket(baseUrl))
+      dispatch(setSocket(roverUrl))
     // }
   }
 
   const checkIfScheduledSessionPossible = () => {
-    baseUrl = true
+    roverUrl = true
     jitsiUrl = true
-    if (baseUrl && (socket.length != 0)) {
+    if (roverUrl && (socket.length != 0)) {
       dispatch(setSessionState('session started'))
     }
   }

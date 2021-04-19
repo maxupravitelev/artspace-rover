@@ -13,11 +13,11 @@ const SocketCheck = () => {
 
   let exhibitions = useSelector((state) => state.exhibitions)
 
-  // let baseUrl = useSelector((state) => state.urls.baseUrl)
-  let baseUrl = exhibitions[0].rovers[0].roverUrl
+  // let roverUrl = useSelector((state) => state.urls.roverUrl)
+  let roverUrl = exhibitions[0].rovers[0].roverUrl
   
-  // let socketUrl = baseUrl += ':6475'
-  let socketUrl = baseUrl
+  // let socketUrl = roverUrl += ':6475'
+  let socketUrl = roverUrl
 
   // useEffect(() => {
     

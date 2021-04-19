@@ -3,7 +3,7 @@ import urlsService from '../services/urls'
 
 const initState = {
   jitsiUrl: "",
-  baseUrl: ""
+  roverUrl: ""
 }
 
 const urlsReducer = (state = {}, action) => {
@@ -16,7 +16,7 @@ const urlsReducer = (state = {}, action) => {
     case 'SET_JITSI_URL':
       return {...state, jitsiUrl: action.data}
     case 'SET_BASE_URL':
-      return {...state, baseUrl: action.data}
+      return {...state, roverUrl: action.data}
     default:
       return state
   }
@@ -43,14 +43,14 @@ export const setJitsiUrl = (jitsiUrl) => {
   }
 }
 
-export const setBaseUrl = (baseUrl) => {
+export const setRoverUrl = (roverUrl) => {
 
-  saveUrlToCache("roverUrl", baseUrl)
+  saveUrlToCache("roverUrl", roverUrl)
 
   return async dispatch => {
     dispatch({
       type: 'SET_BASE_URL',
-      data: baseUrl
+      data: roverUrl
     })
   }
 }
