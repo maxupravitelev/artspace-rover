@@ -1,6 +1,5 @@
 // import react modules
 import React, { useState, useEffect } from 'react'
-import { Jutsu } from 'react-jutsu'
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 

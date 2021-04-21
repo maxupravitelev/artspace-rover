@@ -1,5 +1,6 @@
 import loginService from '../services/login'
 import urlService from '../services/urls'
+import timeslotsService from '../services/timeslots'
 
 const userReducer = (state = 'init', action) => {
   // console.log(state)
@@ -36,6 +37,8 @@ export const loginUser = (credentials) => {
       'loggedRoverAppUser', JSON.stringify(user)
     )
     urlService.setToken(user.token)
+    timeslotsService.setToken(user.token)
+
     dispatch({
       type: 'LOGIN',
       data: user
@@ -45,6 +48,8 @@ export const loginUser = (credentials) => {
 
 export const setUser = (user) => {
   urlService.setToken(user.token)
+  timeslotsService.setToken(user.token)
+
 
   return async dispatch => {
     dispatch({

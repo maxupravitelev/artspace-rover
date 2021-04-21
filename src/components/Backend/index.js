@@ -17,6 +17,7 @@ import Settings from '../../components/Backend/Settings'
 import pagesTexts from '../../text/pages'
 
 import urlsService from '../../services/urls'
+import timeslotsService from '../../services/timeslots'
 
 
 const Backend = () => {
@@ -45,7 +46,7 @@ const Backend = () => {
       dispatch(setRoverUrl(userLocal.rovers[0].roverUrl))
       
       urlsService.setToken(userLocal.token)
-      // timeslotService.setToken(userLocal.token)
+      timeslotsService.setToken(userLocal.token)
 
     }
   }, [dispatch])

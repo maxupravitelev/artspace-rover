@@ -32,7 +32,9 @@ const Scheduler = () => {
     ) 
   } else {
     return (
-      <div className="app">
+      <div 
+        // className="app"
+      >
         {timeslots.map(timeslot => {
           if (timeslot.available) return (
           <Timeslot key={timeslot._id} timeslot={timeslot}/>
