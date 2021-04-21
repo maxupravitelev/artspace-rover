@@ -33,9 +33,11 @@ const Scheduler = () => {
   } else {
     return (
       <div className="app">
-        {timeslots.map(timeslot => (
+        {timeslots.map(timeslot => {
+          if (timeslot.available) return (
           <Timeslot key={timeslot._id} timeslot={timeslot}/>
-        ))}
+        )}
+        )}
       </div>
     ) 
     }
