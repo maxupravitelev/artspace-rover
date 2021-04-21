@@ -29,7 +29,7 @@ const Exhibitions = () => {
 
   const exhibitions = useSelector((state) => state.exhibitions)
 
-  if (!exhibitions) return <div>loading...</div>
+  if (exhibitions.length < 1) return <div>loading...</div>
 
   const infotext = "Please select an exhibition you want to view."
 

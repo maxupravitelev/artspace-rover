@@ -44,8 +44,12 @@ const App = () => {
   
   const dispatch = useDispatch()
 
-  // check if user is stored locally
+  
   useEffect(() => {
+    // fetch all exhibitions data
+    dispatch(getAllExhibitions())
+
+    // check if user is stored locally
     const loggedUserJSON = window.localStorage.getItem('loggedRoverAppUser')
     if (loggedUserJSON) {
       const userLocal = JSON.parse(loggedUserJSON)

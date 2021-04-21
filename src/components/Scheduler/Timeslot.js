@@ -6,6 +6,10 @@ import timeslotService from '../../services/timeslots'
 
 import { useSelector } from 'react-redux'
 
+import BookingForm from './BookingForm'
+
+import Togglable from '../../components/Togglable'
+import { Book } from '@material-ui/icons'
 
 const Timeslot = ({ timeslot }) => {
 
@@ -13,10 +17,10 @@ const Timeslot = ({ timeslot }) => {
 
 
 
-  const handleBookingTimeslot = () => {
-    const eMailAddress = "test@test.net"
-    visitorService.bookTimeslot(eMailAddress, timeslot._id)
-  }
+  // const handleBookingTimeslot = () => {
+  //   const eMailAddress = "test@test.net"
+  //   visitorService.bookTimeslot(eMailAddress, timeslot._id)
+  // }
 
   const handleDeletingTimeslot = () => {
     timeslotService.remove(timeslot._id)
@@ -27,9 +31,10 @@ const Timeslot = ({ timeslot }) => {
       <div
       // className="app"
       >
-        <Button onClick={handleBookingTimeslot} variant='outlined'>
+        {/* <Button onClick={handleBookingTimeslot} variant='outlined'>
           {timeslot.startTime}
-        </Button>
+        </Button> */}
+        <BookingForm buttonLabel={timeslot.startTime} timeslot={timeslot}/>
       </div>
     )
   } else {
@@ -37,9 +42,10 @@ const Timeslot = ({ timeslot }) => {
       <div
       // className="app"
       >
-        <Button onClick={handleBookingTimeslot} variant='outlined'>
+        {/* <Button onClick={handleBookingTimeslot} variant='outlined'>
           {timeslot.startTime}
-        </Button>
+        </Button> */}
+        <BookingForm buttonLabel={timeslot.startTime} timeslot={timeslot}/>
         <Button
           onClick={handleDeletingTimeslot} variant='outlined' color='secondary'
         >

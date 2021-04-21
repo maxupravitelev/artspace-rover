@@ -31,7 +31,7 @@ const Exhibition = () => {
 
   const exhibitions = useSelector((state) => state.exhibitions)
 
-  if (!exhibitions) return <div>loading...</div>
+  // if (exhibitions.length < 1) return <div>loading...</div>
 
   // determine screen size
   const checkScreenWidth = useMediaQuery('(max-width:600px)')

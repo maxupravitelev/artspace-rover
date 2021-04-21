@@ -17,7 +17,7 @@ export const getAllExhibitions = () => {
   return async (dispatch) => {
       
     const allExhibitionsFromBackend = await exhibitionsService.getAll()
-  console.log(allExhibitionsFromBackend)
+
     dispatch({
       type: 'GET_ALL_EXHIBITION',
       data: allExhibitionsFromBackend,
