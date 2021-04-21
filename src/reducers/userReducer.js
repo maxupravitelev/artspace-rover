@@ -56,6 +56,13 @@ export const setUser = (user) => {
 
 export const updateUser = (user) => {
 
+  const loggedUserJSON = window.localStorage.getItem('loggedRoverAppUser')
+  
+  if (loggedUserJSON) {
+    window.localStorage.setItem('loggedRoverAppUser', JSON.stringify(user)
+    )
+  }
+
   return async dispatch => {
     dispatch({
       type: 'UPDATE',

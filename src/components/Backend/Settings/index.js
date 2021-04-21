@@ -2,6 +2,7 @@ import React from 'react'
 import { Typography } from '@material-ui/core'
 
 import UrlForm from './UrlForm'
+import StreamingMode from './StreamingMode'
 
 // return header component
 const Settings = () => {
@@ -11,6 +12,7 @@ const Settings = () => {
       // className="app"
     >
       <UrlForm />
+      <StreamingMode />
     </div>
   )
 }

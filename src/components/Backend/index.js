@@ -120,7 +120,7 @@ const Backend = () => {
         loginForm()
       ) : (
         <div className="app">
-          
+          <Notification />
           <Typography>{pagesTexts.backendLogin.ifLoggedIn(user.username)}</Typography>
           <Button
           onClick={() => {dispatch(logoutUser())}}
