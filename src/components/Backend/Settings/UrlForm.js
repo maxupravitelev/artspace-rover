@@ -5,7 +5,7 @@ import { TextField, Button, Typography, Grid } from '@material-ui/core'
 
 // init redux and import reducers
 import { useDispatch, useSelector } from 'react-redux'
-import { setJitsiUrl, setRoverUrl } from '../../../reducers/urlsReducer'
+import { setJitsiUrl, setRoverUrl, setMjpgUrl } from '../../../reducers/urlsReducer'
 
 import { updateUser } from '../../../reducers/userReducer'
 
@@ -45,6 +45,17 @@ const UrlForm = ({ }) => {
 
   }
 
+  const handleSubmitMjpgUrl = async (e) => {
+    e.preventDefault()
+
+    dispatch(setMjpgUrl(mjpgUrl))
+    setMjpgUrlInComp('')
+    user.rovers[0].mjpgUrl = mjpgUrl
+    dispatch(updateUser(user))
+    urlsService.updateMjpgUrl(mjpgUrl, user.rovers[0]._id)
+
+  }
+
   return (
     <div className="urlForm">
       <Typography
@@ -66,6 +77,8 @@ const UrlForm = ({ }) => {
           <br />
           <Typography style={{ textAlign: "left" }} variant="body1">jitsiUrl: {user.rovers[0].jitsiUrl}</Typography>
           <Typography style={{ textAlign: "left" }} variant="body1">roverUrl: {user.rovers[0].roverUrl}</Typography>
+          <Typography style={{ textAlign: "left" }} variant="body1">mjpgUrl: {user.rovers[0].mjpgUrl}</Typography>
+
         </Grid>
         <Grid
           item
@@ -94,21 +107,37 @@ const UrlForm = ({ }) => {
               value={jitsiUrl}
               onChange={({ target }) => setJitsiUrlInComp(target.value)}
             />
+                        <Typography variant="body2">
+              Please enter the URL of your Jitsi Session
+        </Typography>
             <Button type="submit" variant="outlined">
               set
         </Button>
-            <Typography variant="body2">
-              Please enter the URL of your Jitsi Session
-        </Typography>
+
           </form>
-          
+          <form onSubmit={handleSubmitMjpgUrl}>
+            <TextField
+              type="text"
+              name="mjpgUrl"
+              className="input"
+              value={mjpgUrl}
+              onChange={({ target }) => setMjpgUrlInComp(target.value)}
+            />
+                        <Typography variant="body2">
+              Please enter the URL of your MJPG Stream
+        </Typography>
+            <Button type="submit" variant="outlined">
+              set
+        </Button>
+
+          </form>
 
         </Grid>
       </Grid>
       <br />
       <Typography
       >
-        Save necessary urls to connect with your rover
+        Set necessary urls to connect with your rover
       </Typography>
     </div>
   )

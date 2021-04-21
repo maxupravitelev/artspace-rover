@@ -1,5 +1,5 @@
 import axios from 'axios'
-const roverUrlRovers = 'http://localhost:6050/api/rovers'
+const baserUrlRovers = 'http://localhost:6050/api/rovers'
 
 let token = null
 
@@ -18,7 +18,7 @@ const updateJitsiUrl = async (jitsiUrl, id) => {
   
   // console.log({jitsiUrl})
 
-  const response = await axios.put(roverUrlRovers + '/updateJitsiUrl/' + id, {jitsiUrl}, config)
+  const response = await axios.put(baserUrlRovers + '/updateJitsiUrl/' + id, {jitsiUrl}, config)
   return response.data
 }
 
@@ -30,12 +30,25 @@ const updateRoverUrl = async (roverUrl, id) => {
     },
     
   }
-  const response = await axios.put(roverUrlRovers + '/updateRoverUrl/' + id, {roverUrl}, config)
+  const response = await axios.put(baserUrlRovers + '/updateRoverUrl/' + id, {roverUrl}, config)
+  return response.data
+}
+
+const updateMjpgUrl = async (mjpgUrl, id) => {
+  const config = {
+    headers: { 
+      Authorization: token,
+      "Content-Type": "application/json"
+    },
+    
+  }
+  const response = await axios.put(baserUrlRovers + '/updateMjpgUrl/' + id, {mjpgUrl}, config)
   return response.data
 }
 
 export default {
   setToken,
   updateJitsiUrl,
-  updateRoverUrl
+  updateRoverUrl,
+  updateMjpgUrl
 }
