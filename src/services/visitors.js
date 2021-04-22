@@ -55,6 +55,15 @@ const endSession = async (credentials) => {
   return response.data
 }
 
-const visitorService = { bookTimeslot, checkTimeslot, endSession }
+const getSessionState = async () => {
+
+  const checkUrl = baseUrl + '/checkSession'
+
+  const request = axios.get(checkUrl)
+  const response = await request
+  return response.data
+}
+
+const visitorService = { bookTimeslot, checkTimeslot, endSession, getSessionState }
 
 export default visitorService
