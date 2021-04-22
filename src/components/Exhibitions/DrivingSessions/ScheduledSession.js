@@ -40,7 +40,11 @@ const ScheduledSession = ({ }) => {
     const checkIfSessionAvailable = await visitorsService.checkTimeslot(visitorLogin)
 
     if (checkIfSessionAvailable == 'session can be started') {
-      dispatch(setSessionState('session started'))
+      dispatch(setSessionState({
+        ...visitorLogin,
+        state: 'session started'
+      })
+      )
     }
   }
 

@@ -39,6 +39,22 @@ const checkTimeslot = async (credentials) => {
   return response.data
 }
 
-const visitorService = { bookTimeslot, checkTimeslot }
+const endSession = async (credentials) => {
+
+  const checkUrl = baseUrl + '/endSession'
+
+  const config = {
+    headers: { 
+      // Authorization: token,
+      "Content-Type": "application/json"
+    },
+  }
+
+  const request = axios.post(checkUrl, credentials , config)
+  const response = await request
+  return response.data
+}
+
+const visitorService = { bookTimeslot, checkTimeslot, endSession }
 
 export default visitorService

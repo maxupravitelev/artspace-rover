@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Typography } from '@material-ui/core'
 
-// return header component
+
 const Timer = ({ timelimit=30 }) => {
   
   const secondsInMinuteStartingZero = 60 - 1
