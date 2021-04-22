@@ -10,8 +10,6 @@ import Dashboard from '../../Dashboard'
 
 import InstantSession from './InstantSession'
 import ScheduledSession from './ScheduledSession'
-import Timer from './Timer'
-import SocketCheck from './SocketCheck'
 
 // use media query to determine screen size
 import useMediaQuery from '@material-ui/core/useMediaQuery'
@@ -68,7 +66,6 @@ const DrivingSessions = () => {
         <Typography
           style={{ marginTop: "2em" }}
         >{componentsTexts.DrivingSessions.explainInstantSession}</Typography>
-        <Timer />
       </div>
     )
 }

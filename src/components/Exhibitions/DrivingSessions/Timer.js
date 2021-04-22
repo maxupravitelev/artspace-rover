@@ -32,7 +32,7 @@ const Timer = ({ timelimit=30 }) => {
 
   return (
     <div 
-      className="app"
+      // className="app"
     >
       <Typography 
         variant="body1"

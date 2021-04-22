@@ -4,7 +4,7 @@ import { Typography } from '@material-ui/core'
 import UrlForm from './UrlForm'
 import StreamingMode from './StreamingMode'
 
-// return header component
+
 const Settings = () => {
 
   return (

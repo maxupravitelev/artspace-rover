@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setSocket } from '../../../reducers/socketReducer'
 
 
-// return header component
+
 const SocketCheck = () => {
 
   const dispatch = useDispatch()

@@ -2,10 +2,6 @@ import React, { useState } from 'react'
 import { Typography, Button, TextField } from '@material-ui/core'
 import StatusLight from './StatusLight'
 
-import { useSelector } from 'react-redux'
-
-import componentsTexts from '../../../text/components'
-
 
 const InstantSession = ({ checkIfInstantSessionPossible }) => {
   return (
@@ -19,7 +15,6 @@ const InstantSession = ({ checkIfInstantSessionPossible }) => {
       >
         start
             </Button>
-        {/* <div style={{width: "inherit"}}>{componentsTexts.DrivingSessions.explainSpontSess}</div> */}
     </div>
   )
 }

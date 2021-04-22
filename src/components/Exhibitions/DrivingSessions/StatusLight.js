@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Typography } from '@material-ui/core'
 
-import { useSelector, useDispatch } from 'react-redux'
-
 import visitorService from '../../../services/visitors'
 
 

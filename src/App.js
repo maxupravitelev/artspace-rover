@@ -1,5 +1,5 @@
 // import react modules
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
@@ -14,8 +14,6 @@ import DataProtection from './components/Footer/DataProtection'
 import Imprint from './components/Footer/Imprint'
 import About from './components/Footer/About'
 import Contact from './components/Footer/Contact'
-
-
 import Exhibition from './components/Exhibitions/Exhibition'
 import Exhibitions from './components/Exhibitions'
 import { withStyles } from "@material-ui/core/styles";
@@ -35,9 +33,6 @@ const WhiteTextTypography = withStyles({
 // import css and material ui components
 import './App.css'
 import Container from '@material-ui/core/Container'
-
-
-
 
 
 const App = () => {

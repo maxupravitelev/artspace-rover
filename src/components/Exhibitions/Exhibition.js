@@ -10,7 +10,6 @@ import Capture from '../../components/Cam/Capture'
 import Dashboard from '../Dashboard'
 import Infobox from '../../components/Infobox'
 import EndSession from '../../components/Exhibitions/DrivingSessions/EndSession'
-
 import DrivingSessions from './DrivingSessions/'
 
 // import material ui components
@@ -23,14 +22,11 @@ import useMediaQuery from '@material-ui/core/useMediaQuery'
 import pagesTexts from '../../text/pages'
 
 
-// return header component
 const Exhibition = () => {
 
   let sessionState = useSelector((state) => state.session.state)
 
   const exhibitions = useSelector((state) => state.exhibitions)
-
-  // if (exhibitions.length < 1) return <div>loading...</div>
 
   // determine screen size
   const checkScreenWidth = useMediaQuery('(max-width:600px)')

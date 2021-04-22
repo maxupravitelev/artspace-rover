@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import { setSessionState } from '../../../reducers/sessionReducer'
 
+import Timer from './Timer'
 
 const EndSession = ({  }) => {
 
@@ -33,6 +34,7 @@ const EndSession = ({  }) => {
     <div 
       className="app"
     >
+      <Timer />
       <Button
         onClick={sendSessionEndToBackend}
         variant="outlined"

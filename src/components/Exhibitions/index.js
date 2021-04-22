@@ -1,18 +1,16 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 // init redux and import reducers
 import { useSelector } from 'react-redux'
 
+// import components
+import Infobox from '../Infobox'
+
 
 // import material ui components
 import Grid from '@material-ui/core/Grid'
-
-import { Link } from 'react-router-dom'
-
-
-import Infobox from '../Infobox'
-
-import { makeStyles } from "@material-ui/styles";
+import { makeStyles } from "@material-ui/styles"
 
 
 const useStyles = makeStyles({
@@ -22,6 +20,7 @@ const useStyles = makeStyles({
     textAlign: "initial"
   }
 })
+
 
 const Exhibitions = () => {
 

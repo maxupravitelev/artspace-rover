@@ -1,7 +1,7 @@
 import React from 'react'
 import { Typography } from '@material-ui/core'
 
-// return header component
+
 const Imprint = () => {
   return (
       <div className="app">
