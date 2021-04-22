@@ -26,8 +26,6 @@ import { setSessionState } from '../../../reducers/sessionReducer'
 import { setSocket } from '../../../reducers/socketReducer'
 
 const DrivingSessions = () => {
-  const [passphrase, setPassphrase] = useState("")
-
 
   const dispatch = useDispatch()
 
@@ -43,20 +41,6 @@ const DrivingSessions = () => {
       dispatch(setSessionState('session started'))
       dispatch(setSocket(roverUrl))
     // }
-  }
-
-  const checkIfScheduledSessionPossible = () => {
-    roverUrl = true
-    jitsiUrl = true
-    if (roverUrl && (socket.length != 0)) {
-      dispatch(setSessionState('session started'))
-    }
-  }
-
-  const handleInputValue = (e) => {
-    let inputValue = e.target.value
-
-    setPassphrase(inputValue)
   }
 
   // determine screen size

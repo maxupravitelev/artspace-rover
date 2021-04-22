@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Typography, Button, TextField } from '@material-ui/core'
 import StatusLight from './StatusLight'
 
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
 // import components
 import Capture from '../../Cam/Capture'
@@ -23,6 +23,9 @@ import componentsTexts from '../../../text/components'
 
 import visitorsService from '../../../services/visitors'
 
+import { setSessionState } from '../../../reducers/sessionReducer'
+
+
 const ScheduledSession = ({ }) => {
 
   const [visitorLogin, setVisitorLogin] = useState({
@@ -30,10 +33,15 @@ const ScheduledSession = ({ }) => {
     passphrase: ''
   })
 
+  const dispatch = useDispatch()
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
-    visitorsService.checkTimeslot(visitorLogin)
+    const checkIfSessionAvailable = await visitorsService.checkTimeslot(visitorLogin)
+
+    if (checkIfSessionAvailable == 'session can be started') {
+      dispatch(setSessionState('session started'))
+    }
   }
 
   const handleInputValue = (e) => {
@@ -44,7 +52,6 @@ const ScheduledSession = ({ }) => {
       ...visitorLogin,
       [inputName]: inputValue,
     });
-
   }
 
   return (
