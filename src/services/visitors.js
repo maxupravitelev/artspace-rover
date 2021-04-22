@@ -2,6 +2,8 @@ import axios from 'axios'
 
 // const configUrl = "http://0.0.0.0:8000/";
 
+const baseUrl = 'http://localhost:6050/api/visitors'
+
 const visitorTimeslotUrl = 'http://localhost:6050/api/visitors/new-visitor/timeslot/'
 
 const bookTimeslot = async (eMailAddress, timeslotId) => {
@@ -21,6 +23,22 @@ const bookTimeslot = async (eMailAddress, timeslotId) => {
   return response.data
 }
 
-const visitorService = { bookTimeslot }
+const checkTimeslot = async (credentials) => {
+
+  const checkUrl = baseUrl + '/check/'
+
+  const config = {
+    headers: { 
+      // Authorization: token,
+      "Content-Type": "application/json"
+    },
+  }
+
+  const request = axios.post(checkUrl, credentials , config)
+  const response = await request
+  return response.data
+}
+
+const visitorService = { bookTimeslot, checkTimeslot }
 
 export default visitorService

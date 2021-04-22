@@ -22,10 +22,8 @@ const BookingForm = ({ timeslot, buttonLabel }) => {
   const handleBookingTimeslot = async (event) => {
     event.preventDefault()
 
-
-
     dispatch(bookTimeslot(eMailAddress, timeslot._id))
-
+    
     dispatch(updateTimeslots(eMailAddress, timeslot._id))
   }
 

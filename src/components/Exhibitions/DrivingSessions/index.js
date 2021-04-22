@@ -75,7 +75,7 @@ const DrivingSessions = () => {
           alignItems="stretch"
         >
           <Grid>
-            <ScheduledSession checkIfScheduledSessionPossible={checkIfScheduledSessionPossible} handleInputValue={handleInputValue} passphrase={passphrase} />
+            <ScheduledSession />
           </Grid>
           <Grid>
             <InstantSession checkIfInstantSessionPossible={checkIfInstantSessionPossible} />

@@ -21,36 +21,70 @@ import { makeStyles } from '@material-ui/styles'
 
 import componentsTexts from '../../../text/components'
 
-const ScheduledSession = ({ checkIfScheduledSessionPossible, handleInputValue, passphrase }) => {
+import visitorsService from '../../../services/visitors'
 
-    return (
-        
-            <div className="app">
-              <Typography variant="h5">scheduled ride</Typography>
-              <TextField
-                type="text"
-                className="input"
-                value={passphrase}
-                onChange={handleInputValue}
-              />
-              <Typography variant="body1">please enter your passphrase</Typography>
+const ScheduledSession = ({ }) => {
+
+  const [visitorLogin, setVisitorLogin] = useState({
+    eMailAddress: '',
+    passphrase: ''
+  })
 
 
-              <div>
-                <Button
-                  // type="submit"
-                  onClick={checkIfScheduledSessionPossible}
-                  variant="outlined"
-                >
-                  start
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    visitorsService.checkTimeslot(visitorLogin)
+  }
+
+  const handleInputValue = (e) => {
+    let inputValue = e.target.value
+    let inputName = e.target.name;
+
+    setVisitorLogin({
+      ...visitorLogin,
+      [inputName]: inputValue,
+    });
+
+  }
+
+  return (
+
+    <div className="app">
+      <Typography variant="h5">scheduled ride</Typography>
+      <form onSubmit={handleSubmit}>
+        <TextField
+          type="text"
+          className="input"
+          name="eMailAddress"
+          value={visitorLogin.eMailAddress}
+          onChange={handleInputValue}
+        />
+        <Typography variant="body1">please enter your eMail address</Typography>
+        <TextField
+          type="text"
+          className="input"
+          name="passphrase"
+          value={visitorLogin.passphrase}
+          onChange={handleInputValue}
+        />
+        <Typography variant="body1">please enter your passphrase</Typography>
+        <div>
+          <Button
+            type="submit"
+            // onClick={checkIfScheduledSessionPossible}
+            variant="outlined"
+          >
+            start
             </Button>
-              </div>
-              <br />
-              <Typography variant="body1">not scheduled yet?</Typography>
-              <Scheduler />
-              </div>
-           
-      )
+        </div>
+      </form>
+
+      <br />
+      <Typography variant="body1">not scheduled yet?</Typography>
+      <Scheduler />
+    </div>
+
+  )
 }
 
 export default ScheduledSession
