@@ -2,29 +2,27 @@ import timeslotService from '../services/timeslots'
 import visitorService from '../services/visitors'
 
 
-const timeslotsReducer = (state = [], action) => {
+const visitorReducer = (state = {}, action) => {
   // console.log('state now: ', state)
   // console.log('action', action)
 
   switch (action.type) {
-    case 'GET_ALL_TIMESLOTS':
-      return action.data
-    case 'UPDATE_ALL_TIMESLOTS':
+    case 'BOOK_TIMESLOT':
       return action.data
     default:
       return state
   }
 }
 
-export const getAllTimeslots = () => {
+export const bookTimeslot = (eMailAddress, timeslotId) => {
 
   return async (dispatch) => {
       
-    const allTimeslotsFromBackend = await timeslotService.getAll()
+    const bookedTimeslot = await visitorService.bookTimeslot(eMailAddress, timeslotId)
   
     dispatch({
-      type: 'GET_ALL_TIMESLOTS',
-      data: allTimeslotsFromBackend,
+      type: 'BOOK_TIMESLOT',
+      data: bookedTimeslot,
     })
   }
 }
@@ -42,4 +40,4 @@ export const updateTimeslots = (eMailAddress, timeslotId) => {
   }
 }
 
-export default timeslotsReducer
+export default visitorReducer
