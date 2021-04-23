@@ -1,26 +1,7 @@
 body {
   background-color: #000000;
-  
-
-  /* background-image: linear-gradient(170deg, #885ec6 0, #523f91 25%, #1f1f59 50%, #000026 75%, #000000 100%); */
-
-/*   background-color: #19195c;
-opacity: 1;
-background-image:  radial-gradient(#959af6 1px, transparent 1px), radial-gradient(#959af6 1px, #19195c 1px);
-background-size: 40px 40px;
-background-position: 0 0,20px 20px; */
-
-/*background texture: https://projects.verou.me/css3patterns/#starry-night */
-/* background-color:rgb(6, 3, 20); */
-/* background-image:
-radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
-radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
-radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
-radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
-background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
-background-position: 0 0, 40px 60px, 130px 270px, 70px 100px; */
-background-image: url("./images/stars.jpg");
-/* background-size: cover; */
+  background-image: url("./images/stars.jpg");
+  /* background-size: cover; */
 }
 
 .app, .header, .footer, .capture, .urlForm {
@@ -60,7 +41,7 @@ a {
   text-align: center;
   display: block;
   justify-content: start;
-  background-color: #01BAEF;
+  /* background-color: #01BAEF; */
   /* color: #FBFBFF; */
 }
 

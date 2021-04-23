@@ -44,7 +44,7 @@ const Backend = () => {
       dispatch(setUser(userLocal))
       dispatch(setJitsiUrl(userLocal.rovers[0].jitsiUrl))
       dispatch(setRoverUrl(userLocal.rovers[0].roverUrl))
-      
+
       urlsService.setToken(userLocal.token)
       timeslotsService.setToken(userLocal.token)
 
@@ -121,15 +121,19 @@ const Backend = () => {
         loginForm()
       ) : (
         <div className="app">
+          <Typography
+            variant="h3"
+            style={{ marginBottom: "1em", backgroundColor: "#0B4F6C", color: "#FBFBFF" }}
+          >settings</Typography>
           <Notification />
           <Typography>{pagesTexts.backendLogin.ifLoggedIn(user.username)}</Typography>
           <Button
-          onClick={() => {dispatch(logoutUser())}}
-          variant="outlined"
+            onClick={() => { dispatch(logoutUser()) }}
+            variant="outlined"
           >
-          logout</Button>
-            <Settings />
-          </div>
+            logout</Button>
+          <Settings />
+        </div>
 
 
       )}

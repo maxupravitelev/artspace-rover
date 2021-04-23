@@ -23,16 +23,15 @@ import { setUser } from './reducers/userReducer'
 
 import { getAllExhibitions } from './reducers/exhibitionsReducer'
 
+// import css and material ui components
+import './App.css'
+import Container from '@material-ui/core/Container'
 
 const WhiteTextTypography = withStyles({
   root: {
     color: "#FBFBFF"
   }
 })(Typography);
-
-// import css and material ui components
-import './App.css'
-import Container from '@material-ui/core/Container'
 
 
 const App = () => {

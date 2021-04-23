@@ -66,9 +66,12 @@ const StreamingMode = () => {
 
   return (
     <div className="app">
+      <Typography
+        variant="h3"
+        style={{ marginBottom: "1em", backgroundColor: "#0B4F6C", color: "#FBFBFF" }}
+      >streaming mode</Typography>
       <form onSubmit={handleSubmit}>
         <FormControl component="fieldset" error={error}>
-          <FormLabel component="legend">Streaming mode: </FormLabel>
           <RadioGroup
             aria-label="streamingMode"
             name="streamingMode"

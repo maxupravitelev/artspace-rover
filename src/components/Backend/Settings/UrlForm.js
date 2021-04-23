@@ -61,7 +61,7 @@ const UrlForm = ({ }) => {
       <Typography
         variant="h3"
         style={{ marginBottom: "1em", backgroundColor: "#0B4F6C", color: "#FBFBFF" }}
-      >settings</Typography>
+      >rover connection</Typography>
       <Grid
         container
         // direction="row"
