@@ -5,7 +5,9 @@ import StatusLight from './StatusLight'
 
 const InstantSession = ({ checkIfInstantSessionPossible }) => {
   return (
-    <div className="app">
+    <div 
+      className="app"
+    >
       <Typography variant="h5">instant ride</Typography>
       <StatusLight />
       <Button
@@ -14,7 +16,7 @@ const InstantSession = ({ checkIfInstantSessionPossible }) => {
         variant="outlined"
       >
         start
-            </Button>
+      </Button>
     </div>
   )
 }

@@ -45,7 +45,9 @@ const DrivingSessions = () => {
   const checkScreenWidth = useMediaQuery('(max-width:600px)')
 
     return (
-      <div className="app">
+      <div 
+      className="app"
+      >
         <Typography
           variant="h3"
           style={{ marginBottom: "1em", backgroundColor: "#0B4F6C", color: "#FBFBFF" }}
@@ -54,12 +56,12 @@ const DrivingSessions = () => {
           container
           direction="row"
           justify="space-around"
-          alignItems="stretch"
+          // alignItems="stretch"
         >
-          <Grid>
+          <Grid item xs={12} sm={6}>
             <ScheduledSession />
           </Grid>
-          <Grid>
+          <Grid item xs={12} sm={6}>
             <InstantSession checkIfInstantSessionPossible={checkIfInstantSessionPossible} />
           </Grid>
         </Grid>

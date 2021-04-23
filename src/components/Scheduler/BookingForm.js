@@ -68,8 +68,8 @@ const BookingForm = ({ timeslot, buttonLabel }) => {
           <Typography variant='h5'>timeslot booked!</Typography>
           <br />
           <Typography><b>eMail:</b> {visitor.eMailAddress}</Typography>
-          <Typography><b>epassphrase:</b> {visitor.passphrase}</Typography>
-          <Typography><b>etimeslot:</b> {visitor.timeslot.startTime}-{visitor.timeslot.endTime}</Typography>
+          <Typography><b>passphrase:</b> {visitor.passphrase}</Typography>
+          <Typography><b>timeslot:</b> {visitor.timeslot.startTime}-{visitor.timeslot.endTime}</Typography>
         </div>
       )
     } else {
