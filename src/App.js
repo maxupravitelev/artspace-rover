@@ -22,6 +22,7 @@ import Typography from "@material-ui/core/Typography";
 import { setUser } from './reducers/userReducer'
 
 import { getAllExhibitions } from './reducers/exhibitionsReducer'
+import {  getAllTimeslots } from './reducers/timeslotsReducer'
 
 // import css and material ui components
 import './App.css'
@@ -49,6 +50,7 @@ const App = () => {
       const userLocal = JSON.parse(loggedUserJSON)
       dispatch(setUser(userLocal))
       dispatch(getAllExhibitions())
+      dispatch(getAllTimeslots())
     }
   }, [dispatch])
 

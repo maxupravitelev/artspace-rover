@@ -126,12 +126,14 @@ const Backend = () => {
             style={{ marginBottom: "1em", backgroundColor: "#0B4F6C", color: "#FBFBFF" }}
           >settings</Typography>
           <Notification />
+        <div className="app">
           <Typography>{pagesTexts.backendLogin.ifLoggedIn(user.username)}</Typography>
           <Button
             onClick={() => { dispatch(logoutUser()) }}
             variant="outlined"
           >
             logout</Button>
+            </div>
           <Settings />
         </div>
 

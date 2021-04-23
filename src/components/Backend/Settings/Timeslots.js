@@ -19,26 +19,19 @@ const Timeslots = () => {
         // spacing={0}
         justify="space-between"
       >
-        <Grid
-          item
-          xs
-        >
-           <Typography
-        variant="h5"
-        style={{ marginBottom: "1em", backgroundColor: "#0B4F6C", color: "#FBFBFF" }}
-      >generate timeslots</Typography>
-      <Typography>coming soon</Typography>
+        <Grid item xs={12} sm={6}>
+          <div className="app"> 
+          <Typography variant="h5">generate timeslots</Typography>
+      
+        <Typography>coming soon</Typography>
+      </div>
         </Grid>
-        <Grid
-          item
-          xs
-        >
-          <Typography
-        variant="h5"
-        style={{ marginBottom: "1em", backgroundColor: "#0B4F6C", color: "#FBFBFF" }}
-      >delete timeslots</Typography>
+        <Grid item xs={12} sm={6}>
+          <div className="app">
+          <Typography variant="h5">delete timeslots</Typography>
           
           <Scheduler />
+          </div>
         </Grid>
       </Grid>
     </div>

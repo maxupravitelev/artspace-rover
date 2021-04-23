@@ -57,88 +57,64 @@ const UrlForm = ({ }) => {
   }
 
   return (
-    <div className="urlForm">
+    <div className="app">
       <Typography
         variant="h3"
         style={{ marginBottom: "1em", backgroundColor: "#0B4F6C", color: "#FBFBFF" }}
       >rover connection</Typography>
       <Grid
         container
-        // direction="row"
-        // alignItems="left"
-        // spacing={0}
-        justify="space-between"
       >
-        <Grid
-          item
-          xs
-        >
-          <Typography style={{ textAlign: "left" }} variant="body1">currently set </Typography>
-          <br />
-          <Typography style={{ textAlign: "left" }} variant="body1">jitsiUrl: {user.rovers[0].jitsiUrl}</Typography>
-          <Typography style={{ textAlign: "left" }} variant="body1">roverUrl: {user.rovers[0].roverUrl}</Typography>
-          <Typography style={{ textAlign: "left" }} variant="body1">mjpgUrl: {user.rovers[0].mjpgUrl}</Typography>
-
+        <Grid item xs={12} sm={6}>
+          <div className="app">
+            <Typography variant="h5">Set urls to connect with your rover</Typography>
+            <form onSubmit={handleSubmitRoverUrl}>
+              <TextField
+                type="text"
+                name="roverUrl"
+                className="input"
+                value={roverUrl}
+                onChange={({ target }) => setRoverUrlInComp(target.value)}
+              />
+              <Typography variant="body2">
+                Please enter the URL of your raspberry
+              </Typography>
+              <Button type="submit" variant="outlined">set</Button>
+            </form>
+            <form onSubmit={handleSubmitJitsiUrl}>
+              <TextField
+                type="text"
+                name="jitsiUrl"
+                className="input"
+                value={jitsiUrl}
+                onChange={({ target }) => setJitsiUrlInComp(target.value)}
+              />
+              <Typography variant="body2">Please enter the URL of your Jitsi Session</Typography>
+              <Button type="submit" variant="outlined">set</Button>
+            </form>
+            <form onSubmit={handleSubmitMjpgUrl}>
+              <TextField
+                type="text"
+                name="mjpgUrl"
+                className="input"
+                value={mjpgUrl}
+                onChange={({ target }) => setMjpgUrlInComp(target.value)}
+              />
+              <Typography variant="body2">Please enter the URL of your MJPG Stream</Typography>
+              <Button type="submit" variant="outlined">set</Button>
+            </form>
+          </div>
         </Grid>
-        <Grid
-          item
-          xs
-        >
-          <form onSubmit={handleSubmitRoverUrl}>
-            <TextField
-              type="text"
-              name="roverUrl"
-              className="input"
-              value={roverUrl}
-              onChange={({ target }) => setRoverUrlInComp(target.value)}
-            />
-            <Typography variant="body2">
-              Please enter the URL of your raspberry
-        </Typography>
-            <Button type="submit" variant="outlined">
-              set
-        </Button>
-          </form>
-          <form onSubmit={handleSubmitJitsiUrl}>
-            <TextField
-              type="text"
-              name="jitsiUrl"
-              className="input"
-              value={jitsiUrl}
-              onChange={({ target }) => setJitsiUrlInComp(target.value)}
-            />
-                        <Typography variant="body2">
-              Please enter the URL of your Jitsi Session
-        </Typography>
-            <Button type="submit" variant="outlined">
-              set
-        </Button>
-
-          </form>
-          <form onSubmit={handleSubmitMjpgUrl}>
-            <TextField
-              type="text"
-              name="mjpgUrl"
-              className="input"
-              value={mjpgUrl}
-              onChange={({ target }) => setMjpgUrlInComp(target.value)}
-            />
-                        <Typography variant="body2">
-              Please enter the URL of your MJPG Stream
-        </Typography>
-            <Button type="submit" variant="outlined">
-              set
-        </Button>
-
-          </form>
-
+        <Grid item xs={12} sm={6}>
+          <div className="app">
+            <Typography style={{ textAlign: "left" }} variant="h5">currently set </Typography>
+            <br />
+            <Typography style={{ textAlign: "left" }} variant="body1"><b>jitsiUrl:</b> {user.rovers[0].jitsiUrl}</Typography>
+            <Typography style={{ textAlign: "left" }} variant="body1"><b>roverUrl:</b> {user.rovers[0].roverUrl}</Typography>
+            <Typography style={{ textAlign: "left" }} variant="body1"><b>mjpgUrl:</b> {user.rovers[0].mjpgUrl}</Typography>
+          </div>
         </Grid>
       </Grid>
-      <br />
-      <Typography
-      >
-        Set necessary urls to connect with your rover
-      </Typography>
     </div>
   )
 }

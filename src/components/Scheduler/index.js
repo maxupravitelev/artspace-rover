@@ -1,50 +1,31 @@
 import React from 'react'
-import { Typography, Button } from '@material-ui/core'
+import { Button } from '@material-ui/core'
 
-import Timeslot from './Timeslot'
 
 // init redux and import reducers
-import { useDispatch, useSelector } from 'react-redux'
-import {  getAllTimeslots } from '../../reducers/timeslotsReducer'
+import { useSelector } from 'react-redux'
+
+import Timeslot from './Timeslot'
+import Togglable from '../../components/Togglable'
 
 
 const Scheduler = () => {
 
   let timeslots = useSelector((state) => state.timeslots)
 
-  const dispatch = useDispatch()
-
-  const handleGettingTimeslots = () => {
-    dispatch(getAllTimeslots())
-  }
-
-  if (!timeslots[0]) {
     return (
       <div 
         // className="app"
       >
-        <Button 
-          onClick={handleGettingTimeslots}
-          variant="outlined"
-          >
-            show available timeslots</Button>
-      </div>
-    ) 
-  } else {
-    return (
-      <div 
-        // className="app"
-      >
+        <Togglable buttonLabel="show available timeslots">
         {timeslots.map(timeslot => {
           if (timeslot.available) return (
           <Timeslot key={timeslot._id} timeslot={timeslot}/>
         )}
         )}
+        </Togglable>
       </div>
     ) 
-    }
-  
-
 
 }
 
