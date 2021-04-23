@@ -23,7 +23,7 @@ const BookingForm = ({ timeslot, buttonLabel }) => {
     event.preventDefault()
 
     dispatch(bookTimeslot(eMailAddress, timeslot._id))
-    
+
     dispatch(updateTimeslots(eMailAddress, timeslot._id))
   }
 
@@ -31,21 +31,21 @@ const BookingForm = ({ timeslot, buttonLabel }) => {
 
     return (
       <Togglable buttonLabel={buttonLabel}>
-        <div 
+        <div
           className='app'
         >
           <form onSubmit={handleBookingTimeslot}>
-              <TextField
-                id={"mailadress" + timeslot._id}
-                type="email"
-                required
-                value={eMailAddress}
-                name="eMailAddress"
-                label="eMail address"
-                onChange={({ target }) => {
-                  seteMailAddress(target.value)
-                }}
-              />
+            <TextField
+              id={"mailadress" + timeslot._id}
+              type="email"
+              required
+              value={eMailAddress}
+              name="eMailAddress"
+              label="eMail address"
+              onChange={({ target }) => {
+                seteMailAddress(target.value)
+              }}
+            />
             <Typography>please submit your eMail address</Typography>
             <Button
               variant="outlined"
@@ -56,23 +56,28 @@ const BookingForm = ({ timeslot, buttonLabel }) => {
             </Button>
           </form>
         </div>
-  
+
       </Togglable>
     )
   } else {
-
-    return (
-      <div 
-        className='app'
-      >
-        <Typography>your eMail: {visitor.eMailAddress}</Typography>
-        <Typography>your passphrase: {visitor.passphrase}</Typography>
-        <Typography>your timeslot: {visitor.timeslot.startTime}</Typography>
-      </div>
-    )
+    if (visitor.timeslot._id == timeslot._id) {
+      return (
+        <div
+          className='app'
+        >
+          <Typography variant='h5'>timeslot booked!</Typography>
+          <br />
+          <Typography><b>eMail:</b> {visitor.eMailAddress}</Typography>
+          <Typography><b>epassphrase:</b> {visitor.passphrase}</Typography>
+          <Typography><b>etimeslot:</b> {visitor.timeslot.startTime}-{visitor.timeslot.endTime}</Typography>
+        </div>
+      )
+    } else {
+      return <div></div>
+    }
   }
 
-  
+
 }
 
 
