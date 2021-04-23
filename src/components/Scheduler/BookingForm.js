@@ -28,7 +28,7 @@ const BookingForm = ({ timeslot, buttonLabel }) => {
   }
 
   if (!visitor.passphrase) {
-    console.log("no passphrase")
+
     return (
       <Togglable buttonLabel={buttonLabel}>
         <div 
@@ -60,7 +60,6 @@ const BookingForm = ({ timeslot, buttonLabel }) => {
       </Togglable>
     )
   } else {
-    console.log("passphrase")
 
     return (
       <div 

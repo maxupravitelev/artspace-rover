@@ -91,7 +91,7 @@ const ScheduledSession = ({ }) => {
       </form>
 
       <br />
-      <Typography variant="body1">not scheduled yet?</Typography>
+      <Typography variant="body1">no visit scheduled yet?</Typography>
       <Scheduler />
     </div>
 

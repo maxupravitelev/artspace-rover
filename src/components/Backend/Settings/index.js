@@ -3,6 +3,7 @@ import { Typography } from '@material-ui/core'
 
 import UrlForm from './UrlForm'
 import StreamingMode from './StreamingMode'
+import Timeslots from './Timeslots'
 
 
 const Settings = () => {
@@ -13,6 +14,7 @@ const Settings = () => {
     >
       <UrlForm />
       <StreamingMode />
+      <Timeslots />
     </div>
   )
 }

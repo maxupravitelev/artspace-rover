@@ -27,7 +27,7 @@ const Scheduler = () => {
           onClick={handleGettingTimeslots}
           variant="outlined"
           >
-            schedule visit</Button>
+            show available timeslots</Button>
       </div>
     ) 
   } else {
