@@ -1,8 +1,5 @@
 import React, { useState } from 'react'
-import { Typography, Button, TextField } from '@material-ui/core'
-
-import visitorService from '../../services/visitors'
-import timeslotService from '../../services/timeslots'
+import { Typography, Button, TextField, Checkbox, FormControlLabel } from '@material-ui/core'
 
 import { updateTimeslots } from '../../reducers/timeslotsReducer'
 import { bookTimeslot } from '../../reducers/visitorReducer'
@@ -35,18 +32,25 @@ const BookingForm = ({ timeslot, buttonLabel }) => {
           className='app'
         >
           <form onSubmit={handleBookingTimeslot}>
+          
             <TextField
               id={"mailadress" + timeslot._id}
               type="email"
               required
               value={eMailAddress}
               name="eMailAddress"
-              label="eMail address"
+              label="please submit your eMail address"
               onChange={({ target }) => {
                 seteMailAddress(target.value)
               }}
             />
-            <Typography>please submit your eMail address</Typography>
+            <div>
+              <Checkbox required/>
+            </div>
+            <Typography 
+                variant="caption"
+                display="block"
+              >I hereby grant my consent to having my email adress provided on this form stored electronically, and to having it processed for timeslot registration purposes.</Typography>
             <Button
               variant="outlined"
               id={"login-address" + timeslot._id}
