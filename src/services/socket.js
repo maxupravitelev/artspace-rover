@@ -79,7 +79,45 @@ const steerRoverRelease = async (direction) => {
     }
 }
 
-export default { initSocket, steerRoverPress, steerRoverRelease }
+let roboArmSteeringFired = false
+
+const steerRoboArmPress = (buttonId) => {
+    if (roboArmSteeringFired == false) {
+        roboArmSteeringFired = true
+
+        if (buttonId == 'xButtonMinus') {
+            let axis = 1
+            let angle = -10
+            socket.emit('steer_servo', [axis, angle])
+        } else if (buttonId == 'yButtonMinus') {
+            let axis = 'y'
+            let angle = -10
+            socket.emit('steer_servo', [axis, angle])
+        } else if (buttonId == 'zButtonMinus') {
+            let axis = 'z'
+            let angle = -10
+            socket.emit('steer_servo', [axis, angle])
+        } else if (buttonId == 'xButtonPlus') {
+            let axis = 'x'
+            let angle = 10
+            socket.emit('steer_servo', [axis, angle])
+        } else if (buttonId == 'yButtonPlus') {
+            let axis = 'y'
+            let angle = 10
+            socket.emit('steer_servo', [axis, angle])
+        } else if (buttonId == 'zButtonPlus') {
+            let axis = 'z'
+            let angle = 10
+            socket.emit('steer_servo', [axis, angle])
+        }      
+    }
+}
+
+const steerRoboArmRelease = async (direction) => {
+    roboArmSteeringFired = false
+}
+
+export default { initSocket, steerRoverPress, steerRoverRelease, steerRoboArmPress, steerRoboArmRelease }
 
 
 // const SOCKET_URL = 'http://192.168.178.50:6475/'

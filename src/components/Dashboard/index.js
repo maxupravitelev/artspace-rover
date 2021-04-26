@@ -4,9 +4,9 @@ import { Button, Typography } from '@material-ui/core'
 import useKeyPress from '../../hooks/useKeyPress'
  
 import DirectionDispay from './DirectionDisplay'
-import SteeringDispay from './SteeringDisplay'
-
-import SteeringButtons from './SteeringButtons'
+import RoverSteeringDispay from './RoverSteeringDispay'
+import RoverSteeringButtons from './RoverSteeringButtons'
+import RoboArmSteeringButtons from './RoboArmSteeringButtons'
 
 
 
@@ -22,12 +22,11 @@ const Dashboard = ({  }) => {
   return (
     <div 
     className="app">
-      {/* <div className="dashboard"> */}
       <DirectionDispay up={up} down={down} left={left} right={right}/>
-      <SteeringDispay />
-      <SteeringButtons />
+      <RoverSteeringDispay />
+      <RoverSteeringButtons />
+      <RoboArmSteeringButtons />
 
-      {/* </div> */}
 
     </div>
   )

@@ -8,7 +8,7 @@ import { Button } from '@material-ui/core'
 
 import socketService from '../../services/socket'
 
-const SteeringButtons = ({}) => {
+const RoverSteeringButtons = ({}) => {
   // let socket = useSelector((state) => state.socket)
 
   const handleMouseDown = (event) => {
@@ -72,4 +72,4 @@ const SteeringButtons = ({}) => {
   )
 }
 
-export default SteeringButtons
+export default RoverSteeringButtons

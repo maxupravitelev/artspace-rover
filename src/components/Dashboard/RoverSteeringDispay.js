@@ -2,7 +2,7 @@ import React from 'react'
 
 import Canvas from './Canvas'
 
-const SteeringDispay = ({  }) => {
+const RoverSteeringDispay = ({  }) => {
 
   return (
     <div className="dashboard">
@@ -11,4 +11,4 @@ const SteeringDispay = ({  }) => {
   )
 }
 
-export default SteeringDispay
+export default RoverSteeringDispay
