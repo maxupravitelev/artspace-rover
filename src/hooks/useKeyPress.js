@@ -49,15 +49,9 @@ const useKeyPress = (targetKeyCode) => {
 
   }
 
-  const keyReleased = async (evt) => {
+  const keyReleased =  (evt) => {
     evt.preventDefault()
     socketService.steerRoverRelease(evt.keyCode)
-
-    // if (power_fired == true) { power_fired = false }
-    // if (steering_fired == true) { 
-    //   dispatch(setSteeringDirections( steeringDirection ))
-    //   steering_fired = false 
-    // }
 
   }
 

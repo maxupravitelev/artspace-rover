@@ -1,6 +1,10 @@
 import io from "socket.io-client";
 // import { SOCKET_URL } from "config";
 
+import store from '../store'
+import {  setSteeringDirections } from '../reducers/directionsReducer'
+
+
 const KEY_LEFT_ARROW = 37
 const KEY_UP_ARROW = 38
 const KEY_RIGHT_ARROW = 39
@@ -52,7 +56,7 @@ const steerRoverPress = (direction) => {
     }
 }
 
-const steerRoverRelease = (direction) => {
+const steerRoverRelease = async (direction) => {
     if ((direction == 'upButton') || (direction == KEY_UP_ARROW)) {
         let direction = 0
         let power = 0
@@ -67,14 +71,11 @@ const steerRoverRelease = (direction) => {
         power_fired = false
 
     }
-    if ((direction == 'leftButton') || (direction == KEY_LEFT_ARROW)) {
-        socket.emit('steer', neutral_direction)
+    if (((direction == 'leftButton') || (direction == KEY_LEFT_ARROW)) || ((direction == 'rightButton') || (direction == KEY_RIGHT_ARROW))) {
         steering_fired = false
-    }
-    if ((direction == 'rightButton') || (direction == KEY_RIGHT_ARROW)) {
-        console.log('right')
-        socket.emit('steer', neutral_direction)
-        steering_fired = false
+        await socket.emit('steer', neutral_direction, (currentSteeringDirectionInBackend) => {
+            store.dispatch(setSteeringDirections( currentSteeringDirectionInBackend ))
+            })
     }
 }
 
