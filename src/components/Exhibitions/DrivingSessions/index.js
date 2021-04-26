@@ -21,7 +21,7 @@ import componentsTexts from '../../../text/components'
 
 import { setSessionState } from '../../../reducers/sessionReducer'
 
-import { setSocket } from '../../../reducers/socketReducer'
+import socketService from '../../../services/socket'
 
 const DrivingSessions = () => {
 
@@ -32,12 +32,13 @@ const DrivingSessions = () => {
   // let roverUrl = useSelector((state) => state.roverUrl)
   let roverUrl = exhibitions[0].rovers[0].roverUrl
   let jitsiUrl = useSelector((state) => state.urls.jitsiUrl)
-  let socket = useSelector((state) => state.socket)
+  // let socket = useSelector((state) => state.socket)
 
   const checkIfInstantSessionPossible = () => {
     // if (roverUrl && (socket.length != 0)) {
       dispatch(setSessionState('session started'))
-      dispatch(setSocket(roverUrl))
+      // dispatch(setSocket(roverUrl))
+      socketService.initSocket(roverUrl)
     // }
   }
 

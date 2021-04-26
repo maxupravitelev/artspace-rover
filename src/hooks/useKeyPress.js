@@ -9,6 +9,9 @@ import { useDispatch } from 'react-redux'
 import {  setSteeringDirections } from '../reducers/directionsReducer'
 import {  setDrivingDirections } from '../reducers/directionsReducer'
 
+import socketService from '../services/socket'
+
+
 // Hook
 const useKeyPress = (targetKeyCode) => {
   // State for keeping track of whether key is pressed
@@ -16,9 +19,9 @@ const useKeyPress = (targetKeyCode) => {
 
   const dispatch = useDispatch()
 
-  let socket = useSelector((state) => state.socket)
-  let socketUrl = useSelector((state) => state.urls.socketUrl)
-  let demoSocketUrl = 'demo:6475'
+  // let socket = useSelector((state) => state.socket)
+  // let socketUrl = useSelector((state) => state.urls.socketUrl)
+  // let demoSocketUrl = 'demo:6475'
 
   // const socket = openSocket("http://localhost:5000/");
   // const socket = openSocket('http://192.168.178.50:6475/')
@@ -40,75 +43,22 @@ const useKeyPress = (targetKeyCode) => {
 
   const keyPressed = (evt) => {
     evt.preventDefault()
-      console.log(evt.keyCode)
-    if (evt.keyCode == KEY_UP_ARROW) {
-      power = 60
-      direction = 1
-      // console.log(power_fired)
-      if (power_fired == false) {
-        socket.emit('power', [power, direction])
-        power_fired = true
-      }
-    }
-    if (evt.keyCode == KEY_LEFT_ARROW) {
-      if (steering_fired == false) {
-        socket.emit('steer', left_direction)
-        steering_fired = true
-      }
-    }
-    if (evt.keyCode == KEY_RIGHT_ARROW) {
-      if (steering_fired == false) {
-        socket.emit('steer', right_direction)
-        steering_fired = true
-      }
-    }
-    if (evt.keyCode == KEY_DOWN_ARROW) {
-      power = 60
-      direction = -1
-      if (power_fired == false) {
-        socket.emit('power', [power, direction])
-        power_fired = true
-      }
-    }
+
+    socketService.steerRoverPress(evt.keyCode)
+
+
   }
 
   const keyReleased = async (evt) => {
     evt.preventDefault()
-    if (evt.keyCode == KEY_UP_ARROW) {
-      power = 0
-      socket.emit('power', [power, direction])
-      power_fired = false
-    }
-    if (evt.keyCode == KEY_LEFT_ARROW) {
-      if (socketUrl != demoSocketUrl) {
-        let currentSteeringDirectionInBackend = await socket.emit('steer', neutral_direction, (steeringDirection) => {
-          dispatch(setSteeringDirections(steeringDirection))        
-        })  
-      } else {
-        let steeringDirection = -20
-        dispatch(setSteeringDirections( steeringDirection ))
-      }
-      steering_fired = false
-    }
-    if (evt.keyCode == KEY_RIGHT_ARROW) {
-      // let test = await socket.emit('steer', neutral_direction)
-      // console.log(test)
-      if (socketUrl != demoSocketUrl) {
-      let currentSteeringDirectionInBackend = await socket.emit('steer', neutral_direction, (steeringDirection) => {
-        dispatch(setSteeringDirections(steeringDirection))        
-      })
-    } else {
-      let steeringDirection = 20
-      dispatch(setSteeringDirections( steeringDirection ))
-    }
-      steering_fired = false
-    }
-    if (evt.keyCode == KEY_DOWN_ARROW) {
-      power = 0
-      // direction = -1
-      socket.emit('power', [power, direction])
-      power_fired = false
-    }
+    socketService.steerRoverRelease(evt.keyCode)
+
+    // if (power_fired == true) { power_fired = false }
+    // if (steering_fired == true) { 
+    //   dispatch(setSteeringDirections( steeringDirection ))
+    //   steering_fired = false 
+    // }
+
   }
 
   // If pressed key is our target key then set to true

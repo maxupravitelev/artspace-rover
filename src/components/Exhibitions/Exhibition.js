@@ -24,7 +24,7 @@ import pagesTexts from '../../text/pages'
 
 const Exhibition = () => {
 
-  let sessionState = useSelector((state) => state.session.state)
+  let sessionState = useSelector((state) => state.session)
 
   const exhibitions = useSelector((state) => state.exhibitions)
 
