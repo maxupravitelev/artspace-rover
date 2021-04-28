@@ -36,21 +36,21 @@ const Exhibitions = () => {
     <div className="app">
       <Infobox infotext={infotext}/>
       {exhibitions.map((exhibition) => (
-                <Grid className={classes.container}
-                  key={exhibition._id}
-                  container
-                  direction="column"
-                  justify="center"
-                  alignItems="center"
-                  display="table-cell"
-                  >
-                  <Link to={`/exhibitions/${exhibition._id}`}>
-                  <img src={exhibition.bannerImage} alt="exhibition banner image" width="300"/>
-                    </Link>
-                    <div>{exhibition.artspace}</div>
-                </Grid>              
-            ))
-            }
+        <Grid className={classes.container}
+          key={exhibition._id}
+          container
+          direction="column"
+          justify="center"
+          alignItems="center"
+          display="table-cell"
+          >
+          <Link to={`/exhibitions/${exhibition._id}`}>
+          <img src={exhibition.bannerImage} alt="exhibition banner image" width="300"/>
+            </Link>
+            <div>{exhibition.artspace}</div>
+        </Grid>              
+    ))
+    }
     </div>
   )
 }

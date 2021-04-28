@@ -7,7 +7,6 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 
 import Header from './components/Header'
-
 import Footer from './components/Footer/'
 import Backend from './components/Backend/'
 import DataProtection from './components/Footer/DataProtection'
@@ -16,11 +15,9 @@ import About from './components/Footer/About'
 import Contact from './components/Footer/Contact'
 import Exhibition from './components/Exhibitions/Exhibition'
 import Exhibitions from './components/Exhibitions'
-import { withStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
 
+// import action creators
 import { setUser } from './reducers/userReducer'
-
 import { getAllExhibitions } from './reducers/exhibitionsReducer'
 import {  getAllTimeslots } from './reducers/timeslotsReducer'
 
@@ -28,18 +25,11 @@ import {  getAllTimeslots } from './reducers/timeslotsReducer'
 import './App.css'
 import Container from '@material-ui/core/Container'
 
-const WhiteTextTypography = withStyles({
-  root: {
-    color: "#FBFBFF"
-  }
-})(Typography);
-
 
 const App = () => {
   
   const dispatch = useDispatch()
 
-  
   useEffect(() => {
     // fetch all exhibitions data
     dispatch(getAllExhibitions())
@@ -59,10 +49,8 @@ const App = () => {
     <Container 
       maxWidth="md"
     >
-
       <Router>
       <Header />
-
         <div>
           {/* <Notification /> */}
             <div>
@@ -95,8 +83,6 @@ const App = () => {
       </Router>
     </Container>
   )
-
-  
 }
 
 export default App
