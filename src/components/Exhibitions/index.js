@@ -12,17 +12,10 @@ import Infobox from '../Infobox'
 import Grid from '@material-ui/core/Grid'
 import { makeStyles } from "@material-ui/styles"
 import { Typography } from '@material-ui/core'
+import { styles } from '../../styles'
 
 
-const useStyles = makeStyles({
-
-  container: {
-    display: "flex",
-    textAlign: "initial",
-    justifyContent: "space-between"
-  }
-})
-
+const useStyles = makeStyles(styles)
 
 const Exhibitions = () => {
 
@@ -52,7 +45,7 @@ const Exhibitions = () => {
           // xs={12} 
           // sm={6}
           >
-          <div className="app">
+          <div className={classes.elevatedDiv}>
           <Link to={`/exhibitions/${exhibition._id}`}>
           <img src={exhibition.bannerImage} alt="exhibition banner image" width="300"/>
             </Link>
