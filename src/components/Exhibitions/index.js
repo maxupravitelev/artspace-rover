@@ -11,13 +11,15 @@ import Infobox from '../Infobox'
 // import material ui components
 import Grid from '@material-ui/core/Grid'
 import { makeStyles } from "@material-ui/styles"
+import { Typography } from '@material-ui/core'
 
 
 const useStyles = makeStyles({
 
   container: {
-    display: "table-cell",
-    textAlign: "initial"
+    display: "flex",
+    textAlign: "initial",
+    justifyContent: "space-between"
   }
 })
 
@@ -35,22 +37,33 @@ const Exhibitions = () => {
   return (
     <div className="app">
       <Infobox infotext={infotext}/>
-      {exhibitions.map((exhibition) => (
-        <Grid className={classes.container}
-          key={exhibition._id}
+      <Grid className={classes.container}
+          
           container
-          direction="column"
-          justify="center"
+          // direction="column"
+          justify="flex"
           alignItems="center"
-          display="table-cell"
+          display="flex"
           >
+      {exhibitions.map((exhibition) => (
+        <Grid
+          item
+          key={exhibition._id}
+          // xs={12} 
+          // sm={6}
+          >
+          <div className="app">
           <Link to={`/exhibitions/${exhibition._id}`}>
           <img src={exhibition.bannerImage} alt="exhibition banner image" width="300"/>
             </Link>
-            <div>{exhibition.artspace}</div>
+            <Typography variant="body2">{exhibition.artspace}</Typography>
+            <Typography variant="h6">{exhibition.title}</Typography>
+            <Typography>{exhibition.openingDay} - {exhibition.closingDay}</Typography>
+            </div>
         </Grid>              
     ))
     }
+    </Grid>
     </div>
   )
 }
