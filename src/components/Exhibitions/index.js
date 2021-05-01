@@ -7,15 +7,13 @@ import { useSelector } from 'react-redux'
 // import components
 import Infobox from '../Infobox'
 
-
-// import material ui components
-import Grid from '@material-ui/core/Grid'
+// import material ui components & styles
+import { Typography, Grid } from '@material-ui/core'
 import { makeStyles } from "@material-ui/styles"
-import { Typography } from '@material-ui/core'
 import { styles } from '../../styles'
 
-
 const useStyles = makeStyles(styles)
+
 
 const Exhibitions = () => {
 

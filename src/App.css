@@ -14,25 +14,14 @@ body {
   width: auto;
 }
 
-/*
-#040F16 richblack
-#0B4F6C bluesapphire
-#01BAEF cyanprocess
-#B80C09 internationalorangeeng
-#FBFBFF ghostwhite
-*/
-
 a { 
   color: inherit; 
 } 
 
 .urlForm {
-  /* margin: 1em; */
   text-align: center;
   display: block;
   justify-content: start;
-  /* background-color: #01BAEF; */
-  /* color: #FBFBFF; */
 }
 
 .camPosition {
@@ -43,7 +32,6 @@ a {
 }
 
 .header {
-  /* margin-top: 5em; */
   text-align: center;
   width: 50%;
   margin: 5em auto 1em;
@@ -51,54 +39,27 @@ a {
 }
 
 .dashboard {
-  /* margin-top: 5em; */
-  /* flex-direction: row; */
-  /* display: block; */
-  /* justify-content: space-between; */
-  /* text-align: center; */
-  /* width: 50%; */
   display:inline-block;
   margin: 0 auto 1em;
-  /* max-width: max-content; */
 }
 
 .footer {
-  /* position: fixed; */
   bottom: 1em;
-  /* right: 1em; */
-  /* width: auto; */
-  /* height: 1rem;        */
   width: 50%;
   margin: 1em auto 0;
-
 }
 
 img {
-  /* padding: 0.3em; */
   background-color: #fff;
   max-width: inherit;
   margin: inherit;
-  /* width: 100% */
-  /* border: 3px solid; */
 }
 
 
-
-
-/* .capture {
-  margin-top: 5em;
-  display: flex;
-  align-items: center;
-} */
 
 input {
   width: 70px;
 }
-
-/* form {
-  display: block;
-  justify-content: space-between;
-} */
 
 
 
