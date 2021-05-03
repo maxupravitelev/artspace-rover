@@ -1,6 +1,6 @@
 export const styles = {
   container: {
-    display: "flex",
+    display: "flex-start",
     textAlign: "initial",
     justifyContent: "space-between"
   },

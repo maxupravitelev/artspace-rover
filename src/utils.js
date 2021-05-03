@@ -9,3 +9,11 @@ export const saveUrlToCache = (urlType, url) => {
     )
   }
 }
+
+export const germanDateToUSDate = (germanDate) => {
+
+  let germanDateSplit = germanDate.split('.')
+  let usDate = germanDateSplit[1]+'-'+germanDateSplit[0]+'-'+germanDateSplit[2]
+  
+  return Date.parse(usDate)
+}

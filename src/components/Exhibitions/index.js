@@ -12,6 +12,8 @@ import { Typography, Grid } from '@material-ui/core'
 import { makeStyles } from "@material-ui/styles"
 import { styles } from '../../styles'
 
+import { germanDateToUSDate } from '../../utils'
+
 const useStyles = makeStyles(styles)
 
 
@@ -19,7 +21,9 @@ const Exhibitions = () => {
 
   const classes = useStyles()
 
-  const exhibitions = useSelector((state) => state.exhibitions)
+  let exhibitions = useSelector((state) => state.exhibitions)
+
+  exhibitions.sort((a,b) => germanDateToUSDate(a.openingDay) - germanDateToUSDate(b.openingDay))
 
   if (exhibitions.length < 1) return <div>loading...</div>
 
@@ -32,7 +36,7 @@ const Exhibitions = () => {
           
           container
           // direction="column"
-          justify="flex"
+          justify="flex-start"
           alignItems="center"
           display="flex"
           >
