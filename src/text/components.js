@@ -5,10 +5,13 @@ const componentsTexts = {
       "Exhibitions": {
         "infotext": "Please select an exhibition you want to view."
       
+      },
+      "Header": {
+        "tagline": "Visit artspaces online and in realtime with the help of a steerable camera rover"
       }
     
   }
   
   
-  
+
   export default componentsTexts
