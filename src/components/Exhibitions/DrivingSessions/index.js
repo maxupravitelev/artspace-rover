@@ -7,6 +7,8 @@ import { useSelector, useDispatch } from 'react-redux'
 // import components
 import Capture from '../../Cam/Capture'
 import Dashboard from '../../Dashboard'
+import Notification from '../../Notification'
+
 
 import InstantSession from './InstantSession'
 import ScheduledSession from './ScheduledSession'
@@ -53,6 +55,7 @@ const DrivingSessions = () => {
           variant="h3"
           style={{ marginBottom: "1em", backgroundColor: "#0B4F6C", color: "#FBFBFF" }}
         >start session</Typography>
+        <Notification />
         <Grid
           container
           direction="row"

@@ -10,13 +10,12 @@ import Dashboard from '../Dashboard'
 import Infobox from '../../components/Infobox'
 import EndSession from '../../components/Exhibitions/DrivingSessions/EndSession'
 import DrivingSessions from './DrivingSessions/'
-import Notification from '../Notification'
 
 // send notifications to Notification component
 import { setNotification } from '../../reducers/notificationReducer'
 
 // import material ui components
-import Grid from '@material-ui/core/Grid'
+import { Grid, Typography } from '@material-ui/core'
 
 // use media query to determine screen size
 import useMediaQuery from '@material-ui/core/useMediaQuery'
@@ -27,9 +26,7 @@ import componentsTexts from '../../text/components'
 // converter between date formats
 import { germanDateToUSDate } from '../../utils'
 
-
 const Exhibition = () => {
-
   const dispatch = useDispatch()
 
   const id = useParams().id
@@ -43,17 +40,57 @@ const Exhibition = () => {
   const openingDay = exhibition.openingDay
 
   if (germanDateToUSDate(openingDay) > new Date()) {
-    dispatch(setNotification(`The exhibition is not opened yet (opens on: ${openingDay})`, 3, 'warning'))
+    dispatch(
+      setNotification(
+        `The exhibition is not opened yet (opens on: ${openingDay})`,
+        3,
+        'warning'
+      )
+    )
   }
 
   // determine screen size
   const checkScreenWidth = useMediaQuery('(max-width:600px)')
 
-  if (sessionState != "session started") {
+  if (sessionState != 'session started') {
     return (
       <div>
-        <Notification />
         <Infobox infotext={componentsTexts.Exhibition.infotext} />
+        <div className="app">
+          <Typography
+            variant="h3"
+            style={{
+              marginBottom: '1em',
+              backgroundColor: '#0B4F6C',
+              color: '#FBFBFF',
+            }}
+          >
+            exhibition
+          </Typography>
+          <Grid
+            container
+            // direction="row"
+            // alignItems="center"
+            // spacing={0}
+            justify="space-between"
+          >
+            <Grid item xs={4} sm={4}>
+              <img
+                src={exhibition.bannerImage}
+                alt="exhibition banner image"
+                width="300"
+              />
+              <Typography variant="body2">{exhibition.artspace}</Typography>
+              <Typography variant="h6">{exhibition.title}</Typography>
+              <Typography>
+                {exhibition.openingDay} - {exhibition.closingDay}
+              </Typography>
+            </Grid>
+            <Grid item xs={8} sm={8}>
+              <div>{exhibition.description}</div>
+            </Grid>
+          </Grid>
+        </div>
         <Grid
           container
           // direction="row"
@@ -61,38 +98,30 @@ const Exhibition = () => {
           // spacing={0}
           justify="space-between"
         >
-          <Grid
-            item
-            xs
-          >
+          <Grid item xs>
             <DrivingSessions />
             <Grid
               item
-            // xs
-            // xs={12} 
-            // sm={6}
+              // xs
+              // xs={12}
+              // sm={6}
             >
               <Infobox infotext={exhibition.description} />
             </Grid>
           </Grid>
-          <Grid>
-          </Grid>
+          <Grid></Grid>
         </Grid>
       </div>
     )
-  }
-  else {
+  } else {
     // render main app based on screen size
     if (!checkScreenWidth) {
       return (
         <div>
           <Grid
-            // container
+          // container
           >
-            <Grid
-              item
-              zeroMinWidth
-            >
+            <Grid item zeroMinWidth>
               <Capture />
               <Dashboard />
               <EndSession />
