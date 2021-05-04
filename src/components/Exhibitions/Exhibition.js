@@ -1,7 +1,5 @@
 import React from 'react'
 
-import { Typography } from '@material-ui/core'
-
 // init redux and import reducers
 import { useSelector } from 'react-redux'
 

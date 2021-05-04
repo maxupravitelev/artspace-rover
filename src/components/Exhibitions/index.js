@@ -12,7 +12,12 @@ import { Typography, Grid } from '@material-ui/core'
 import { makeStyles } from "@material-ui/styles"
 import { styles } from '../../styles'
 
+// converter between date formats
 import { germanDateToUSDate } from '../../utils'
+
+// import texts for textareas
+import componentsTexts from '../../text/components'
+
 
 const useStyles = makeStyles(styles)
 
@@ -23,15 +28,15 @@ const Exhibitions = () => {
 
   let exhibitions = useSelector((state) => state.exhibitions)
 
+  // sort exhibitions by opening date
   exhibitions.sort((a,b) => germanDateToUSDate(a.openingDay) - germanDateToUSDate(b.openingDay))
 
+  // return loading info if exhibitions are not loaded yet
   if (exhibitions.length < 1) return <div>loading...</div>
-
-  const infotext = "Please select an exhibition you want to view."
 
   return (
     <div className="app">
-      <Infobox infotext={infotext}/>
+      <Infobox infotext={componentsTexts.Exhibitions.infotext}/>
       <Grid className={classes.container}
           
           container
