@@ -8,7 +8,10 @@ const componentsTexts = {
       },
       "Header": {
         "tagline": "Visit artspaces online and in realtime with the help of a steerable camera rover"
-      }
+      },
+      "Exhibition": {
+        "infotext": "manage appointments for your digital artspace visits"
+      },
     
   }
   

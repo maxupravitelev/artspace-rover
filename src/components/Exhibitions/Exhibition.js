@@ -1,4 +1,5 @@
 import React from 'react'
+import { useParams } from 'react-router-dom'
 
 // init redux and import reducers
 import { useSelector } from 'react-redux'
@@ -17,14 +18,18 @@ import Grid from '@material-ui/core/Grid'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 
 // import texts
-import pagesTexts from '../../text/pages'
+import componentsTexts from '../../text/components'
 
 
 const Exhibition = () => {
 
+  const id = useParams().id
+
   let sessionState = useSelector((state) => state.session)
 
   const exhibitions = useSelector((state) => state.exhibitions)
+
+  const exhibition = exhibitions.find((exhibition) => exhibition._id === id)
 
   // determine screen size
   const checkScreenWidth = useMediaQuery('(max-width:600px)')
@@ -32,7 +37,7 @@ const Exhibition = () => {
   if (sessionState != "session started") {
     return (
       <div>
-        <Infobox infotext={pagesTexts.exhibition} />
+        <Infobox infotext={componentsTexts.Exhibition.infotext} />
         <Grid
           container
           // direction="row"
@@ -51,7 +56,7 @@ const Exhibition = () => {
             // xs={12} 
             // sm={6}
             >
-              <Infobox infotext={exhibitions[0].description} />
+              <Infobox infotext={exhibition.description} />
             </Grid>
           </Grid>
           <Grid>
