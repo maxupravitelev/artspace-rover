@@ -62,10 +62,10 @@ const Backend = () => {
         })
       )
 
-      dispatch(setNotification(`'${username}' logged in`, 3, 'green'))
+      dispatch(setNotification(`'${username}' logged in`, 3, 'success'))
     } catch (exception) {
       console.log(exception)
-      dispatch(setNotification('Wrong credentials', 3, 'red'))
+      dispatch(setNotification('Wrong credentials', 3, 'error'))
     }
   }
 

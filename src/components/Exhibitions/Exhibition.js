@@ -43,7 +43,7 @@ const Exhibition = () => {
   const openingDay = exhibition.openingDay
 
   if (germanDateToUSDate(openingDay) > new Date()) {
-    dispatch(setNotification(`The exhibition is not opened yet (opens on: ${openingDay})`, 3, 'red'))
+    dispatch(setNotification(`The exhibition is not opened yet (opens on: ${openingDay})`, 3, 'warning'))
   }
 
   // determine screen size

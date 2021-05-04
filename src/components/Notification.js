@@ -9,7 +9,7 @@ const Notification = () => {
   if (notification) {
     return (
       <div>
-        <Alert severity="success">
+        <Alert severity={notification.severity}> 
           {notification.notification}
         </Alert>
       </div>

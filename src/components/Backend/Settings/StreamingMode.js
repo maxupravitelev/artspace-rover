@@ -43,15 +43,15 @@ const StreamingMode = () => {
     if (value === 'jitsi') {
       user.rovers[0].streamingMode = value
       dispatch(updateUser(user))
-      dispatch(setNotification(`Jitsi mode set`, 3, 'green'))
+      dispatch(setNotification(`Jitsi mode set`, 3, 'success'))
       setError(false)
     } else if (value === 'mjpg') {
       user.rovers[0].streamingMode = value
       dispatch(updateUser(user))
-      dispatch(setNotification(`MJPG mode set`, 3, 'green'))
+      dispatch(setNotification(`MJPG mode set`, 3, 'success'))
       setError(false)
     } else {
-      dispatch(setNotification(`please set a streaming mode`, 3, 'red'))
+      dispatch(setNotification(`please set a streaming mode`, 3, 'error'))
       setError(true)
     }
   }

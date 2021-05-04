@@ -13,12 +13,14 @@ const notificationReducer = (state = '', action) => {
 
 let timeout
 
-export const setNotification = (notification, duration, color) => {
+export const setNotification = (notification, duration, severity) => {
   return dispatch => {
 
+
+    // possible severity levels in material ui: 'error', 'info', 'success', 'warning'
     let notificationObj = {
       notification,
-      color
+      severity
     }
 
     dispatch({
