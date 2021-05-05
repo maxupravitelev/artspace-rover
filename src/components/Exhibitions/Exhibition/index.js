@@ -5,14 +5,15 @@ import { useParams } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 
 // import components
-import Capture from '../../components/Cam/Capture'
-import Dashboard from '../Dashboard'
-import Infobox from '../../components/Infobox'
-import EndSession from '../../components/Exhibitions/DrivingSessions/EndSession'
-import DrivingSessions from './DrivingSessions/'
+// import components
+import Capture from '../../Cam/Capture'
+import Dashboard from '../../Dashboard'
+import Infobox from '../../Infobox'
+import EndSession from './../DrivingSessions/EndSession'
+import DrivingSessions from './../DrivingSessions'
 
 // send notifications to Notification component
-import { setNotification } from '../../reducers/notificationReducer'
+import { setNotification } from '../../../reducers/notificationReducer'
 
 // import material ui components
 import { Grid, Typography } from '@material-ui/core'
@@ -21,10 +22,10 @@ import { Grid, Typography } from '@material-ui/core'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 
 // import texts
-import componentsTexts from '../../text/components'
+import componentsTexts from '../../../text/components'
 
 // converter between date formats
-import { germanDateToUSDate } from '../../utils'
+import { germanDateToUSDate } from '../../../utils'
 
 const Exhibition = () => {
   const dispatch = useDispatch()
