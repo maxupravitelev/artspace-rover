@@ -5,18 +5,13 @@ import { useParams } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 
 // import components
-import Capture from '../../Cam/Capture'
-import Dashboard from '../../Dashboard'
 import Infobox from '../../Infobox'
-import EndSession from './../DrivingSessions/EndSession'
 import DrivingSessions from './../DrivingSessions'
 import ExhibitionInfo from './ExhibitionInfo'
+import RoverInterface from './RoverInterface'
 
 // send notifications to Notification component
 import { setNotification } from '../../../reducers/notificationReducer'
-
-// import material ui components
-import { Grid, Typography } from '@material-ui/core'
 
 // use media query to determine screen size
 import useMediaQuery from '@material-ui/core/useMediaQuery'
@@ -57,54 +52,12 @@ const Exhibition = () => {
     return (
       <div>
         <Infobox infotext={componentsTexts.Exhibition.infotext} />
-        <ExhibitionInfo exhibition={exhibition}/>
-        <Grid
-          container
-          // direction="row"
-          // alignItems="center"
-          // spacing={0}
-          justify="space-between"
-        >
-          <Grid item xs>
-            <DrivingSessions />
-            <Grid
-              item
-              // xs
-              // xs={12}
-              // sm={6}
-            >
-              <Infobox infotext={exhibition.description} />
-            </Grid>
-          </Grid>
-          <Grid></Grid>
-        </Grid>
+        <DrivingSessions />
+        <ExhibitionInfo exhibition={exhibition} />
       </div>
     )
   } else {
-    // render main app based on screen size
-    if (!checkScreenWidth) {
-      return (
-        <div>
-          <Grid
-          // container
-          >
-            <Grid item zeroMinWidth>
-              <Capture />
-              <Dashboard />
-              <EndSession />
-            </Grid>
-          </Grid>
-        </div>
-      )
-    } else {
-      return (
-        <div>
-          <Capture />
-          <Dashboard />
-          <EndSession />
-        </div>
-      )
-    }
+    return <RoverInterface checkScreenWidth={checkScreenWidth} />
   }
 }
 

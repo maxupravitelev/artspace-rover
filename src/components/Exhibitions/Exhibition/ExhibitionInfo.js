@@ -13,7 +13,7 @@ const ExhibitionInfo = ({ exhibition }) => {
         color: '#FBFBFF',
       }}
     >
-      exhibition
+     about exhibition
     </Typography>
     <Grid
       container
