@@ -49,12 +49,12 @@ const Exhibitions = () => {
         <Grid
           item
           key={exhibition._id}
-          // xs={12} 
-          // sm={6}
+          xs={12} 
+          sm={6}
           >
           <div className={classes.elevatedDiv}>
           <Link to={`/exhibitions/${exhibition._id}`}>
-          <img src={exhibition.bannerImage} alt="exhibition banner image" width="300"/>
+          <img src={exhibition.bannerImage} alt="exhibition banner image" width="100%" height="auto"/>
             </Link>
             <Typography variant="body2">{exhibition.artspace}</Typography>
             <Typography variant="h6">{exhibition.title}</Typography>

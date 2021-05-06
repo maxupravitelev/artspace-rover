@@ -19,7 +19,7 @@ const Header = () => {
   return (
     <div className={classes.header}>
       <Link to='/'><Typography variant="h4" component="h2">
-        [ artspace rover ]
+        artspace rover
       </Typography></Link>
       <Typography 
         style={{ marginTop: "0.5em" }}
