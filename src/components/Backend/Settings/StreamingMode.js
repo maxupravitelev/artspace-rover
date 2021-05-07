@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Typography, Button, Radio, RadioGroup, FormControlLabel, FormControl } from '@material-ui/core'
 
 import Notification from '../../Notification'
@@ -11,9 +11,8 @@ import { updateUser } from '../../../reducers/userReducer'
 
 const StreamingMode = () => {
   const [value, setValue] = useState('')
-  const [error, setError] = useState(false)
-  // const [checkedOption, setCheckedOption] = useState(true)
-  // const [helperText, setHelperText] = useState('Set streaming via mjpg stream or a jitsi session');
+  const [jitsiChecked, setJitsiChecked] = useState(false)
+  const [mjpgChecked, setMjpgChecked] = useState(false)
 
   const dispatch = useDispatch()
 
@@ -21,27 +20,31 @@ const StreamingMode = () => {
 
   let streamingModeInProfile = user.rovers[0].streamingMode
 
-  let jitsiChecked = false
-  let mjpgChecked = false
 
-  if (streamingModeInProfile == 'jitsi') {
-    jitsiChecked = true
-    mjpgChecked = false
-  } else {
-    jitsiChecked = false
-    mjpgChecked = true
+  const checkSetStreamingMode = (setMode) => {
+    if (setMode == 'jitsi') {
+      setJitsiChecked(true)
+      setMjpgChecked(false)
+    } else {
+      setJitsiChecked(false)
+      setMjpgChecked(true)
+    }
   }
 
+  useEffect(() => {
+    checkSetStreamingMode(streamingModeInProfile)
+  }, [])
+
+
   const handleRadioChange = (event) => {
+    checkSetStreamingMode(event.target.value)
     setValue(event.target.value)
     //   setHelperText(' ');
-    setError(false)
+    // setError(false)
   }
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    console.log(value)
-
     if (value === 'jitsi') {
       user.rovers[0].streamingMode = value
       dispatch(updateUser(user))
@@ -67,7 +70,9 @@ const StreamingMode = () => {
       >streaming mode</Typography>
       <div className="app">
         <form onSubmit={handleSubmit}>
-          <FormControl component="fieldset" error={error}>
+          <FormControl component="fieldset" 
+          // error={error}
+          >
             <RadioGroup
               aria-label="streamingMode"
               name="streamingMode"
