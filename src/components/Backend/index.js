@@ -19,10 +19,17 @@ import pagesTexts from '../../text/pages'
 import urlsService from '../../services/urls'
 import timeslotsService from '../../services/timeslots'
 
+// import material ui components & styles
+import { makeStyles } from "@material-ui/styles"
+import { styles } from '../../styles'
+
+const useStyles = makeStyles(styles)
 
 const Backend = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+
+  const classes = useStyles()
 
   const dispatch = useDispatch()
 
@@ -123,7 +130,7 @@ const Backend = () => {
         <div className="app">
           <Typography
             variant="h3"
-            style={{ marginBottom: "1em", backgroundColor: "#0B4F6C", color: "#FBFBFF" }}
+            className={classes.sectionHeadline}
           >settings</Typography>
           <Notification />
         <div className="app">

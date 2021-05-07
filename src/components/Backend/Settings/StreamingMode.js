@@ -72,8 +72,9 @@ const StreamingMode = () => {
   return (
     <div className="app">
       <Notification />
-      <Typography variant="h3" className={classes.sectionHeadline}
-      >streaming mode</Typography>
+      <Typography variant="h3" className={classes.sectionHeadline}>
+        streaming mode
+      </Typography>
       <div className="app">
         <form onSubmit={handleSubmit}>
           <FormControl component="fieldset">

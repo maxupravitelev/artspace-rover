@@ -1,12 +1,8 @@
 import React, { useState } from 'react'
-import { Typography, Button, TextField } from '@material-ui/core'
-import StatusLight from './StatusLight'
 
 import { useSelector, useDispatch } from 'react-redux'
 
 // import components
-import Capture from '../../Cam/Capture'
-import Dashboard from '../../Dashboard'
 import Notification from '../../Notification'
 
 
@@ -16,18 +12,26 @@ import ScheduledSession from './ScheduledSession'
 // use media query to determine screen size
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 
-// import material ui components
-import Grid from '@material-ui/core/Grid'
-
 import componentsTexts from '../../../text/components'
 
 import { setSessionState } from '../../../reducers/sessionReducer'
 
 import socketService from '../../../services/socket'
 
+// import material ui components & styles
+import { Typography, Grid } from '@material-ui/core'
+import { makeStyles } from "@material-ui/styles"
+import { styles } from '../../../styles'
+
+const useStyles = makeStyles(styles)
+
+
 const DrivingSessions = () => {
 
   const dispatch = useDispatch()
+
+  const classes = useStyles()
+
 
   let exhibitions = useSelector((state) => state.exhibitions)
 
@@ -38,42 +42,41 @@ const DrivingSessions = () => {
 
   const checkIfInstantSessionPossible = () => {
     // if (roverUrl && (socket.length != 0)) {
-      dispatch(setSessionState('session started'))
-      // dispatch(setSocket(roverUrl))
-      socketService.initSocket(roverUrl)
+    dispatch(setSessionState('session started'))
+    // dispatch(setSocket(roverUrl))
+    socketService.initSocket(roverUrl)
     // }
   }
 
   // determine screen size
   const checkScreenWidth = useMediaQuery('(max-width:600px)')
 
-    return (
-      <div 
+  return (
+    <div
       className="app"
+    >
+      <Typography variant="h3" className={classes.sectionHeadline}>
+        start session
+        </Typography>
+      <Notification />
+      <Grid
+        container
+        direction="row"
+        justify="space-around"
+      // alignItems="stretch"
       >
-        <Typography
-          variant="h3"
-          style={{ marginBottom: "1em", backgroundColor: "#0B4F6C", color: "#FBFBFF" }}
-        >start session</Typography>
-        <Notification />
-        <Grid
-          container
-          direction="row"
-          justify="space-around"
-          // alignItems="stretch"
-        >
-          <Grid item xs={12} sm={6}>
-            <ScheduledSession />
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <InstantSession checkIfInstantSessionPossible={checkIfInstantSessionPossible} />
-          </Grid>
+        <Grid item xs={12} sm={6}>
+          <ScheduledSession />
         </Grid>
-        <Typography
-          style={{ marginTop: "2em" }}
-        >{componentsTexts.DrivingSessions.explainInstantSession}</Typography>
-      </div>
-    )
+        <Grid item xs={12} sm={6}>
+          <InstantSession checkIfInstantSessionPossible={checkIfInstantSessionPossible} />
+        </Grid>
+      </Grid>
+      <Typography
+        style={{ marginTop: "2em" }}
+      >{componentsTexts.DrivingSessions.explainInstantSession}</Typography>
+    </div>
+  )
 }
 
 export default DrivingSessions

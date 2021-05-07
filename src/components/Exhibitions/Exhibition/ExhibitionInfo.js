@@ -1,19 +1,21 @@
 import React from 'react'
+
+// import material ui components & styles
 import { Typography, Grid } from '@material-ui/core'
+import { makeStyles } from "@material-ui/styles"
+import { styles } from '../../../styles'
+
+const useStyles = makeStyles(styles)
 
 
 const ExhibitionInfo = ({ exhibition }) => {
+
+  const classes = useStyles()
+
   return (
     <div className="app">
-    <Typography
-      variant="h3"
-      style={{
-        marginBottom: '1em',
-        backgroundColor: '#0B4F6C',
-        color: '#FBFBFF',
-      }}
-    >
-     about exhibition
+    <Typography variant="h3" className={classes.sectionHeadline}>
+      about exhibition
     </Typography>
     <Grid
       container
