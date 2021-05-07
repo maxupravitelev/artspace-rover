@@ -43,10 +43,7 @@ const useKeyPress = (targetKeyCode) => {
 
   const keyPressed = (evt) => {
     evt.preventDefault()
-
     socketService.steerRoverPress(evt.keyCode)
-
-
   }
 
   const keyReleased =  (evt) => {
@@ -86,3 +83,5 @@ const useKeyPress = (targetKeyCode) => {
 }
 
 export default useKeyPress
+
+// Built upon: https://usehooks.com/useKeyPress/

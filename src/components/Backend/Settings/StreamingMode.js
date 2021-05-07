@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Typography, Button, Radio, RadioGroup, FormControlLabel, FormControl } from '@material-ui/core'
 
+import Notification from '../../Notification'
 import { setNotification } from '../../../reducers/notificationReducer'
 
 import { useDispatch, useSelector } from 'react-redux'
@@ -39,6 +40,7 @@ const StreamingMode = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
+    console.log(value)
 
     if (value === 'jitsi') {
       user.rovers[0].streamingMode = value
@@ -58,6 +60,7 @@ const StreamingMode = () => {
 
   return (
     <div className="app">
+      <Notification />
       <Typography
         variant="h3"
         style={{ marginBottom: "1em", backgroundColor: "#0B4F6C", color: "#FBFBFF" }}

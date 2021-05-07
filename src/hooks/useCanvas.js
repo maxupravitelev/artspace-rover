@@ -1,6 +1,7 @@
 import { useRef, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
+
 const useCanvas = () => {
 
   const canvasRef = useRef(null)
@@ -30,8 +31,6 @@ const useCanvas = () => {
     context.stroke()
 
   }, [steeringDirection])
-
-
 
   return canvasRef
 

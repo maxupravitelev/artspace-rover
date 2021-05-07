@@ -1,11 +1,9 @@
-// import react modules
+// import react, router and redux modules
 import React, { useEffect } from 'react'
-
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-
-// init redux and import reducers
 import { useDispatch } from 'react-redux'
 
+// import components
 import Header from './components/Header'
 import Footer from './components/Footer/'
 import Backend from './components/Backend/'
@@ -46,40 +44,34 @@ const App = () => {
 
   return (
 
-    <Container 
-      maxWidth="md"
-    >
+    <Container maxWidth="md">
       <Router>
-      <Header />
-        <div>
-          {/* <Notification /> */}
-            <div>
-              <Switch>
-                <Route path="/exhibitions/:id">
-                  <Exhibition />
-                </Route>
-                <Route path="/backend">
-                  <Backend />
-                </Route>
-                <Route path="/imprint">
-                  <Imprint />
-                </Route>
-                <Route path="/dataprotection">
-                  <DataProtection />
-                </Route>
-                <Route path="/about">
-                  <About />
-                </Route>
-                <Route path="/Contact">
-                  <Contact />
-                </Route>
-                <Route path="/">
-                  <Exhibitions />
-                </Route>
-              </Switch>
-            </div>
-          <Footer />
-        </div>
+        <Header />
+        {/* <Notification /> */}
+        <Switch>
+          <Route path="/exhibitions/:id">
+            <Exhibition />
+          </Route>
+          <Route path="/backend">
+            <Backend />
+          </Route>
+          <Route path="/imprint">
+            <Imprint />
+          </Route>
+          <Route path="/dataprotection">
+            <DataProtection />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/Contact">
+            <Contact />
+          </Route>
+          <Route path="/">
+            <Exhibitions />
+          </Route>
+        </Switch>
+        <Footer />
       </Router>
     </Container>
   )
