@@ -1,12 +1,20 @@
+// import react 
 import React, { useState, useEffect } from 'react'
-import { Typography, Button, Radio, RadioGroup, FormControlLabel, FormControl } from '@material-ui/core'
 
+// init sending notifications
 import Notification from '../../Notification'
 import { setNotification } from '../../../reducers/notificationReducer'
 
+// init saving selection option to profile
 import { useDispatch, useSelector } from 'react-redux'
-
 import { updateUser } from '../../../reducers/userReducer'
+
+// import material ui components & styles
+import { Typography, Button, Radio, RadioGroup, FormControlLabel, FormControl } from '@material-ui/core'
+import { makeStyles } from "@material-ui/styles"
+import { styles } from '../../../styles'
+
+const useStyles = makeStyles(styles)
 
 
 const StreamingMode = () => {
@@ -14,12 +22,13 @@ const StreamingMode = () => {
   const [jitsiChecked, setJitsiChecked] = useState(false)
   const [mjpgChecked, setMjpgChecked] = useState(false)
 
+  const classes = useStyles()
+
   const dispatch = useDispatch()
 
+  // fetch set streaming mode from user profile (populated with a rover profile)
   let user = useSelector((state) => state.user)
-
   let streamingModeInProfile = user.rovers[0].streamingMode
-
 
   const checkSetStreamingMode = (setMode) => {
     if (setMode == 'jitsi') {
@@ -31,6 +40,7 @@ const StreamingMode = () => {
     }
   }
 
+  // check set streaming mode once after component mounted
   useEffect(() => {
     checkSetStreamingMode(streamingModeInProfile)
   }, [])
@@ -39,8 +49,6 @@ const StreamingMode = () => {
   const handleRadioChange = (event) => {
     checkSetStreamingMode(event.target.value)
     setValue(event.target.value)
-    //   setHelperText(' ');
-    // setError(false)
   }
 
   const handleSubmit = (event) => {
@@ -56,7 +64,7 @@ const StreamingMode = () => {
       dispatch(setNotification(`MJPG mode set`, 3, 'success'))
       setError(false)
     } else {
-      dispatch(setNotification(`please set a streaming mode`, 3, 'error'))
+      dispatch(setNotification(`Please set a streaming mode`, 3, 'error'))
       setError(true)
     }
   }
@@ -64,15 +72,11 @@ const StreamingMode = () => {
   return (
     <div className="app">
       <Notification />
-      <Typography
-        variant="h3"
-        style={{ marginBottom: "1em", backgroundColor: "#0B4F6C", color: "#FBFBFF" }}
+      <Typography variant="h3" className={classes.sectionHeadline}
       >streaming mode</Typography>
       <div className="app">
         <form onSubmit={handleSubmit}>
-          <FormControl component="fieldset" 
-          // error={error}
-          >
+          <FormControl component="fieldset">
             <RadioGroup
               aria-label="streamingMode"
               name="streamingMode"

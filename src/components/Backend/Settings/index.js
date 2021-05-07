@@ -1,19 +1,23 @@
 import React from 'react'
-import { Typography } from '@material-ui/core'
-
 import UrlForm from './UrlForm'
 import StreamingMode from './StreamingMode'
 import Timeslots from './Timeslots'
 
+// import material ui components & styles
+import { makeStyles } from "@material-ui/styles"
+import { styles } from '../../../styles'
+
+const useStyles = makeStyles(styles)
 
 const Settings = () => {
 
+  const classes = useStyles()
+
+
   return (
-    <div 
-      // className="app"
-    >
+    <div>
       <UrlForm />
-      <StreamingMode />
+      <StreamingMode />hz
       <Timeslots />
     </div>
   )

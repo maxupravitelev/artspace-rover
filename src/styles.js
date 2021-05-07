@@ -20,10 +20,15 @@ export const styles = {
     margin: '0 auto 1em',
   },
   header: {
-      ...elevatedDivBase,
-      width: '50%',
-      margin: '5em auto 1em',
-      maxWidth: 'max-content',
-  }
+    ...elevatedDivBase,
+    width: '50%',
+    margin: '5em auto 1em',
+    maxWidth: 'max-content',
+  },
+  sectionHeadline: {
+    marginBottom: "1em", 
+    backgroundColor: "#0B4F6C", 
+    color: "#FBFBFF" 
+    }
 }
 

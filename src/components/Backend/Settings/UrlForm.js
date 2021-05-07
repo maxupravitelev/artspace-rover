@@ -1,8 +1,5 @@
 import React, { useState } from 'react'
 
-// import material ui
-import { TextField, Button, Typography, Grid } from '@material-ui/core'
-
 // init redux and import reducers
 import { useDispatch, useSelector } from 'react-redux'
 import { setJitsiUrl, setRoverUrl, setMjpgUrl } from '../../../reducers/urlsReducer'
@@ -11,11 +8,19 @@ import { updateUser } from '../../../reducers/userReducer'
 
 import urlsService from '../../../services/urls'
 
+// import material ui components & styles
+import { TextField, Button, Typography, Grid } from '@material-ui/core'
+import { makeStyles } from "@material-ui/styles"
+import { styles } from '../../../styles'
+
+const useStyles = makeStyles(styles)
 
 const UrlForm = ({ }) => {
   const [roverUrl, setRoverUrlInComp] = useState('')
   const [jitsiUrl, setJitsiUrlInComp] = useState('')
   const [mjpgUrl, setMjpgUrlInComp] = useState('')
+
+  const classes = useStyles()
 
   let user = useSelector((state) => state.user)
 
@@ -60,7 +65,7 @@ const UrlForm = ({ }) => {
     <div className="app">
       <Typography
         variant="h3"
-        style={{ marginBottom: "1em", backgroundColor: "#0B4F6C", color: "#FBFBFF" }}
+        className={classes.sectionHeadline}
       >rover connection</Typography>
       <Grid
         container

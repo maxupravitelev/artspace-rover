@@ -7,16 +7,16 @@ import { useSelector } from 'react-redux'
 // import components
 import Infobox from '../Infobox'
 
-// import material ui components & styles
-import { Typography, Grid } from '@material-ui/core'
-import { makeStyles } from "@material-ui/styles"
-import { styles } from '../../styles'
-
 // converter between date formats
 import { germanDateToUSDate } from '../../utils'
 
 // import texts for textareas
 import componentsTexts from '../../text/components'
+
+// import material ui components & styles
+import { Typography, Grid } from '@material-ui/core'
+import { makeStyles } from "@material-ui/styles"
+import { styles } from '../../styles'
 
 
 const useStyles = makeStyles(styles)
