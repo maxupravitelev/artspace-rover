@@ -1,29 +1,20 @@
 import React, { useState } from 'react'
-import { Typography, Button, TextField } from '@material-ui/core'
-import StatusLight from './StatusLight'
 
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 // import components
-import Capture from '../../Cam/Capture'
-import Dashboard from '../../Dashboard'
-
-import InstantSession from './InstantSession'
-
 import Scheduler from '../../Scheduler'
-
-// use media query to determine screen size
-import useMediaQuery from '@material-ui/core/useMediaQuery'
-
-// import material ui components
-import Grid from '@material-ui/core/Grid'
-import { makeStyles } from '@material-ui/styles'
-
-import componentsTexts from '../../../text/components'
 
 import visitorsService from '../../../services/visitors'
 
 import { setSessionState } from '../../../reducers/sessionReducer'
+
+// import material ui components & styles
+import { Typography, Button, TextField, Grid } from '@material-ui/core'
+import { makeStyles } from "@material-ui/styles"
+import { styles } from '../../../styles'
+
+const useStyles = makeStyles(styles)
 
 
 const ScheduledSession = ({ }) => {
@@ -32,6 +23,8 @@ const ScheduledSession = ({ }) => {
     eMailAddress: '',
     passphrase: ''
   })
+
+  const classes = useStyles()
 
   const dispatch = useDispatch()
 
@@ -60,7 +53,7 @@ const ScheduledSession = ({ }) => {
 
   return (
 
-    <div className="app">
+    <div className={classes.elevatedDiv}>
       <Typography variant="h5">scheduled ride</Typography>
       <form onSubmit={handleSubmit}>
         <TextField

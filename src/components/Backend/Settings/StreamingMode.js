@@ -70,12 +70,12 @@ const StreamingMode = () => {
   }
 
   return (
-    <div className="app">
+    <div className={classes.elevatedDiv}>
       <Notification />
       <Typography variant="h3" className={classes.sectionHeadline}>
         streaming mode
       </Typography>
-      <div className="app">
+      <div className={classes.elevatedDiv}>
         <form onSubmit={handleSubmit}>
           <FormControl component="fieldset">
             <RadioGroup

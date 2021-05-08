@@ -4,7 +4,7 @@ body {
   /* background-size: cover; */
 }
 
-.app, .header, .footer, .capture, .urlForm {
+.header, .footer, .capture, .urlForm {
   padding: 2em;
   margin: 0.5em;
   background-color: #FBFBFF;
@@ -31,13 +31,6 @@ a {
   background-color: rgb(245, 244, 244);
 }
 
-.header {
-  text-align: center;
-  width: 50%;
-  margin: 5em auto 1em;
-  max-width: max-content;
-}
-
 .dashboard {
   display:inline-block;
   margin: 0 auto 1em;
@@ -55,13 +48,9 @@ img {
   margin: inherit;
 }
 
-
-
 input {
   width: 70px;
 }
-
-
 
 :focus {
   outline: 3px solid red;

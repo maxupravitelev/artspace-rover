@@ -1,8 +1,16 @@
 import React from 'react'
+
+// import material ui components & styles
 import { Typography } from '@material-ui/core'
+import { makeStyles } from "@material-ui/styles"
+import { styles } from '../styles'
+
+const useStyles = makeStyles(styles)
 
 
 const Infobox = ({ infotext, backgroundColor }) => {
+
+  const classes = useStyles()
 
   const style = {
     backgroundColor: backgroundColor
@@ -10,7 +18,7 @@ const Infobox = ({ infotext, backgroundColor }) => {
 
   return (
     <div 
-      className="app"
+      className={classes.elevatedDiv}
       style={style}
 
     >

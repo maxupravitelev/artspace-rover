@@ -79,7 +79,7 @@ const Backend = () => {
   // render login form if user is not logged in
   const loginForm = () => {
     return (
-      <div className="app">
+      <div className={classes.elevatedDiv}>
         <div>
           <Notification />
           <Togglable buttonLabel="login">
@@ -127,13 +127,13 @@ const Backend = () => {
       {user === null ? (
         loginForm()
       ) : (
-        <div className="app">
+        <div className={classes.elevatedDiv}>
           <Typography
             variant="h3"
             className={classes.sectionHeadline}
           >settings</Typography>
           <Notification />
-        <div className="app">
+          <div className={classes.elevatedDiv}>
           <Typography>{pagesTexts.backendLogin.ifLoggedIn(user.username)}</Typography>
           <Button
             onClick={() => { dispatch(logoutUser()) }}

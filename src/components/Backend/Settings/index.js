@@ -3,13 +3,12 @@ import UrlForm from './UrlForm'
 import StreamingMode from './StreamingMode'
 import Timeslots from './Timeslots'
 
+
 const Settings = () => {
-
-
   return (
     <div>
       <UrlForm />
-      <StreamingMode />hz
+      <StreamingMode />
       <Timeslots />
     </div>
   )

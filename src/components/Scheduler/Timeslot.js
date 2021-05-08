@@ -18,9 +18,7 @@ const Timeslot = ({ timeslot }) => {
 
   if (!user.token) {
     return (
-      <div
-      // className="app"
-      >
+      <div>
         <BookingForm buttonLabel={timeslot.startTime} timeslot={timeslot}/>
       </div>
     )

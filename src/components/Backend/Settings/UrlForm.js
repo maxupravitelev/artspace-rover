@@ -62,7 +62,7 @@ const UrlForm = ({ }) => {
   }
 
   return (
-    <div className="app">
+    <div className={classes.elevatedDiv}>
       <Typography
         variant="h3"
         className={classes.sectionHeadline}
@@ -71,7 +71,7 @@ const UrlForm = ({ }) => {
         container
       >
         <Grid item xs={12} sm={6}>
-          <div className="app">
+        <div className={classes.elevatedDiv}>
             <Typography variant="h5">Set urls to connect with your rover</Typography>
             <form onSubmit={handleSubmitRoverUrl}>
               <TextField
@@ -111,7 +111,7 @@ const UrlForm = ({ }) => {
           </div>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <div className="app">
+        <div className={classes.elevatedDiv}>
             <Typography style={{ textAlign: "left" }} variant="h5">currently set </Typography>
             <br />
             <Typography style={{ textAlign: "left" }} variant="body1"><b>jitsiUrl:</b> {user.rovers[0].jitsiUrl}</Typography>

@@ -14,9 +14,7 @@ const Scheduler = () => {
   let timeslots = useSelector((state) => state.timeslots)
 
     return (
-      <div 
-        // className="app"
-      >
+      <div>
         <Togglable buttonLabel="show available timeslots">
         {timeslots.map(timeslot => {
           if (timeslot.available) return (

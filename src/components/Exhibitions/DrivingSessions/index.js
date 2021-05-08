@@ -52,9 +52,7 @@ const DrivingSessions = () => {
   const checkScreenWidth = useMediaQuery('(max-width:600px)')
 
   return (
-    <div
-      className="app"
-    >
+    <div className={classes.elevatedDiv}>
       <Typography variant="h3" className={classes.sectionHeadline}>
         start session
         </Typography>

@@ -35,7 +35,7 @@ const Exhibitions = () => {
   if (exhibitions.length < 1) return <div>loading...</div>
 
   return (
-    <div className="app">
+    <div className={classes.elevatedDiv}>
       <Infobox infotext={componentsTexts.Exhibitions.infotext}/>
       <Grid className={classes.container}
           

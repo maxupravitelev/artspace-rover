@@ -13,7 +13,7 @@ const ExhibitionInfo = ({ exhibition }) => {
   const classes = useStyles()
 
   return (
-    <div className="app">
+    <div className={classes.elevatedDiv}>
     <Typography variant="h3" className={classes.sectionHeadline}>
       about exhibition
     </Typography>

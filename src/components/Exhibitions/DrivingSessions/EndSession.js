@@ -1,6 +1,4 @@
 import React from 'react'
-import { Typography, Button } from '@material-ui/core'
-
 import visitorService from '../../../services/visitors'
 
 import { useSelector, useDispatch } from 'react-redux'
@@ -9,9 +7,19 @@ import { setSessionState } from '../../../reducers/sessionReducer'
 
 import Timer from './Timer'
 
+// import material ui components & styles
+import {  Button } from '@material-ui/core'
+import { makeStyles } from "@material-ui/styles"
+import { styles } from '../../../styles'
+
+const useStyles = makeStyles(styles)
+
+
 const EndSession = ({  }) => {
 
   const dispatch = useDispatch()
+
+  const classes = useStyles()
 
   let sessionState = useSelector(state => state.session)
 
@@ -31,9 +39,7 @@ const EndSession = ({  }) => {
 });
 
   return (
-    <div 
-      className="app"
-    >
+    <div className={classes.elevatedDiv}>
       <Timer />
       <Button
         onClick={sendSessionEndToBackend}
