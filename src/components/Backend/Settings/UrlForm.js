@@ -8,6 +8,9 @@ import { updateUser } from '../../../reducers/userReducer'
 
 import urlsService from '../../../services/urls'
 
+// import component text elements
+import componentsTexts from '../../../text/components'
+
 // import material ui components & styles
 import { TextField, Button, Typography, Grid } from '@material-ui/core'
 import { makeStyles } from "@material-ui/styles"
@@ -66,13 +69,13 @@ const UrlForm = ({ }) => {
       <Typography
         variant="h3"
         className={classes.sectionHeadline}
-      >rover connection</Typography>
+      >{componentsTexts.Backend.UrlForm.headline}</Typography>
       <Grid
         container
       >
         <Grid item xs={12} sm={6}>
         <div className={classes.elevatedDiv}>
-            <Typography variant="h5">Set urls to connect with your rover</Typography>
+            <Typography variant="h5">{componentsTexts.Backend.UrlForm.description}</Typography>
             <form onSubmit={handleSubmitRoverUrl}>
               <TextField
                 type="text"
@@ -82,7 +85,7 @@ const UrlForm = ({ }) => {
                 onChange={({ target }) => setRoverUrlInComp(target.value)}
               />
               <Typography variant="body2">
-                Please enter the URL of your raspberry
+                {componentsTexts.Backend.UrlForm.requestRaspUrl}
               </Typography>
               <Button type="submit" variant="outlined">set</Button>
             </form>
@@ -94,7 +97,7 @@ const UrlForm = ({ }) => {
                 value={jitsiUrl}
                 onChange={({ target }) => setJitsiUrlInComp(target.value)}
               />
-              <Typography variant="body2">Please enter the URL of your Jitsi Session</Typography>
+              <Typography variant="body2">{componentsTexts.Backend.UrlForm.requestJitsiUrl}</Typography>
               <Button type="submit" variant="outlined">set</Button>
             </form>
             <form onSubmit={handleSubmitMjpgUrl}>
@@ -105,14 +108,14 @@ const UrlForm = ({ }) => {
                 value={mjpgUrl}
                 onChange={({ target }) => setMjpgUrlInComp(target.value)}
               />
-              <Typography variant="body2">Please enter the URL of your MJPG Stream</Typography>
+              <Typography variant="body2">{componentsTexts.Backend.UrlForm.requestMjpgUrl}</Typography>
               <Button type="submit" variant="outlined">set</Button>
             </form>
           </div>
         </Grid>
         <Grid item xs={12} sm={6}>
         <div className={classes.elevatedDiv}>
-            <Typography style={{ textAlign: "left" }} variant="h5">currently set </Typography>
+            <Typography style={{ textAlign: "left" }} variant="h5">{componentsTexts.Backend.UrlForm.currently}</Typography>
             <br />
             <Typography style={{ textAlign: "left" }} variant="body1"><b>jitsiUrl:</b> {user.rovers[0].jitsiUrl}</Typography>
             <Typography style={{ textAlign: "left" }} variant="body1"><b>roverUrl:</b> {user.rovers[0].roverUrl}</Typography>

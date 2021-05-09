@@ -9,6 +9,9 @@ import { setNotification } from '../../../reducers/notificationReducer'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateUser } from '../../../reducers/userReducer'
 
+// import component text elements
+import componentsTexts from '../../../text/components'
+
 // import material ui components & styles
 import { Typography, Button, Radio, RadioGroup, FormControlLabel, FormControl } from '@material-ui/core'
 import { makeStyles } from "@material-ui/styles"
@@ -73,7 +76,7 @@ const StreamingMode = () => {
     <div className={classes.elevatedDiv}>
       <Notification />
       <Typography variant="h3" className={classes.sectionHeadline}>
-        streaming mode
+        {componentsTexts.Backend.StreamingMode.headline}
       </Typography>
       <div className={classes.elevatedDiv}>
         <form onSubmit={handleSubmit}>
@@ -98,7 +101,7 @@ const StreamingMode = () => {
               />
             </RadioGroup>
             <Button type="submit" variant="outlined">
-              Submit
+              {componentsTexts.general.submitButtonLabel}
           </Button>
           </FormControl>
         </form>
