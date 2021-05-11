@@ -111,7 +111,7 @@ const UrlForm = ({ }) => {
               <Typography variant="body2">{componentsTexts.Backend.UrlForm.requestMjpgUrl}</Typography>
               <Button type="submit" variant="outlined">set</Button>
             </form>
-          </div>
+          </div> 
         </Grid>
         <Grid item xs={12} sm={6}>
         <div className={classes.elevatedDiv}>

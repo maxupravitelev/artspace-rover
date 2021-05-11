@@ -24,6 +24,7 @@ const StreamingMode = () => {
   const [value, setValue] = useState('')
   const [jitsiChecked, setJitsiChecked] = useState(false)
   const [mjpgChecked, setMjpgChecked] = useState(false)
+  const [demoModeChecked, setDemoModeChecked] = useState(false)
 
   const classes = useStyles()
 
@@ -37,9 +38,15 @@ const StreamingMode = () => {
     if (setMode == 'jitsi') {
       setJitsiChecked(true)
       setMjpgChecked(false)
-    } else {
+      setDemoModeChecked(false)
+    } else if (setMode == 'mjpg') {
       setJitsiChecked(false)
       setMjpgChecked(true)
+      setDemoModeChecked(false)
+    } else {
+      setJitsiChecked(false)
+      setMjpgChecked(false)
+      setDemoModeChecked(true)
     }
   }
 
@@ -56,20 +63,22 @@ const StreamingMode = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    if (value === 'jitsi') {
-      user.rovers[0].streamingMode = value
-      dispatch(updateUser(user))
-      dispatch(setNotification(`Jitsi mode set`, 3, 'success'))
-      setError(false)
-    } else if (value === 'mjpg') {
-      user.rovers[0].streamingMode = value
-      dispatch(updateUser(user))
-      dispatch(setNotification(`MJPG mode set`, 3, 'success'))
-      setError(false)
-    } else {
+
+    if (value === '') {
       dispatch(setNotification(`Please set a streaming mode`, 3, 'error'))
-      setError(true)
+    } else {
+      user.rovers[0].streamingMode = value
+      dispatch(updateUser(user))
+      if (value === 'jitsi') {
+        dispatch(setNotification(`Jitsi mode set`, 3, 'success'))
+      } else if (value === 'mjpg') {
+        dispatch(setNotification(`MJPG mode set`, 3, 'success'))
+      } else {
+        dispatch(setNotification(`Demo mode set`, 3, 'success'))
+      }
     }
+
+
   }
 
   return (
@@ -97,12 +106,18 @@ const StreamingMode = () => {
                 checked={mjpgChecked}
                 value="mjpg"
                 control={<Radio />}
-                label="MJPG Stream"
+                label="MJPG stream"
+              />
+              <FormControlLabel
+                checked={demoModeChecked}
+                value="demo"
+                control={<Radio />}
+                label="Demo mode"
               />
             </RadioGroup>
             <Button type="submit" variant="outlined">
               {componentsTexts.general.submitButtonLabel}
-          </Button>
+            </Button>
           </FormControl>
         </form>
       </div>

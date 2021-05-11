@@ -1,9 +1,10 @@
 import React from 'react'
-import dummy from '../../demo_mode/dummy.gif'
 
 import { useSelector } from 'react-redux'
 
 import JitsiClient from './JitsiClient'
+
+import demoBackground from '../../images/demo_background.jpg'
 
 // return live stream component
 const Capture = ({  }) => {
@@ -16,7 +17,7 @@ const Capture = ({  }) => {
 
   return (
     <div className="capture">
-      {/* <img alt="stream from PiCam" src={streamUrl}></img> */}
+      {/* <img alt="demo image" src={demoBackground}></img> */}
       <JitsiClient />
     </div>
   )
