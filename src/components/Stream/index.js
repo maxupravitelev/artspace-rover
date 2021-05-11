@@ -13,23 +13,11 @@ const Stream = ({  }) => {
   let streamingMode = user.rovers[0].streamingMode
 
   if (streamingMode == 'jitsi') {
-    return (
-      <div className="capture">
-        <JitsiClient />
-      </div>
-    )
+    return <JitsiClient />
   } else if (streamingMode == 'mjpg') {
-    return (
-      <div className="capture">
-        <MjpgStream />
-      </div>
-    )
+    return <MjpgStream />
   } else {
-    return (
-      <div className="capture">
-        <DemoStream />
-      </div>
-    )
+    return <DemoStream />
   }
   
   

@@ -15,6 +15,10 @@ export const styles = {
     justifyContent: 'space-between',
   },
   elevatedDiv: elevatedDivBase,
+  jitsiSession: {
+    ...elevatedDivBase,
+    textAlign: '-webkit-center'
+  },
   dashboard: {
     display: 'inline-block',
     margin: '0 auto 1em',

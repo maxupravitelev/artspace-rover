@@ -4,7 +4,7 @@ body {
   /* background-size: cover; */
 }
 
-.header, .footer, .capture, .urlForm {
+.footer, .urlForm {
   padding: 2em;
   margin: 0.5em;
   background-color: #FBFBFF;
