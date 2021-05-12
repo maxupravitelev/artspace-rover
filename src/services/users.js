@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const allUsersUrl = 'http://localhost:6050/api/users/'
+const allUsersUrl = process.env.REACT_APP_BACKEND_URL + '/users/'
 
 const getAll = async () => {
     const response = await axios.get(allUsersUrl)

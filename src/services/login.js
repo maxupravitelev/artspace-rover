@@ -1,7 +1,6 @@
 import axios from 'axios'
-// const roverUrl = '/api/login'
 
-const loginUrl = 'http://localhost:6050/api/login/'
+const loginUrl = process.env.REACT_APP_BACKEND_URL + '/login/'
 
 
 const login = async credentials => {

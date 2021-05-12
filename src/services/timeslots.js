@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseUrl = 'http://localhost:6050/api/timeslots'
+const baseUrl = process.env.REACT_APP_BACKEND_URL + '/timeslots'
 
 let token = null
 

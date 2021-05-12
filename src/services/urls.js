@@ -1,5 +1,5 @@
 import axios from 'axios'
-const baserUrlRovers = 'http://localhost:6050/api/rovers'
+const baserUrlRovers = process.env.REACT_APP_BACKEND_URL + '/rovers'
 
 let token = null
 

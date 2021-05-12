@@ -1,10 +1,8 @@
 import axios from 'axios'
 
-// const configUrl = "http://0.0.0.0:8000/";
+const baseUrl = process.env.REACT_APP_BACKEND_URL + '/visitors'
+const visitorTimeslotUrl = process.env.REACT_APP_BACKEND_URL + '/visitors/new-visitor/timeslot/'
 
-const baseUrl = 'http://localhost:6050/api/visitors'
-
-const visitorTimeslotUrl = 'http://localhost:6050/api/visitors/new-visitor/timeslot/'
 
 const bookTimeslot = async (eMailAddress, timeslotId) => {
 
