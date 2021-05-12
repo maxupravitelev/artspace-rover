@@ -34,6 +34,11 @@ const componentsTexts = {
       currently: 'currently set'
     }
   },
+  Dashboard: {
+    RoboArmSteeringButtons: {
+      description: 'Adjust the exact position of the camera'
+    }
+  },
   general: {
     submitButtonLabel: 'Submit',
     set: 'set'

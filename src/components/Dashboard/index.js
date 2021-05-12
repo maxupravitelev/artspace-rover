@@ -28,10 +28,10 @@ const Dashboard = ({  }) => {
 
   return (
     <div className={classes.elevatedDiv}>
+      <RoboArmSteeringButtons />
       <DirectionDispay up={up} down={down} left={left} right={right}/>
       <RoverSteeringDispay />
       <RoverSteeringButtons />
-      <RoboArmSteeringButtons />
     </div>
   )
 }

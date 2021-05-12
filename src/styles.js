@@ -20,7 +20,8 @@ export const styles = {
     textAlign: '-webkit-center'
   },
   dashboard: {
-    display: 'inline-block',
+    ...elevatedDivBase,
+    // display: 'inline-block',
     margin: '0 auto 1em',
   },
   header: {
