@@ -37,15 +37,18 @@ const DrivingSessions = () => {
 
   // let roverUrl = useSelector((state) => state.roverUrl)
   let roverUrl = exhibitions[0].rovers[0].roverUrl
-  let jitsiUrl = useSelector((state) => state.urls.jitsiUrl)
   // let socket = useSelector((state) => state.socket)
 
+  // fetch set streaming mode from user profile (populated with a rover profile)
+  let user = useSelector((state) => state.user)
+  let streamingModeInProfile = user.rovers[0].streamingMode
+
   const checkIfInstantSessionPossible = () => {
-    // if (roverUrl && (socket.length != 0)) {
     dispatch(setSessionState('session started'))
-    // dispatch(setSocket(roverUrl))
-    socketService.initSocket(roverUrl)
-    // }
+
+    if (streamingModeInProfile != 'demo') {
+      socketService.initSocket(roverUrl)
+    }
   }
 
   // determine screen size
