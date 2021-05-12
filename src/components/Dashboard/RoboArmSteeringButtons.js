@@ -27,7 +27,7 @@ const RoboArmSteeringButtons = ({ }) => {
   }
 
   return (
-    <div className={classes.dashboard}>
+    <div className={classes.elevatedDiv}>
       <Grid
         container
         direction="row"

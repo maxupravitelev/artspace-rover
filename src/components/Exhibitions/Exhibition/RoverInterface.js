@@ -1,7 +1,6 @@
 import React from 'react'
 
 // import components
-import Stream from '../../Stream'
 import Dashboard from '../../Dashboard'
 import EndSession from './../DrivingSessions/EndSession'
 
@@ -18,7 +17,6 @@ const RoverInterface = ({ checkScreenWidth }) => {
         // container
         >
           <Grid item zeroMinWidth>
-            <Stream />
             <Dashboard />
             <EndSession />
           </Grid>
@@ -28,7 +26,6 @@ const RoverInterface = ({ checkScreenWidth }) => {
   } else {
     return (
       <div>
-        <Stream />
         <Dashboard />
         <EndSession />
       </div>
