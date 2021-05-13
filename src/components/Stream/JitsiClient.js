@@ -16,15 +16,10 @@ const JitsiClient = () => {
 
   const classes = useStyles()
 
-  let user = useSelector((state) => state.user)
-  let jitsiUrl = user.rovers[0].jitsiUrl
+  let exhibitions = useSelector((state) => state.exhibitions)
+  let jitsiUrl = exhibitions[0].rovers[0].jitsiUrl
 
   jitsiUrl = removeProtocolFromUrl(jitsiUrl)
-
-  const handleClick = event => {
-    event.preventDefault()
-    setCall(true)
-  }
 
   let roomName = "test"
   let displayName = "rover0"

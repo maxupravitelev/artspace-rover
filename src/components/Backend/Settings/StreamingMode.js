@@ -30,7 +30,7 @@ const StreamingMode = () => {
 
   const dispatch = useDispatch()
 
-  // fetch set streaming mode from user profile (populated with a rover profile)
+  // fetch set streaming mode from exhibition profile (populated with a rover profile)
   let user = useSelector((state) => state.user)
   let streamingModeInProfile = user.rovers[0].streamingMode
 

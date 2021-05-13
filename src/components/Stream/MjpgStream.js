@@ -13,11 +13,12 @@ const MjpgStream = ({  }) => {
 
   const classes = useStyles()
 
-  let streamUrl = useSelector((state) => state.urls.streamUrl)
+  let exhibitions = useSelector((state) => state.exhibitions)
+  let mjpgUrl = exhibitions[0].rovers[0].mjpgUrl
 
   return (
     <div className={classes.elevatedDiv}>
-      <img alt="demo image" src={streamUrl}></img>
+      <img alt="mjpg stream" src={mjpgUrl}></img>
     </div>
   )
 }

@@ -9,8 +9,9 @@ import DemoStream from './DemoStream'
 // return live stream component
 const Stream = ({  }) => {
 
-  let user = useSelector((state) => state.user)
-  let streamingMode = user.rovers[0].streamingMode
+  // fetch set streaming mode from exhibition profile (populated with a rover profile)
+  let exhibitions = useSelector((state) => state.exhibitions)
+  let streamingMode = exhibitions[0].rovers[0].streamingMode
 
   if (streamingMode == 'jitsi') {
     return <JitsiClient />

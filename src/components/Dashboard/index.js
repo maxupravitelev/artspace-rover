@@ -31,28 +31,24 @@ const Dashboard = ({ }) => {
 
   return (
     <div>
-      <RoboArmSteeringButtons />
       <Stream />
+      <RoboArmSteeringButtons />
       <div className={classes.elevatedDiv}>
-
         <Grid
           container
           direction="column"
           justify="space-around"
         // alignItems="stretch"
         >
-
           <Grid >
             <DirectionDispay up={up} down={down} left={left} right={right} />
-            <Grid >
-              <RoverSteeringDispay />
-            </Grid>
-            <Grid >
-              <RoverSteeringButtons />
-            </Grid>
-
           </Grid>
-
+          <Grid >
+            <RoverSteeringDispay />
+          </Grid>
+          <Grid >
+            <RoverSteeringButtons />
+          </Grid>
         </Grid>
       </div>
 

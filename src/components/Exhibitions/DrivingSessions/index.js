@@ -39,9 +39,9 @@ const DrivingSessions = () => {
   let roverUrl = exhibitions[0].rovers[0].roverUrl
   // let socket = useSelector((state) => state.socket)
 
-  // fetch set streaming mode from user profile (populated with a rover profile)
-  let user = useSelector((state) => state.user)
-  let streamingModeInProfile = user.rovers[0].streamingMode
+  // fetch set streaming mode from exhibition profile (populated with a rover profile)
+  // let user = useSelector((state) => state.user)
+  let streamingModeInProfile = exhibitions[0].rovers[0].streamingMode
 
   const checkIfInstantSessionPossible = () => {
     dispatch(setSessionState('session started'))
