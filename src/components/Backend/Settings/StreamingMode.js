@@ -7,7 +7,7 @@ import { setNotification } from '../../../reducers/notificationReducer'
 
 // init saving selection option to profile
 import { useDispatch, useSelector } from 'react-redux'
-import { updateUser } from '../../../reducers/userReducer'
+import { updateExhibitions } from '../../../reducers/exhibitionsReducer'
 
 // import component text elements
 import componentsTexts from '../../../text/components'
@@ -31,8 +31,8 @@ const StreamingMode = () => {
   const dispatch = useDispatch()
 
   // fetch set streaming mode from exhibition profile (populated with a rover profile)
-  let user = useSelector((state) => state.user)
-  let streamingModeInProfile = user.rovers[0].streamingMode
+  let exhibitions = useSelector((state) => state.exhibitions)
+  let streamingMode = exhibitions[0].rovers[0].streamingMode
 
   const checkSetStreamingMode = (setMode) => {
     if (setMode == 'jitsi') {
@@ -52,7 +52,7 @@ const StreamingMode = () => {
 
   // check set streaming mode once after component mounted
   useEffect(() => {
-    checkSetStreamingMode(streamingModeInProfile)
+    checkSetStreamingMode(streamingMode)
   }, [])
 
 
@@ -67,8 +67,8 @@ const StreamingMode = () => {
     if (value === '') {
       dispatch(setNotification(`Please set a streaming mode`, 3, 'error'))
     } else {
-      user.rovers[0].streamingMode = value
-      dispatch(updateUser(user))
+      exhibitions[0].rovers[0].streamingMode = value
+      dispatch(updateExhibitions(exhibitions))
       if (value === 'jitsi') {
         dispatch(setNotification(`Jitsi mode set`, 3, 'success'))
       } else if (value === 'mjpg') {
