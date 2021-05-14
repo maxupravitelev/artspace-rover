@@ -9,6 +9,9 @@ import { setNotification } from '../../../reducers/notificationReducer'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateExhibitions } from '../../../reducers/exhibitionsReducer'
 
+// import communication with backend
+import roversService from '../../../services/rovers'
+
 // import component text elements
 import componentsTexts from '../../../text/components'
 
@@ -67,8 +70,12 @@ const StreamingMode = () => {
     if (value === '') {
       dispatch(setNotification(`Please set a streaming mode`, 3, 'error'))
     } else {
+
       exhibitions[0].rovers[0].streamingMode = value
+
       dispatch(updateExhibitions(exhibitions))
+      roversService.updateStreamngMode(value, exhibitions[0].rovers[0]._id)
+
       if (value === 'jitsi') {
         dispatch(setNotification(`Jitsi mode set`, 3, 'success'))
       } else if (value === 'mjpg') {

@@ -40,12 +40,10 @@ const UrlForm = ({ }) => {
     exhibitions[0].rovers[0].roverUrl = roverUrl
     dispatch(updateExhibitions(exhibitions))
     roversService.updateRoverUrl(roverUrl, exhibitions[0].rovers[0]._id)
-
   }
 
   const handleSubmitJitsiUrl = async (e) => {
     e.preventDefault()
-
     dispatch(setJitsiUrl(jitsiUrl))
     setJitsiUrlInComp('')
     exhibitions[0].rovers[0].jitsiUrl = jitsiUrl
@@ -56,7 +54,6 @@ const UrlForm = ({ }) => {
 
   const handleSubmitMjpgUrl = async (e) => {
     e.preventDefault()
-
     dispatch(setMjpgUrl(mjpgUrl))
     setMjpgUrlInComp('')
     exhibitions[0].rovers[0].mjpgUrl = mjpgUrl
