@@ -4,9 +4,9 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { setJitsiUrl, setRoverUrl, setMjpgUrl } from '../../../reducers/urlsReducer'
 
-import { updateUser } from '../../../reducers/userReducer'
+import { updateExhibitions } from '../../../reducers/exhibitionsReducer'
 
-import urlsService from '../../../services/urls'
+import roversService from '../../../services/rovers'
 
 // import component text elements
 import componentsTexts from '../../../text/components'
@@ -38,8 +38,8 @@ const UrlForm = ({ }) => {
     dispatch(setRoverUrl(roverUrl))
     setRoverUrlInComp('')
     exhibitions[0].rovers[0].roverUrl = roverUrl
-    dispatch(updateUser(user))
-    urlsService.updateRoverUrl(roverUrl, exhibitions[0].rovers[0]._id)
+    dispatch(updateExhibitions(exhibitions))
+    roversService.updateRoverUrl(roverUrl, exhibitions[0].rovers[0]._id)
 
   }
 
@@ -49,8 +49,8 @@ const UrlForm = ({ }) => {
     dispatch(setJitsiUrl(jitsiUrl))
     setJitsiUrlInComp('')
     exhibitions[0].rovers[0].jitsiUrl = jitsiUrl
-    dispatch(updateUser(user))
-    urlsService.updateJitsiUrl(jitsiUrl, exhibitions[0].rovers[0]._id)
+    dispatch(updateExhibitions(exhibitions))
+    roversService.updateJitsiUrl(jitsiUrl, exhibitions[0].rovers[0]._id)
 
   }
 
@@ -60,8 +60,8 @@ const UrlForm = ({ }) => {
     dispatch(setMjpgUrl(mjpgUrl))
     setMjpgUrlInComp('')
     exhibitions[0].rovers[0].mjpgUrl = mjpgUrl
-    dispatch(updateUser(user))
-    urlsService.updateMjpgUrl(mjpgUrl, exhibitions[0].rovers[0]._id)
+    dispatch(updateExhibitions(exhibitions))
+    roversService.updateMjpgUrl(mjpgUrl, exhibitions[0].rovers[0]._id)
 
   }
 

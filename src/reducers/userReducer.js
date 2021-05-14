@@ -1,5 +1,5 @@
 import loginService from '../services/login'
-import urlService from '../services/urls'
+import urlService from '../services/rovers'
 import timeslotsService from '../services/timeslots'
 
 const userReducer = (state = 'init', action) => {

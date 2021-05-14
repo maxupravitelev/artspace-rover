@@ -16,7 +16,7 @@ import Settings from '../../components/Backend/Settings'
 
 import pagesTexts from '../../text/pages'
 
-import urlsService from '../../services/urls'
+import roversService from '../../services/rovers'
 import timeslotsService from '../../services/timeslots'
 
 // import material ui components & styles
@@ -52,7 +52,7 @@ const Backend = () => {
       dispatch(setJitsiUrl(userLocal.rovers[0].jitsiUrl))
       dispatch(setRoverUrl(userLocal.rovers[0].roverUrl))
 
-      urlsService.setToken(userLocal.token)
+      roversService.setToken(userLocal.token)
       timeslotsService.setToken(userLocal.token)
 
     }

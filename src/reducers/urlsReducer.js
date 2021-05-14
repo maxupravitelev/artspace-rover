@@ -1,5 +1,5 @@
 import { saveUrlToCache } from '../utils'
-import urlsService from '../services/urls'
+import roversService from '../services/rovers'
 
 const initState = {
   jitsiUrl: "",
