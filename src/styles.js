@@ -30,6 +30,12 @@ export const styles = {
     margin: '5em auto 1em',
     maxWidth: 'max-content',
   },
+  footer: {
+    ...elevatedDivBase,
+    width: '50%',
+    margin: '1em auto 0',
+    maxWidth: 'max-content'
+  },
   sectionHeadline: {
     marginBottom: "1em", 
     backgroundColor: "#0B4F6C", 

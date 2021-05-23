@@ -4,25 +4,11 @@ body {
   /* background-size: cover; */
 }
 
-.footer, .urlForm {
-  padding: 2em;
-  margin: 0.5em;
-  background-color: #FBFBFF;
-  text-align: center;
-  border-width: 2px;
-  box-shadow:  2px 2px 5px 1px #01BAEF; 
-  width: auto;
-}
 
 a { 
   color: inherit; 
 } 
 
-.urlForm {
-  text-align: center;
-  display: block;
-  justify-content: start;
-}
 
 .camPosition {
   text-align: center;
@@ -34,12 +20,6 @@ a {
 .dashboard {
   display:inline-block;
   margin: 0 auto 1em;
-}
-
-.footer {
-  bottom: 1em;
-  width: 50%;
-  margin: 1em auto 0;
 }
 
 img {

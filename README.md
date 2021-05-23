@@ -5,7 +5,7 @@ Visit artspaces online and in realtime with the help of a steerable camera rover
 
 # current stage
 
-The app is currently in development. The latest demo version can be found at: [artspace-rover](https://artspace-rover.herokuapp.com/)
+The app is currently in development. The latest demo version can be found at: [artspace-rover](https://artspacerover.herokuapp.com/)
 
 A manual for setting everything up is in the works.
 
