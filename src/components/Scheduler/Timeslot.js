@@ -7,6 +7,8 @@ import { useSelector } from 'react-redux'
 
 import BookingForm from './BookingForm'
 
+import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined';
+
 
 const Timeslot = ({ timeslot }) => {
 
@@ -31,7 +33,7 @@ const Timeslot = ({ timeslot }) => {
         <Button
           onClick={handleDeletingTimeslot} variant='outlined' color='secondary'
         >
-          DELETE
+          <DeleteOutlineOutlinedIcon />
         </Button>
       </div>
     )
