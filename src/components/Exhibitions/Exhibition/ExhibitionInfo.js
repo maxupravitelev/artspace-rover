@@ -28,6 +28,7 @@ const ExhibitionInfo = ({ exhibition }) => {
         <img
           src={exhibition.bannerImage}
           alt="exhibition banner image"
+          // max-width="fit-content"
           width="300"
         />
         <Typography variant="body2">{exhibition.artspace}</Typography>
@@ -36,8 +37,8 @@ const ExhibitionInfo = ({ exhibition }) => {
           {exhibition.openingDay} - {exhibition.closingDay}
         </Typography>
       </Grid>
-      <Grid item xs={8} sm={8}>
-        <div>{exhibition.description}</div>
+      <Grid item xs={7} sm={7}>
+        <span textAlign="justify">{exhibition.description}</span>
       </Grid>
     </Grid>
   </div>

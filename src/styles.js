@@ -40,6 +40,6 @@ export const styles = {
     marginBottom: "1em", 
     backgroundColor: "#0B4F6C", 
     color: "#FBFBFF" 
-    }
+  }
 }
 

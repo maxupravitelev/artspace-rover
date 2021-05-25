@@ -9,25 +9,6 @@ a {
   color: inherit; 
 } 
 
-
-.camPosition {
-  text-align: center;
-  display: block;
-  justify-content:flex-end;
-  background-color: rgb(245, 244, 244);
-}
-
-.dashboard {
-  display:inline-block;
-  margin: 0 auto 1em;
-}
-
-img {
-  background-color: #fff;
-  max-width: inherit;
-  margin: inherit;
-}
-
 input {
   width: 70px;
 }
@@ -44,9 +25,6 @@ p {
   text-align: center;
 }
 
-.MuiTableCell-sizeSmall:last-child {
-  padding-right: 5vmin;
-}
 
 button {
   padding: 3em;

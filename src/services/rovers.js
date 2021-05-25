@@ -43,7 +43,7 @@ const updateMjpgUrl = async (mjpgUrl, id) => {
   return response.data
 }
 
-const updateStreamngMode = async (streamingMode, id) => {
+const updateStreamingMode = async (streamingMode, id) => {
   const config = {
     headers: { 
       Authorization: token,
@@ -60,5 +60,5 @@ export default {
   updateJitsiUrl,
   updateRoverUrl,
   updateMjpgUrl,
-  updateStreamngMode
+  updateStreamingMode
 }

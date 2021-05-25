@@ -74,7 +74,7 @@ const StreamingMode = () => {
       exhibitions[0].rovers[0].streamingMode = value
 
       dispatch(updateExhibitions(exhibitions))
-      roversService.updateStreamngMode(value, exhibitions[0].rovers[0]._id)
+      roversService.updateStreamingMode(value, exhibitions[0].rovers[0]._id)
 
       if (value === 'jitsi') {
         dispatch(setNotification(`Jitsi mode set`, 3, 'success'))
