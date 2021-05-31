@@ -32,7 +32,7 @@ const Exhibitions = () => {
   exhibitions.sort((a,b) => germanDateToUSDate(a.openingDay) - germanDateToUSDate(b.openingDay))
 
   // return loading info if exhibitions are not loaded yet
-  if (exhibitions.length < 1) return <div className={classes.footer}>loading...</div>
+  if (exhibitions.length < 1) return <div className={classes.footer}><Typography variant="body2">loading...</Typography></div>
 
   return (
     <div className={classes.elevatedDiv}>

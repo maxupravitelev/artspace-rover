@@ -1,4 +1,5 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 import visitorService from '../../../services/visitors'
 
 import { useSelector, useDispatch } from 'react-redux'
@@ -21,15 +22,18 @@ const EndSession = ({  }) => {
 
   const classes = useStyles()
 
+  const history = useHistory()
+
   let sessionState = useSelector(state => state.session)
 
   const sendSessionEndToBackend = async () => {
-    let checkBackendResponse = await visitorService.endSession({ eMailAddress: sessionState.eMailAddress, passphrase: sessionState.passphrase })
-    console.log(checkBackendResponse)
+    //let checkBackendResponse = await visitorService.endSession({ eMailAddress: sessionState.eMailAddress, passphrase: sessionState.passphrase })
+   // console.log(checkBackendResponse)
     dispatch(setSessionState({
       state: 'session ended'
     })
     )
+    history.push('/')
   }
 
 

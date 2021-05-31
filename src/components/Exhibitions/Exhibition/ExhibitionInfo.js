@@ -38,7 +38,7 @@ const ExhibitionInfo = ({ exhibition }) => {
         </Typography>
       </Grid>
       <Grid item xs={7} sm={7}>
-        <span textAlign="justify">{exhibition.description}</span>
+        <div>{exhibition.description}</div>
       </Grid>
     </Grid>
   </div>
