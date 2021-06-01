@@ -43,13 +43,13 @@ const DrivingSessions = () => {
   // let user = useSelector((state) => state.user)
   let streamingModeInProfile = exhibitions[0].rovers[0].streamingMode
 
-  const checkIfInstantSessionPossible = () => {
-    dispatch(setSessionState('session started'))
+  // const checkIfInstantSessionPossible = () => {
+  //   dispatch(setSessionState('session started'))
 
-    if (streamingModeInProfile != 'demo') {
-      socketService.initSocket(roverUrl)
-    }
-  }
+  //   if (streamingModeInProfile != 'demo') {
+  //     socketService.initSocket(roverUrl)
+  //   }
+  // }
 
   // determine screen size
   const checkScreenWidth = useMediaQuery('(max-width:600px)')
@@ -70,7 +70,7 @@ const DrivingSessions = () => {
           <ScheduledSession />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <InstantSession checkIfInstantSessionPossible={checkIfInstantSessionPossible} />
+          <InstantSession />
         </Grid>
       </Grid>
       <Typography

@@ -62,6 +62,15 @@ const getSessionState = async () => {
   return response.data
 }
 
-const visitorService = { bookTimeslot, checkTimeslot, endSession, getSessionState }
+const setInstantSessionState = async (sessionState) => {
+
+  const checkUrl = baseUrl + '/setInstantSessionState'
+
+  const request = axios.post(checkUrl, sessionState)
+  const response = await request
+  return response.data
+}
+
+const visitorService = { bookTimeslot, checkTimeslot, endSession, getSessionState, setInstantSessionState }
 
 export default visitorService

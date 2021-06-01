@@ -1,3 +1,6 @@
+import visitorsService from '../services/visitors'
+
+
 const sessionReducer = (state = "init", action) => {
   // console.log('state now: ', state)
   // console.log('action', action)
@@ -11,10 +14,17 @@ const sessionReducer = (state = "init", action) => {
 }
 
 export const setSessionState = (sessionState) => {
-  return dispatch => {
+  return async dispatch => {
+
+    const sessionStateInBackend = await visitorsService.setInstantSessionState(sessionState)
+
+    const newState = {
+      state: sessionStateInBackend
+    }
+
     dispatch({
       type: 'SET_STATE',
-      data: sessionState,
+      data: sessionStateInBackend,
     })
   }
 }
