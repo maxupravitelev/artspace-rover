@@ -35,7 +35,7 @@ const ScheduledSession = ({ }) => {
     if (checkIfSessionAvailable == 'session can be started') {
       dispatch(setSessionState({
         ...visitorLogin,
-        state: 'session started'
+        state: 'scheduled session started'
       })
       )
     }

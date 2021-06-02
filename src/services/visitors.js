@@ -71,6 +71,25 @@ const setInstantSessionState = async (sessionState) => {
   return response.data
 }
 
-const visitorService = { bookTimeslot, checkTimeslot, endSession, getSessionState, setInstantSessionState }
+const endInstantSession = async () => {
+
+  const checkUrl = baseUrl + '/endInstantSession'
+
+  // todo: handle setting ending message from env for preventing closing sessions from outside
+  const message = { sessionState: "end session" }
+
+  const config = {
+    headers: { 
+      // Authorization: token,
+      "Content-Type": "application/json"
+    },
+  }
+
+  const request = axios.post(checkUrl, message, config)
+  const response = await request
+  return response.data
+}
+
+const visitorService = { bookTimeslot, checkTimeslot, endSession, getSessionState, setInstantSessionState, endInstantSession }
 
 export default visitorService

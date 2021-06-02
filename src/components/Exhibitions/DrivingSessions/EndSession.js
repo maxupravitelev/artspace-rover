@@ -10,7 +10,7 @@ import Timer from './Timer'
 
 // import material ui components & styles
 import { Button } from '@material-ui/core'
-import { makeStyles } from "@material-ui/styles"
+import { makeStyles } from '@material-ui/styles'
 import { styles } from '../../../styles'
 
 const useStyles = makeStyles(styles)
@@ -34,8 +34,15 @@ const EndSession = ({ }) => {
 
 
   const sendSessionEndToBackend = async () => {
-    let checkBackendResponse = await visitorService.endSession({ eMailAddress: sessionState.eMailAddress, passphrase: sessionState.passphrase })
-    console.log(checkBackendResponse)
+
+    if (sessionState == 'scheduled session started') {
+      let checkBackendResponse = await visitorService.endSession({ eMailAddress: sessionState.eMailAddress, passphrase: sessionState.passphrase })
+      console.log(checkBackendResponse)
+    } else {
+      let checkBackendResponse = await visitorService.endInstantSession()
+      console.log(checkBackendResponse)
+    }
+
   }
 
 
@@ -49,7 +56,7 @@ const EndSession = ({ }) => {
       <Timer />
       <Button
         onClick={handleEndingSession}
-        variant="outlined"
+        variant='outlined'
       >QUIT</Button>
     </div>
   )
