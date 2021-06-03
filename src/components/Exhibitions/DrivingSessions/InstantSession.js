@@ -35,7 +35,6 @@ const InstantSession = ({  }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    dispatch(setSessionState('session started'))
     const checkIfSessionAvailable = await visitorsService.getSessionState()
 
     if (checkIfSessionAvailable != 'session started') {

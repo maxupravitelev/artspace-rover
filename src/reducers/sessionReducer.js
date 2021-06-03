@@ -18,10 +18,6 @@ export const setSessionState = (sessionState) => {
 
     const sessionStateInBackend = await visitorsService.setInstantSessionState(sessionState)
 
-    const newState = {
-      state: sessionStateInBackend
-    }
-
     dispatch({
       type: 'SET_STATE',
       data: sessionStateInBackend,

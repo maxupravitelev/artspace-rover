@@ -28,31 +28,25 @@ const useStyles = makeStyles(styles)
 
 const DrivingSessions = () => {
 
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
 
   const classes = useStyles()
 
 
-  let exhibitions = useSelector((state) => state.exhibitions)
+  // let exhibitions = useSelector((state) => state.exhibitions)
 
-  // let roverUrl = useSelector((state) => state.roverUrl)
-  let roverUrl = exhibitions[0].rovers[0].roverUrl
-  // let socket = useSelector((state) => state.socket)
+  // // let roverUrl = useSelector((state) => state.roverUrl)
+  // let roverUrl = exhibitions[0].rovers[0].roverUrl
+  // // let socket = useSelector((state) => state.socket)
 
-  // fetch set streaming mode from exhibition profile (populated with a rover profile)
-  // let user = useSelector((state) => state.user)
-  let streamingModeInProfile = exhibitions[0].rovers[0].streamingMode
+  // // fetch set streaming mode from exhibition profile (populated with a rover profile)
+  // // let user = useSelector((state) => state.user)
+  // let streamingModeInProfile = exhibitions[0].rovers[0].streamingMode
 
-  // const checkIfInstantSessionPossible = () => {
-  //   dispatch(setSessionState('session started'))
 
-  //   if (streamingModeInProfile != 'demo') {
-  //     socketService.initSocket(roverUrl)
-  //   }
-  // }
 
   // determine screen size
-  const checkScreenWidth = useMediaQuery('(max-width:600px)')
+  // const checkScreenWidth = useMediaQuery('(max-width:600px)')
 
   return (
     <div className={classes.elevatedDiv}>

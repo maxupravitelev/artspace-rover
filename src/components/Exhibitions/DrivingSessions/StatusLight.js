@@ -12,11 +12,12 @@ const StatusLight = ({ }) => {
   useEffect(() => {
     const checkState = async () => {
       let sessionState = await visitorService.getSessionState()
+      console.log(sessionState)
 
-      if (sessionState == "session ended") {
+      if (sessionState != "session started") {
         setBackgroundColor("green")
         setStatusDescription("rover available")
-      } else if (sessionState == "session started") {
+      } else  {
 
         setBackgroundColor("red")
         setStatusDescription("rover not available")
