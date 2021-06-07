@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import StatusLight from './StatusLight'
 
 import { useDispatch, useSelector } from 'react-redux'
@@ -21,9 +21,17 @@ const InstantSession = ({  }) => {
 
   const classes = useStyles()
 
+  const [sessionAvailable, setSessionAvailable] = useState(false)
+
   const dispatch = useDispatch()
 
   let exhibitions = useSelector((state) => state.exhibitions)
+  let sessionState = useSelector(state => state.session)
+
+  useEffect(() => {
+    sessionState == "session started" || sessionState == "init" ? setSessionAvailable(false) : setSessionAvailable(true)
+
+    }, [sessionAvailable])
 
   // let roverUrl = useSelector((state) => state.roverUrl)
   let roverUrl = exhibitions[0].rovers[0].roverUrl
@@ -57,6 +65,7 @@ const InstantSession = ({  }) => {
         // type="submit"
         onClick={handleSubmit}
         variant="outlined"
+        disabled={!sessionAvailable}
       >
         start
       </Button>
